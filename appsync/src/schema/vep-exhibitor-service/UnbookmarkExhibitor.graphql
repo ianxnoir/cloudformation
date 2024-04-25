@@ -1,0 +1,15 @@
+extend type Mutation {
+  UnbookmarkExhibitor(
+    id: String
+  ): GeneralUnbookmarkResponse
+}
+
+type GeneralUnbookmarkResponse{
+  timestamp: String
+  status: Int
+  data: GeneralUnbookmarkSuccessResponse
+}
+
+type GeneralUnbookmarkSuccessResponse{
+  success: Boolean
+}

@@ -1,0 +1,22 @@
+extend type Query {
+	GetRelatedItem(
+		fairCode: String,
+		itemType: String,
+		itemId: String,
+		lang: String,
+		numResults: Int
+	): RelatedItem
+}
+
+type RelatedItem {
+	timestamp: String
+	status: Int
+	from: Int
+	size: Int
+	total_size: Int
+    data: WrappedRelatedItemData
+}
+
+type WrappedRelatedItemData {
+	hits: [ProductDetail]
+}

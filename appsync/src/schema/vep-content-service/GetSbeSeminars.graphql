@@ -1,0 +1,88 @@
+extend type Query {
+    GetSbeSeminars(vmsProjectCode: String, vmsProjectYear: String, lang: String = "en"): SbeSeminarResponse
+}
+
+type SbeDisplayBlockItem {
+    name: String
+    id: String
+    imageUrl: String
+    websiteUrl: String
+    description: String
+    company: String
+    position: String
+    speakerUrl: String
+    otherCompany1: String
+    otherPosition1: String
+    otherCompany2: String
+    otherPosition2: String
+    otherCompany3: String
+    otherPosition3: String
+    otherCompany4: String
+    otherPosition4: String
+    isStar: String
+    isHighlight: String
+}
+
+type SbeDisplayBlock {
+    blockType: String
+    type: String
+    displayBlockItem: [SbeDisplayBlockItem]
+}
+
+type SbeSeminar {
+    id: String
+    eventId:String
+    isRegistered: String
+    name: String
+    shortName: String
+    startTime: String
+    endTime: String
+    venue: String
+    isRegistrationStatusEnable: String
+    isAllowCancel: String
+    isFull: String
+    isRecommended: String
+    recommendedText: String
+    recommendedTextBackgroundColor: String
+    recommendedTextColor: String
+    remarks: String
+    language: String
+    highlightedEventImageUrl: String
+    attachmentUrl: String
+    sortOrder: Int
+    price: String
+    isBookmarked: String
+    vcLiveSetting: String
+    vcPlaybackSetting: String
+    vcLiveUrl: String
+    vcPlaybackUrl: String
+    beforeStartTime: String
+    feedbackFormId: String
+    registrationFormId: String
+    questionContent: String
+    isDisplayQuestion: String
+    option1: String
+    isDisplayOption1: String
+    isDisplayOption1Ans: String
+    option2: String
+    isDisplayOption2: String
+    isDisplayOption2Ans: String
+    option3: String
+    isDisplayOption3: String
+    isDisplayOption3Ans: String
+    isCheckedOption1: String
+    option1Ans: String
+    isCheckedOption2: String
+    option2Ans: String
+    isCheckedOption3: String
+    option3Ans: String
+    displayBlock: [SbeDisplayBlock]
+    seminarPaidType: String
+    seminarLiveType: String
+    seminarType: String
+    seminarNature: String
+}
+
+type SbeSeminarResponse {
+    data: [SbeSeminar]
+}

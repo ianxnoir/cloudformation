@@ -1,0 +1,68 @@
+extend type Query {
+  GetCombinedFairProfileFormData(
+    fairCode: String
+    lang: String
+  ): GetCombinedFairProfileFormDataResponse
+}
+
+type GetCombinedFairProfileFormDataResponse {
+  timestamp: String
+  status: Int
+  data: GetCombinedFairProfileFormDataData
+}
+
+type GetCombinedFairProfileFormDataData {
+  companyName: String
+  postalCode: String
+  addressCountryCode: FairParticipantRegistrationNestedObject
+  stateOrProvinceCode: FairParticipantRegistrationNestedObject
+  cityCode: FairParticipantRegistrationNestedObject
+  addressLine1: String
+  addressLine2: String
+  addressLine3: String
+  addressLine4: String
+  emailId: String
+  mobilePhoneCountryCode: String
+  mobilePhoneNumber: String
+  companyWebsite: String
+  companyBackground: String
+  companyPhoneCountryCode: String
+  companyPhoneAreaCode: String
+  companyPhonePhoneNumber: String
+  companyPhoneExtension: String
+  nob: [FairParticipantRegistrationNestedObject]
+  title: String
+  firstName: String
+  lastName: String
+  initial: String
+  displayName: String
+  position: String
+  formDataPerFair: [FormDataPerFair]
+}
+
+type FormDataPerFair {
+  fairCode: String
+  fiscalYear: String
+  fairDisplayName: MultilingualString
+  fairRegistrationToggle: Boolean
+  fairRegistrationStartDatetime: String
+  fairRegistrationEndDatetime: String
+  isRegistered: Boolean
+  formSlug: String
+  vmsProjectCode: String
+  vmsProjectYear: String
+  showInProfileDataList: [ShowInProfileData]
+}
+
+type ShowInProfileData {
+  fieldId: String
+  label: String
+  fieldType: String
+  onlyVisibleToYou: Boolean
+  values: [FormDataValue]
+}
+
+type FormDataValue {
+  fieldValue: String
+  mappedValue: String
+}

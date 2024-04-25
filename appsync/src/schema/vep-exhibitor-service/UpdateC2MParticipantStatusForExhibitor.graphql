@@ -1,0 +1,15 @@
+extend type Query {
+  UpdateC2MParticipantStatusForExhibitor(
+    update: C2MParticipantDataStatusUpdate
+    condition: C2MParticipantDataStatusCondition
+  ): UpdateC2MParticipantDataForExhibitorResponse
+}
+
+input C2MParticipantDataStatusUpdate {
+  c2mParticipantStatus: String
+}
+
+input C2MParticipantDataStatusCondition {
+  companyCcdid: String
+  eoaFairId: String
+}

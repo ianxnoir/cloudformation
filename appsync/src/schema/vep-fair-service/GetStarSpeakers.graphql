@@ -1,0 +1,24 @@
+extend type Query {
+  GetStarSpeakers(
+    vmsProjectCode: String
+    vmsProjectYear: String
+    systemCode: String
+    language: String
+  ): FairStarSpeakersResponse
+}
+
+type FairStarSpeakersResponse {
+  data: [FairStarSpeaker]
+}
+
+type FairStarSpeaker {
+  id: String
+  name: String
+  title: String
+  avatar: String
+  profile: String
+  company: FairSeminarSpeakerCompany
+  bookmarked: Boolean
+  speakerUrl:String
+  latestSeminar: FairSeminar
+}

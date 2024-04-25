@@ -1,0 +1,20 @@
+extend type Query {
+  GetC2MConfigById(
+    id: Int
+  ): GetC2MConfigByIdResponse
+}
+
+type GetC2MConfigByIdResponse {
+  status: Int
+  data: C2MConfigByIdData
+  message: String
+}
+
+type C2MConfigByIdData {
+  id: Int
+  fieldName: String
+  unit: String
+  configValue: String
+  lastUpdatedBy: String
+  lastUpdatedAt: AWSDateTime
+}

@@ -1,0 +1,14 @@
+extend type Query {
+  GetCBMCountryCode: CBMCountryCodeResponse
+}
+
+type CBMCountryCodeResponse {
+  data: [CBMCountryCode]
+}
+
+type CBMCountryCode {
+  code: String
+  englishDescription: String
+  chineseDescriptionTc: String
+  chineseDescriptionSc: String
+}

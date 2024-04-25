@@ -1,0 +1,14 @@
+extend type Query {
+  GetProfileFormPresignedUrl(
+    fairCode: String, 
+    lang: String,
+    fieldId: String,
+    fileExt: String,
+  ): GetProfileFormPresignedUrlResponse
+}
+
+type GetProfileFormPresignedUrlResponse {
+    timestamp: String
+    status: Int
+    data: GetUploadFilePresignedUrlData
+}

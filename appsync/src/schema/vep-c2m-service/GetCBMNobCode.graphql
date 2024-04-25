@@ -1,0 +1,14 @@
+extend type Query {
+  GetCBMNobCode: CBMNobCodeResponse
+}
+
+type CBMNobCodeResponse {
+  data: [CBMNobCode]
+}
+
+type CBMNobCode {
+  code: String
+  englishDescription: String
+  chineseDescriptionTc: String
+  chineseDescriptionSc: String
+}

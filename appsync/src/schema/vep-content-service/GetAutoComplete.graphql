@@ -1,0 +1,22 @@
+extend type Query {
+    GetAutoComplete(
+        q: String!,
+        browserLocation: String!,
+        lang: String!
+    ): AutoCompleteData
+}
+
+type AutoCompleteData {
+    timestamp: AWSTimestamp
+    status: Int
+    data: AutoCompleteSuggestionResultSet
+}
+
+type AutoCompleteSuggestionResultSet {
+    suggestions: [AutoCompleteSuggestionData],
+    sensitiveKeyword: Boolean
+}
+
+type AutoCompleteSuggestionData {
+    keyword: String
+}

@@ -1,0 +1,116 @@
+extend type Query {
+    GetProductDetailDummy(productUrn:  String, lang:  String): WrappedProductDetailData
+}
+
+type WrappedProductDetailData {
+    timestamp: String
+	status: Int
+	data: ProductDetailDataDummy
+}
+
+type ProductDetailDataDummy {
+    fairSymbol: String
+    fairFiscalYear: String
+    exhibitorUrn: String
+    exhibitorName: String
+    exhibitorType: String
+    exhibitorBrand: String
+    natureofBusinessSymbols: [String]
+    vepNatureofBusinesses: [ProductNOBData]
+    countrySymbol: String
+    countryDescEn: String
+    countryDescZhHant: String
+    countryDescZhHans: String
+    factoryLocation: String
+    boothDetails: [BoothDetails]
+    virtualBoothInd: String
+    virtualBoothType: String
+    boothNumbers: [String]
+    boothTokens: [String]
+    boothSize: Float
+    boothType: String
+    boothPriority: Int
+    hasPavilionOrZoneInd: String
+    exhibitorZones: [ExhibitorZones]
+    exhibitorPavilions: [ExhibitorPavilions]
+    exhibitorProductOrigin: String
+    exhibitorProductStrategy: [ExhibitorProductStrategy]
+    supplierUrn: String
+    ccdid: String
+    onlineInd: String
+    supplierVerifiedLabel: String
+    supplierCertificates: [String]
+    bookingPriority: Int
+    bookingExpiryDate: String
+    productUrn: String
+    productNameEn: String
+    productNameZhHant: String
+    productNameZhHans: String
+    productDescription: String
+    productDescriptionRaw: String
+    productBrand: String
+    productDimension: String
+    productModifiedDate: String
+    acceptPaymentInd: String
+    productMedias: [ProductMedias]
+    productServiceInd: String
+    productAssignedCategories: [String]
+    productAssignedLevelThreeCategories: [String]
+    productAttributes: [ProductAttributes]
+    productCategoryList: [String]
+    structureTagLabelStrEn: String
+    structureTagLabelStrZhHant: String
+    structureTagLabelStrZhHans: String
+    structureTagLabelsEn: [String]
+    structureTagLabelsZhHant: [String]
+    structureTagLabelsZhHans: [String]
+    attributeAges: [String]
+    attributeTypeOfGrapes: [String]
+    attributeChateaus: [String]
+    attributePlaceOfOrigins: [String]
+    attributeWineSweetnesses: [String]
+    attributeSparklingSweetnesses: [String]
+    typeOfPayment: String
+    productionLeadTime: String
+    vepProductAssignedLevelThreeCategoryDetails: [ProductCategoryDetails]
+    vepExhibitorRegistrationStatus: String
+    c2mParticipantStatus: String
+    exhibitorFirstName: String
+    exhibitorLastName : String
+}
+
+type ProductMedias {
+    imageUrl: String
+    videoUrl: String
+    mediaType: String
+    videoThumbnailUrl: String
+    mediaName: String
+    displayOrder: String
+}
+
+type ProductAttributes {
+    attributeId: String
+    attributeType: String
+    attributeValueId: String
+    attributeLabelEn: String
+    attributeLabelZhHant: String
+    attributeLabelZhHans: String
+    attributeDisplaySeq: String
+    attributeValueEn: String
+    attributeValueZhHant: String
+    attributeValueZhHans: String
+}
+
+type ProductCategoryDetails {
+    ia_id: String
+    ia_en: String
+    ia_tc: String
+    ia_sc: String
+}
+
+type ProductNOBData {
+    code: String
+    en: String
+    tc: String
+    sc: String
+}

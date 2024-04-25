@@ -1,0 +1,24 @@
+extend type Mutation {
+  UpdateProfileByFormData(
+    fairCode: String, 
+    lang: String
+    formDataJson: String
+  ): UpdateProfileByFormDataResponse
+}
+
+type UpdateProfileByFormDataResponse {
+  timestamp: String
+  status: Int
+  data: UpdateProfileByFormDataData
+}
+
+type UpdateProfileByFormDataData {
+  isSuccess: Boolean
+  editFormValidationErrors: [EditFormValidationError]
+}
+
+type EditFormValidationError {
+  fieldId: String
+  formValidationErrorType: String
+  formValidationErrorCode: String
+}

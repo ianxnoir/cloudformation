@@ -1,0 +1,17 @@
+extend type Query {
+  GetRegisteredSeminarsByUser(
+    fairCode:String
+    fiscalYear:String
+  ): GetRegisteredSeminarsByUserResponse
+}
+
+type GetRegisteredSeminarsByUserResponse {
+  status: Int
+  data: [RegisteredSeminarData]
+  message: String
+}
+
+type RegisteredSeminarData{
+    seminarId:String
+    registrationTime:String
+}

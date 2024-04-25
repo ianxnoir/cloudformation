@@ -1,0 +1,12 @@
+extend type Query {
+  UpdateC2MParticipantStatusForBuyer(
+    c2mParticipantStatus: String
+    fairCode: String
+    fiscalYear: String
+  ): UpdateC2MParticipantStatusForBuyerResponse
+}
+
+type UpdateC2MParticipantStatusForBuyerResponse {
+  status: Int
+  affectedRecords: Int
+}

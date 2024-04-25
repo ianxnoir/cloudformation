@@ -1,0 +1,31 @@
+extend type Query {
+  GetBatchVideos(taskIds: [String]): FairBatchVideosResponse
+}
+
+type FairBatchVideosResponse {
+  data: [FairVideoDetail]
+}
+
+type FairVideoDetail {
+  id: Int
+  taskId: String
+  transcodeStatus: FairTranscodeStatus
+  videoStatus: FairVideoStatus
+  fileUrl: String
+  fileName: String
+  lastUpdatedBy: String
+  lastUpdatedAt: String
+  creationTime: String
+}
+
+enum FairVideoStatus {
+  UNUSED
+  USING
+  CANCELLED
+}
+
+enum FairTranscodeStatus {
+  IN_PROGRESS
+  FINISHED
+  CANCELLED
+}

@@ -1,0 +1,8 @@
+extend type Query {
+  GetMessageCentre: MessageCentreResponseData
+}
+
+type MessageCentreResponseData {
+  messageCenterUserId: String
+  sendbirdSessionToken: String
+}

@@ -1,0 +1,78 @@
+extend type Query {
+  GetStarSpeakersAndSeminars(
+    vmsProjectCode: String
+    vmsProjectYear: String
+    systemCode: String
+    language: String
+  ): IntHubStarSpeakersAndSeminarsResponse
+}
+
+type IntHubStarSpeakersAndSeminarsResponse {
+  data: IntHubStarSpeakersAndSeminars
+}
+
+type IntHubStarSpeakersAndSeminars {
+    starSpeakersData: [IntHubStarSpeaker]
+    seminarsData: [IntHubSeminar]
+}
+
+type IntHubStarSpeaker {
+  id: String
+  name: String
+  title: String
+  avatar: String
+  profile: String
+  company: IntHubSeminarSpeakerCompany
+  bookmarked: Boolean
+  speakerUrl:String
+  latestSeminar: IntHubSeminar
+}
+
+type IntHubSeminar {
+  id: String
+  name: String
+  formattedStartDate: String
+  formattedDuration: String
+  startAt: String
+  endAt: String
+  description: String
+  language: String
+  type: String
+  location: String
+  fulled: Boolean
+  bookmarked: Boolean
+  speakerPanels: [IntHubSpeakerPanel]
+  qualificationLogo: [String]
+  logoPanels: [IntHubLogoPanels]
+  fullProgrammeUrl: String
+  registrationEnabled: Boolean
+  registrationUrl: String
+  isLive: Boolean
+  vcLiveSetting: String
+  vcPlaybackSetting: String
+  vcLiveUrl: String
+}
+
+type IntHubSpeakerPanel {
+  title: String
+  speakers: [IntHubSeminarSpeaker]
+}
+
+type IntHubLogoPanels {
+  title: String
+  logos: [String]
+}
+
+type IntHubSeminarSpeaker {
+  id: String
+  name: String
+  title: String
+  avatar: String
+  profile: String
+  company: IntHubSeminarSpeakerCompany
+}
+
+type IntHubSeminarSpeakerCompany {
+  name: String
+  logo: String
+}

@@ -1,0 +1,115 @@
+extend type Query {
+  GetC2MMeetings(
+    fairCode: String
+    status: String
+    page: Int
+    limit: Int
+    startTime: AWSDateTime
+    endTime: AWSDateTime
+    withCombinedFairs: Boolean
+    filteredDate: [String]
+    filteredFairCodes: [String]
+    language: String
+  ): C2MMeetingsResponse
+}
+
+type C2MMeetingsResponse {
+  meta: C2MMeetingMeta
+  data: [C2MMeeting!]
+}
+
+type C2MMeetingMeta {
+  totalItems: Int
+  itemCount: Int
+  itemsPerPage: Int
+  totalPages: Int
+  currentPage: Int
+  allStartTime: [String]
+  isReachedAvailabilityPage: Boolean
+  allFairData: [fairDataOptions]
+}
+
+type fairDataOptions {
+  fairCode: String
+  fiscalYear: String
+  fairShortName: String
+}
+
+type C2MMeeting {
+  id: String
+  meetingId: String
+  fairCode: String
+  name: String
+  message: String
+  type: Int
+  f2fLocation: String
+  requesterFirstName: String
+  requesterLastName: String
+  requesterSsoUid: String
+  requesterRole: String
+  isRequesterJoined: Boolean
+  responderFirstName: String
+  responderLastName: String
+  responderSsoUid: String
+  responderRole: String
+  isResponderJoined: Boolean
+  isRequestEmailSent: Boolean
+  isResponseEmailSent: Boolean
+  status: Int
+  startTime: AWSDateTime
+  endTime: AWSDateTime
+  rescheduledTo: String
+  cancelledBy: String
+  cancelledReason: String
+  isOngoing: Boolean
+  isCollided: Boolean
+  canAccept: Boolean
+  isCollidedWithEvent: Boolean
+  isEditable: Boolean
+  fairThemeColor: String
+  assignerRole: String
+  assignerId: String
+  requester: C2MRequester
+  responder: C2MResponder
+  commonMeetingData: CommonMeetingData
+}
+
+type CommonMeetingData {
+  meetingName: String
+  startTime: String
+  endTime: String
+  requesterCompanyName: String
+  responderCompanyName: String
+  zoomStartUrl: String
+  zoomJoinUrl: String
+}
+
+type C2MRequester {
+  ssoUid: String
+  role: String
+  firstName: String
+  lastName: String
+  avatar: String
+  country: String
+  companyName: String
+  companyLogo: String
+  supplierUrn: String
+  fairCode: String
+  fiscalYear: String
+  exhibitorUrn: String
+}
+
+type C2MResponder {
+  ssoUid: String
+  role: String
+  firstName: String
+  lastName: String
+  avatar: String
+  country: String
+  companyName: String
+  companyLogo: String
+  supplierUrn: String
+  fairCode: String
+  fiscalYear: String
+  exhibitorUrn: String
+}

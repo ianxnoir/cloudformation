@@ -1,0 +1,3 @@
+extend type Query {
+  GetC2MFairCombinedDates(fairCode: String): C2MFairDatesResponse
+}

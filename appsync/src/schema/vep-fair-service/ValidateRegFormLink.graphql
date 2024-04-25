@@ -1,0 +1,33 @@
+extend type Query {
+  ValidateRegFormLink(
+    fairCode: String!
+    slug: String!
+    lang: String
+    visitorType: String!
+    country: String
+    refOffice: String
+    refCode: String
+    regLinkId: String!
+  ): ValidateRegLinkResponse
+}
+
+type ValidateRegLinkResponse {
+  timestamp: String
+  status: Int
+  data: ValidateRegLinkData
+}
+
+type ValidateRegLinkData {
+  fairCode: String
+  projectYear: String
+  lang: String
+  slug: String
+  fullPath: String
+  visitorType: String
+  country: String
+  refOffice: String
+  refCode: String
+  regLinkId: String
+  creationTime: String
+  lastUpdatedTime: String
+}

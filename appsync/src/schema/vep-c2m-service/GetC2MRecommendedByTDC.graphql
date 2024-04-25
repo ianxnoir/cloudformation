@@ -1,0 +1,62 @@
+extend type Query {
+  GetC2MRecommendedByTDC(
+    fairCode: String
+    fairYear: String
+    language: String
+    pageNum: String
+    pageSize: String
+  ): GetC2MRecommendedByTDCResponse
+}
+
+type GetC2MRecommendedByTDCResponse {
+  meta: ByTDCMeta
+  data: ByTDCData
+  message: String
+}
+
+type ByTDCMeta {
+  status: Int
+}
+
+type ByTDCData {
+  totalSize: Int
+  exhibitor: [C2MRecommendedByTDCRecord]
+}
+
+type C2MRecommendedByTDCRecord {
+  id: Int
+  ccdId: String
+  sentTime: AWSDateTime
+  creationTime: AWSDateTime
+  interestedStatus: Int
+  data: ExhibitorData
+}
+
+type ExhibitorData {
+  exhibitorName: String
+  supplierLogo: String
+  supplierVerifiedLabel: String
+  onlineInd: String
+  boothNumbers: [String]
+  countryDescEn: String
+  countryDescZhHant: String
+  countryDescZhHans: String
+  exhibitorUrn: String
+  latestProducts: [LatestProducts]
+  exhibitorZones: [ExhibitorZones]
+  exhibitorPavilions: [ExhibitorPavilions]
+  virtualBoothInd: String
+  vepVirtualBoothUrl: String
+  vepContactBtnUrl: String
+  vepVirtualBoothImageUrl: String
+  supplierSriDetails: [SupplierSriDetails]
+  fairSymbol: String
+  fairFiscalYear: String
+  supplierUrn: String
+  exhibitorType: String
+  ccdid: String
+  countrySymbol: String
+  vepContactPersonName: String
+  vepContactPersonInitial: String
+  id: String
+}

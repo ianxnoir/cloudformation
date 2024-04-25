@@ -1,0 +1,59 @@
+extend type Mutation {
+  SubmitRegForm(
+    fairCode: String
+    submitType: String
+    step: Int
+    lang: String
+    formDataJson: String
+    captcha: String
+    formSubmissionKey: String
+    visitorType: String
+    slug: String
+    country: String
+    refOffice: String
+    refCode: String
+    regLinkId: String
+    registrationUrl: String
+  ): SubmitRegFormResponse
+}
+
+enum SubmitType {
+  VALIDATE_STEP
+  SUBMIT
+}
+
+type SubmitRegFormResponse {
+  timestamp: String
+  status: Int
+  data: SubmitRegFormResponseData
+}
+
+type SubmitRegFormResponseData {
+  formStepValidStatus: [FormStepValidStatusObj]
+  formValidationError: [FormValidationErrorObj]
+  submitType: SubmitType
+  validationStatus: ValidationStatus
+  isSubmitSuccess: Boolean
+  registrationNo: String
+  formSubmissionKey: String
+  slug: String
+}
+
+enum ValidationStatus {
+  STEP_PASSED
+  STEP_FAILED
+  FORM_PASSED
+  FORM_FAILED
+}
+
+type FormStepValidStatusObj {
+  formStepId: String
+  isStepValid: Boolean
+}
+
+type FormValidationErrorObj {
+  formStepId: String
+  fieldId: String
+  formValidationErrorType: String
+  formValidationErrorCode: String
+}

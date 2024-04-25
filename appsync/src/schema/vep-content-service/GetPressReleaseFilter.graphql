@@ -1,0 +1,12 @@
+extend type Query {
+    GetPressReleaseFilter(
+        fair: String,
+        lang: String
+    ): PressReleaseFilter
+}
+
+type PressReleaseFilter {
+  timestamp: String
+  status: String
+  data: String
+}

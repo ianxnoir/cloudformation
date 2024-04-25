@@ -1,0 +1,1729 @@
+[
+  {
+    "queryItem": "GetUserJWT",
+    "functionArray": ["JwtAuthFunctionId"],
+    "service": "Content",
+    "path": "",
+    "method": ""
+  },
+  {
+    "queryItem": "ResolveJWT",
+    "functionArray": ["AuthFunctionId"],
+    "service": "Buyer",
+    "path": "profile/dummyResolveJWTPayload",
+    "method": "post"
+  },
+  {
+    "queryItem": "GetUserProfile",
+    "functionArray": ["AuthFunctionId"],
+    "service": "Buyer",
+    "path": "profile/",
+    "method": "post"
+  },
+  {
+    "queryItem": "GetConferenceUserProfile",
+    "functionArray": ["AuthFunctionId"],
+    "service": "Buyer",
+    "path": "conference/profile",
+    "method": "post"
+  },
+  {
+    "queryItem": "GetC2MUserProfile",
+    "functionArray": ["AuthFunctionId"],
+    "service": "Buyer",
+    "path": "profile/c2mProfile",
+    "method": "get"
+  },
+  {
+    "queryItem": "GetRegisteredFair",
+    "functionArray": ["AuthFunctionId"],
+    "service": "Buyer",
+    "path": "profile/registeredFair",
+    "method": "get"
+  },
+  {
+    "queryItem": "UpdateNotificationPreference",
+    "functionArray": ["AuthFunctionId"],
+    "service": "Buyer",
+    "path": "profile/updateNotificationPreference",
+    "method": "post"
+  },
+  {
+    "queryItem": "ValidateEmail",
+    "functionArray": [],
+    "service": "Buyer",
+    "path": "register/validateEmail",
+    "method": "post"
+  },
+  {
+    "queryItem": "GetFairParticipantRegistrations",
+    "functionArray": ["AuthFunctionId"],
+    "service": "Fair",
+    "path": "profile/fairRegistrations",
+    "method": "post"
+  },
+  {
+    "mutationItem": "UpdateProfile",
+    "functionArray": ["AuthFunctionId"],
+    "service": "Buyer",
+    "path": "profile/update",
+    "method": "put"
+  },
+  {
+    "mutationItem": "UpdateFairParticipantRegistrationRecord",
+    "functionArray": ["AuthFunctionId"],
+    "service": "Fair",
+    "path": "profile/updateFairParticipantRegistrationRecord",
+    "method": "post"
+  },
+  {
+    "queryItem": "GetC2MBuyerProfileDefinition",
+    "functionArray": [],
+    "service": "Content",
+    "path": "definition/c2m/profile/:fairCode",
+    "method": "get",
+    "cachingKeys": ["$context.arguments"],
+    "ttl" : 120
+  },
+  {
+    "mutationItem": "UpdateC2MBuyerProfile",
+    "functionArray": ["AuthFunctionId"],
+    "service": "Fair",
+    "path": "profile/c2mUpdate/:fairCode",
+    "method": "put"
+  },
+  {
+    "queryItem": "GetC2MQuestionInput",
+    "functionArray": ["AuthFunctionId"],
+    "service": "FairRegistration",
+    "path": "profile/c2mQuestionInput",
+    "method": "get"
+  },
+  {
+    "queryItem": "GetFormProductInterestOptions",
+    "functionArray": ["AuthFunctionId"],
+    "service": "FairRegistration",
+    "path": "profile/formProductInterestOptions",
+    "method": "get"
+  },
+  {
+    "mutationItem": "UpdateProductInterest",
+    "functionArray":  ["AuthFunctionId"],
+    "service": "FairRegistration",
+    "path": "profile/updateProductInterest",
+    "method": "put"
+  },
+  {
+    "queryItem": "GetProfileFormData",
+    "functionArray": ["AuthFunctionId"],
+    "service": "FairRegistration",
+    "path": "profile/formData",
+    "method": "get"
+  },
+  {
+    "mutationItem": "UpdateProfileByFormData",
+    "functionArray": [
+      "AuthFunctionId"
+    ],
+    "service": "FairRegistration",
+    "path": "profile/formData",
+    "method": "put"
+  },
+  {
+    "queryItem": "GetProfileFormPresignedUrl",
+    "functionArray": [
+      "AuthFunctionId"
+    ],
+    "service": "FairRegistration",
+    "path": "profile/presignedUrl",
+    "method": "get"
+  },
+  {
+    "queryItem": "GetCombinedFairProfileFormData",
+    "functionArray": ["AuthFunctionId"],
+    "service": "FairRegistration",
+    "path": "profile/combinedFairData",
+    "method": "get"
+  },
+  {
+    "queryItem": "GetBuyerDetailsForExhibitor",
+    "functionArray": [
+      "AuthFunctionId"
+    ],
+    "service": "FairRegistration",
+    "path": "profile/buyerDetailsForExhibitor",
+    "method": "get"
+  },
+  {
+    "queryItem": "GetMenuHeader",
+    "functionArray": [],
+    "service": "Content",
+    "path": "wordpress/menu-header",
+    "method": "get",
+    "cachingKeys": ["$context.arguments"],
+    "ttl" : 120
+  },
+  {
+    "queryItem": "GetMenuHeaderTopNav",
+    "functionArray": [],
+    "service": "Content",
+    "path": "wordpress/menu-header-top-nav",
+    "method": "get",
+    "cachingKeys": ["$context.arguments"],
+    "ttl" : 120
+  },
+  {
+    "queryItem": "GetPreviewMenuHeaderTopNav",
+    "functionArray": [],
+    "service": "Content",
+    "path": "wordpress/menu-header-top-nav_preview",
+    "method": "get"
+  },
+  {
+    "queryItem": "GetPage",
+    "functionArray": [],
+    "service": "Content",
+    "path": "wordpress/page",
+    "method": "get",
+    "cachingKeys": ["$context.arguments"],
+    "ttl" : 120
+  },
+  {
+    "queryItem": "GetPreviewPage",
+    "functionArray": [],
+    "service": "Content",
+    "path": "wordpress/page_preview",
+    "method": "get"
+  },
+  {
+    "queryItem": "GetPageList",
+    "functionArray": [],
+    "service": "Content",
+    "path": "wordpress/page-list",
+    "method": "get",
+    "cachingKeys": ["$context.arguments"],
+    "ttl" : 120
+  },
+  {
+    "queryItem": "GetPreviewPageList",
+    "functionArray": [],
+    "service": "Content",
+    "path": "wordpress/page-list_preview",
+    "method": "get"
+  },
+  {
+    "queryItem": "GetPost",
+    "functionArray": [],
+    "service": "Content",
+    "path": "wordpress/post",
+    "method": "get",
+    "cachingKeys": ["$context.arguments"],
+    "ttl" : 120
+  },
+  {
+    "queryItem": "GetPostList",
+    "functionArray": [],
+    "service": "Content",
+    "path": "wordpress/post-list",
+    "method": "get",
+    "cachingKeys": ["$context.arguments"],
+    "ttl" : 120
+  },
+  {
+    "queryItem": "GetPressReleaseList",
+    "functionArray": [],
+    "service": "Content",
+    "path": "wordpress/press-release-list",
+    "method": "get",
+    "cachingKeys": ["$context.arguments"],
+    "ttl" : 120
+  },
+  {
+    "queryItem": "GetPressReleaseFilter",
+    "functionArray": [],
+    "service": "Content",
+    "path": "wordpress/press-release-filter",
+    "method": "get",
+    "cachingKeys": ["$context.arguments"],
+    "ttl" : 120
+  },
+  {
+    "queryItem": "GetPressReleaseJson",
+    "functionArray": [],
+    "service": "Content",
+    "path": "wordpress/press-release-json",
+    "method": "get",
+    "cachingKeys": ["$context.arguments"],
+    "ttl" : 120
+  },
+  {
+    "queryItem": "GetPreviewPressReleaseJson",
+    "functionArray": [],
+    "service": "Content",
+    "path": "wordpress/press-release-json_preview",
+    "method": "get"
+  },
+  {
+    "queryItem": "Locations",
+    "functionArray": [],
+    "service": "Content",
+    "path": "tdc-cms/location",
+    "method": "get",
+    "cachingKeys": ["$context.arguments"],
+    "ttl" : 120
+  },
+  {
+    "queryItem": "Industries",
+    "functionArray": [],
+    "service": "Content",
+    "path": "tdc-cms/industry",
+    "method": "get",
+    "cachingKeys": ["$context.arguments"],
+    "ttl" : 120
+  },
+  {
+    "queryItem": "MarketNews",
+    "functionArray": [],
+    "service": "Content",
+    "path": "tdc-cms/market-news",
+    "method": "get",
+    "cachingKeys": ["$context.arguments"],
+    "ttl" : 120
+  },
+  {
+    "queryItem": "GetWordPressSetting",
+    "functionArray": [],
+    "service": "Content",
+    "path": "wordpress/setting",
+    "method": "get",
+    "cachingKeys": ["$context.arguments"],
+    "ttl" : 120
+  },
+  {
+    "queryItem": "GetCombinedWordpressFairSetting",
+    "functionArray": [],
+    "service": "Content",
+    "path": "wordpress/combinedWordpressFairSetting",
+    "method": "get",
+    "cachingKeys": ["$context.arguments"],
+    "ttl" : 120
+  },
+  {
+    "queryItem": "GetSbeSpeakers",
+    "functionArray": [],
+    "service": "Content",
+    "path": "sbe/speakers",
+    "method": "get",
+    "cachingKeys": ["$context.arguments"],
+    "ttl" : 120
+  },
+  {
+    "queryItem": "GetSbeStarSpeakers",
+    "functionArray": [],
+    "service": "Content",
+    "path": "sbe/speakers/star",
+    "method": "get",
+    "cachingKeys": ["$context.arguments"],
+    "ttl" : 120
+  },
+  {
+    "queryItem": "GetSbeSeminars",
+    "functionArray": [],
+    "service": "Content",
+    "path": "sbe/seminars",
+    "method": "get",
+    "cachingKeys": ["$context.arguments"],
+    "ttl" : 120
+  },
+  {
+    "queryItem": "GetSbeEvents",
+    "functionArray": [],
+    "service": "Content",
+    "path": "sbe/events",
+    "method": "get",
+    "cachingKeys": ["$context.arguments"],
+    "ttl" : 120
+  },
+  {
+    "queryItem": "GetBuyerProductInterestHistory",
+    "functionArray": ["AuthFunctionId"],
+    "service": "Content",
+    "path": "buyerDetail/fair/:fairCode/fiscalYear/:fiscalYear/productInterestHistory",
+    "method": "get"
+  },
+  {
+    "queryItem": "GetProductRecommendation",
+    "functionArray": [],
+    "service": "Exhibitor",
+    "path": "product/recommendationList",
+    "method": "get",
+    "cachingKeys": ["$context.arguments"],
+    "ttl" : 120
+  },
+  {
+    "queryItem": "GetProductHighlight",
+    "functionArray": [],
+    "service": "Exhibitor",
+    "path": "product/highlights",
+    "method": "get",
+    "cachingKeys": ["$context.arguments"],
+    "ttl" : 120
+  },
+  {
+    "mutationItem": "UpdateExhibitorHighlightedProduct",
+    "functionArray": ["AuthFunctionId"],
+    "service": "Exhibitor",
+    "path": "profile/c2m/:fairCode/updateHighlighedProducts",
+    "method": "put"
+  },
+  {
+    "queryItem": "GetRelatedItem",
+    "functionArray": [],
+    "service": "Exhibitor",
+    "path": "product/relatedItemList",
+    "method": "get",
+    "cachingKeys": ["$context.arguments"],
+    "ttl" : 120
+  },
+  {
+    "queryItem": "GetExhibitors",
+    "functionArray": [],
+    "service": "Exhibitor",
+    "path": "exhibitor/list",
+    "method": "post",
+    "cachingKeys": ["$context.arguments"],
+    "ttl" : 120
+  },
+  {
+    "queryItem": "GetBookmarkExhibitors",
+    "functionArray": [
+      "AuthFunctionId"
+    ],
+    "service": "Exhibitor",
+    "path": "exhibitor/bookmarkList",
+    "method": "post"
+  },
+  {
+    "queryItem": "GetProducts",
+    "functionArray": [],
+    "service": "Exhibitor",
+    "path": "product/list",
+    "method": "post",
+    "cachingKeys": ["$context.arguments"],
+    "ttl" : 120
+  },
+  {
+    "queryItem": "GetBookmarkProducts",
+    "functionArray": [
+      "AuthFunctionId"
+    ],
+    "service": "Exhibitor",
+    "path": "product/bookmarkList",
+    "method": "post"
+  },
+  {
+    "queryItem": "GetProductDetail",
+    "functionArray": [],
+    "service": "Exhibitor",
+    "path": "product/detail",
+    "method": "get",
+    "cachingKeys": ["$context.arguments"],
+    "ttl" : 120
+  },
+  {
+    "queryItem": "GetExhibitorDetail",
+    "functionArray": [],
+    "service": "Exhibitor",
+    "path": "exhibitor/detail",
+    "method": "get",
+    "cachingKeys": ["$context.arguments"],
+    "ttl" : 120
+  },
+  {
+    "queryItem": "CheckBookmarkExhibitors",
+    "functionArray": [
+      "AuthFunctionId"
+    ],
+    "service": "Exhibitor",
+    "path": "exhibitor/checkBookmark",
+    "method": "post"
+  },
+  {
+    "queryItem": "CheckBookmarkProducts",
+    "functionArray": [
+      "AuthFunctionId"
+    ],
+    "service": "Exhibitor",
+    "path": "product/checkBookMark",
+    "method": "post"
+  },
+  {
+    "mutationItem": "BookmarkExhibitor",
+    "functionArray": [
+      "AuthFunctionId"
+    ],
+    "service": "Exhibitor",
+    "path": "exhibitor/:id/bookmark",
+    "method": "put"
+  },
+  {
+    "mutationItem": "BookmarkProduct",
+    "functionArray": [
+      "AuthFunctionId"
+    ],
+    "service": "Exhibitor",
+    "path": "product/:id/bookmark",
+    "method": "put"
+  },
+  {
+    "mutationItem": "UnbookmarkExhibitor",
+    "functionArray": [
+      "AuthFunctionId"
+    ],
+    "service": "Exhibitor",
+    "path": "exhibitor/:id/bookmark",
+    "method": "delete"
+  },
+  {
+    "mutationItem": "UnbookmarkProduct",
+    "functionArray": [
+      "AuthFunctionId"
+    ],
+    "service": "Exhibitor",
+    "path": "product/:id/bookmark",
+    "method": "delete"
+  },
+  {
+    "queryItem": "GetStarSpeakers",
+    "functionArray": [],
+    "service": "Fair",
+    "path": "starSpeakers",
+    "method": "get"
+  },
+  {
+    "queryItem": "GetSeminars",
+    "functionArray": [],
+    "service": "Fair",
+    "path": "seminars",
+    "method": "get"
+  },
+  {
+    "queryItem": "FindAllSeminarsForReminder",
+    "functionArray": [],
+    "service": "Fair",
+    "path": "seminars/findAllSeminarsForReminder",
+    "method": "get"
+  },
+  {
+    "queryItem": "GetStarSpeakersAndSeminars",
+    "functionArray": [],
+    "service": "Fair",
+    "path": "seminars/starSpeakersAndSeminars",
+    "method": "get"
+  },
+  {
+    "queryItem": "GetLiveSeminars",
+    "functionArray": [],
+    "service": "Fair",
+    "path": "seminars/live",
+    "method": "get"
+  },
+  {
+    "queryItem": "FindAllSeminarsForReminder",
+    "functionArray": [],
+    "service": "Fair",
+    "path": "seminars/findAllSeminarsForReminder",
+    "method": "get"
+  },
+  {
+    "queryItem": "GetPreviewMenuHeader",
+    "functionArray": [],
+    "service": "Content",
+    "path": "wordpress/menu-header_preview",
+    "method": "get"
+  },
+  {
+    "queryItem": "PostEnquiryFrom",
+    "functionArray": [],
+    "service": "Exhibitor",
+    "path": "vep-fn/enquiryForm",
+    "method": "post"
+  },
+  {
+    "queryItem": "GetImportantNotice",
+    "functionArray": [],
+    "service": "Content",
+    "path": "wordpress/important-notices",
+    "method": "get",
+    "cachingKeys": ["$context.arguments"],
+    "ttl" : 120
+  },
+  {
+    "queryItem": "GetPreviewImportantNotice",
+    "functionArray": [],
+    "service": "Content",
+    "path": "wordpress/important-notices_preview",
+    "method": "get"
+  },
+  {
+    "queryItem": "GetImportantNoticeList",
+    "functionArray": [],
+    "service": "Content",
+    "path": "wordpress/important-notices-list",
+    "method": "get",
+    "cachingKeys": ["$context.arguments"],
+    "ttl" : 120
+  },
+  {
+    "queryItem": "GetPreviewImportantNoticeList",
+    "functionArray": [],
+    "service": "Content",
+    "path": "wordpress/important-notices-list_preview",
+    "method": "get"
+  },
+  {
+    "queryItem": "GetSharedContent",
+    "functionArray": [],
+    "service": "Content",
+    "path": "wordpress/shared-content",
+    "method": "get",
+    "cachingKeys": ["$context.arguments"],
+    "ttl" : 120
+  },
+  {
+    "queryItem": "GetPreviewSharedContent",
+    "functionArray": [],
+    "service": "Content",
+    "path": "wordpress/shared-content_preview",
+    "method": "get"
+  },
+  {
+    "queryItem": "GetFilterOption",
+    "functionArray": [],
+    "service": "Exhibitor",
+    "path": "filterOption",
+    "method": "get",
+    "cachingKeys": ["$context.arguments"],
+    "ttl" : 120
+  },
+  {
+    "queryItem": "GetFilterOptions",
+    "functionArray": [],
+    "service": "Exhibitor",
+    "path": "filterOption/fair/:fairCode",
+    "method": "get",
+    "cachingKeys": ["$context.arguments"],
+    "ttl" : 120
+  },
+  {
+    "queryItem": "GetExhibitorsDummy",
+    "functionArray": [],
+    "service": "Exhibitor",
+    "path": "exhibitor/list/dummy",
+    "method": "post",
+    "cachingKeys": ["$context.arguments"],
+    "ttl" : 120
+  },
+  {
+    "queryItem": "GetExhibitorDetailDummy",
+    "functionArray": [],
+    "service": "Exhibitor",
+    "path": "exhibitor/detail/dummy",
+    "method": "get",
+    "cachingKeys": ["$context.arguments"],
+    "ttl" : 120
+  },
+  {
+    "queryItem": "GetProductsDummy",
+    "functionArray": [],
+    "service": "Exhibitor",
+    "path": "product/list/dummy",
+    "method": "post",
+    "cachingKeys": ["$context.arguments"],
+    "ttl" : 120
+  },
+  {
+    "queryItem": "GetProductDetailDummy",
+    "functionArray": [],
+    "service": "Exhibitor",
+    "path": "product/detail/dummy",
+    "method": "get",
+    "cachingKeys": ["$context.arguments"],
+    "ttl" : 120
+  },
+  {
+    "queryItem": "GetProductRecommendationDummy",
+    "functionArray": [],
+    "service": "Exhibitor",
+    "path": "product/recommendation/dummy",
+    "method": "get",
+    "cachingKeys": ["$context.arguments"],
+    "ttl" : 120
+  },
+  {
+    "queryItem": "GetExhibitorProfiles",
+    "functionArray": [],
+    "service": "Exhibitor",
+    "path": "v1/internal/profiles",
+    "method": "post",
+    "cachingKeys": ["$context.arguments"],
+    "ttl" : 120
+  },
+  {
+    "queryItem": "GetExhibitorProfilesV2",
+    "functionArray": [],
+    "service": "Exhibitor",
+    "path": "v1/internal/profiles-v2",
+    "method": "post",
+    "cachingKeys": ["$context.arguments"],
+    "ttl" : 120
+  },
+  {
+    "queryItem": "GetExhibitorProfilesV3",
+    "functionArray": [],
+    "service": "Exhibitor",
+    "path": "v1/internal/profiles-v3",
+    "method": "post"
+  },
+  {
+    "queryItem": "GetContentSearch",
+    "functionArray": [],
+    "service": "Content",
+    "path": "content/fairCode/:fairCode/search",
+    "method": "get"
+  },
+  {
+    "queryItem": "GetVirtualBoothExhibitors",
+    "functionArray": [],
+    "service": "Exhibitor",
+    "path": "virtualbooth/get-exhibitors",
+    "method": "get",
+    "cachingKeys": ["$context.arguments"],
+    "ttl" : 120
+  },
+  {
+    "queryItem": "GetVirtualBoothExhibitorsDummy",
+    "functionArray": [],
+    "service": "Exhibitor",
+    "path": "virtualbooth/get-exhibitors/dummy",
+    "method": "post",
+    "cachingKeys": ["$context.arguments"],
+    "ttl" : 120
+  },
+  {
+    "queryItem": "GetAutoComplete",
+    "functionArray": [],
+    "service": "Content",
+    "path": "suggester/auto-complete",
+    "method": "get"
+  },
+  {
+    "queryItem": "GetC2MMeetings",
+    "functionArray": ["AuthFunctionId"],
+    "service": "C2M",
+    "path": "c2m/fairs/:fairCode/meetingListing",
+    "method": "post"
+  },
+  {
+    "queryItem": "CreateC2MMeeting",
+    "functionArray": ["AuthFunctionId"],
+    "service": "C2M",
+    "path": "c2m/fairs/:fairCode/meetings",
+    "method": "post"
+  },
+  {
+    "queryItem": "UpdateC2MMeeting",
+    "functionArray": ["AuthFunctionId"],
+    "service": "C2M",
+    "path": "c2m/fairs/:fairCode/meetings/:id",
+    "method": "put"
+  },
+  {
+    "queryItem": "GetC2MUnavailableTimeslots",
+    "functionArray": ["AuthFunctionId"],
+    "service": "C2M",
+    "path": "c2m/fairs/:fairCode/unavailableTimeslots",
+    "method": "get"
+  },
+  {
+    "queryItem": "GetCBMCombinedUnavailableTimeslots",
+    "functionArray": [],
+    "service": "C2M",
+    "path": "cbm/fairs/:fairCode/combinedUnavailableTimeslots",
+    "method": "get"
+  },
+  {
+    "queryItem": "GetCBMPendingTimeslots",
+    "functionArray": [],
+    "service": "C2M",
+    "path": "cbm/fairs/:fairCode/pendingTimeslots",
+    "method": "get"
+  },
+  {
+    "queryItem": "GetC2MCombinedUnavailableTimeslots",
+    "functionArray": ["AuthFunctionId"],
+    "service": "C2M",
+    "path": "c2m/fairs/:fairCode/combinedUnavailableTimeslots",
+    "method": "get"
+  },
+  {
+    "queryItem": "GetC2MUpcomingMeetingCollide",
+    "functionArray": ["AuthFunctionId"],
+    "service": "C2M",
+    "path": "c2m/fairs/:fairCode/upcomingMeetingCollide",
+    "method": "post"
+  },
+  {
+    "queryItem": "UpdateC2MUnavailableTimeslots",
+    "functionArray": ["AuthFunctionId"],
+    "service": "C2M",
+    "path": "c2m/fairs/:fairCode/unavailableTimeslots",
+    "method": "post"
+  },
+  {
+    "queryItem": "CreateCIPBuyerTimeslots",
+    "functionArray": ["AuthFunctionId"],
+    "service": "C2M",
+    "path": "c2m/fair/:fairCode/:fiscalYear/createCIPBuyerTimeslots",
+    "method": "post"
+  },
+  {
+    "queryItem": "GetC2MFairDates",
+    "functionArray": [],
+    "service": "Fair",
+    "path": "fair/:fairCode/dates",
+    "method": "get"
+  },
+  {
+    "queryItem": "GetCIPFairDates",
+    "functionArray": [],
+    "service": "Fair",
+    "path": "fair/getCIPFairDates/:fairCode/:fiscalYear",
+    "method": "get"
+  },
+  {
+    "queryItem": "GetC2MFairCombinedDates",
+    "functionArray": [],
+    "service": "Fair",
+    "path": "fair/:fairCode/combinedDates",
+    "method": "get"
+  },
+  {
+    "queryItem": "GetCombinedFairDateRange",
+    "functionArray": [],
+    "service": "Fair",
+    "path": "fair/:fairCode/combinedFairDateRange",
+    "method": "get",
+    "cachingKeys": ["$context.arguments"],
+    "ttl" : 120
+  },
+  {
+    "queryItem": "GetFairCodes",
+    "functionArray": [],
+    "service": "Fair",
+    "path": "fair/fairCodes",
+    "method": "get"
+  },
+  {
+    "queryItem": "GetFairListing",
+    "functionArray": [],
+    "service": "Fair",
+    "path": "fair/list",
+    "method": "get"
+  },
+  {
+    "mutationItem": "UpdateFairParticipantRegistration",
+    "functionArray": ["AuthFunctionId"],
+    "service": "Fair",
+    "path": "fair/:fairCode/fairParticipantRegistration",
+    "method": "put"
+  },
+  {
+    "queryItem": "ValidateRegFormLink",
+    "functionArray": [],
+    "service": "FairRegistration",
+    "path": "registration/verifyRegFormLink",
+    "method": "get"
+  },
+  {
+    "queryItem": "GetSsoProfilePrefill",
+    "functionArray": ["AuthFunctionId"],
+    "service": "Buyer",
+    "path": "profile/ssoPrefill",
+    "method": "get"
+  },
+  {
+    "mutationItem": "SubmitRegForm",
+    "functionArray": ["JwtExtractorFunctionId"],
+    "service": "FairRegistration",
+    "path": "registration/submitForm",
+    "method": "put"
+  },
+  {
+    "mutationItem": "SubmitCustomForm",
+    "functionArray": [],
+    "service": "FairRegistration",
+    "path": "customForm/submit",
+    "method": "put"
+  },
+  {
+    "mutationItem": "SubmitEnquiryForm",
+    "functionArray": [],
+    "service": "FairRegistration",
+    "path": "enquiryForm/submit",
+    "method": "put"
+  },
+  {
+    "queryItem": "GetUploadFilePresignedUrl",
+    "functionArray": [],
+    "service": "FairRegistration",
+    "path": "form/uploadFilePresignedUrl",
+    "method": "get"
+  },
+  {
+    "queryItem": "GetFormSubmissionKey",
+    "functionArray": [],
+    "service": "FairRegistration",
+    "path": "form/SubmissionKey",
+    "method": "get"
+  },
+  {
+    "queryItem": "VerifyCollidedSeminars",
+    "functionArray": ["AuthFunctionId"],
+    "service": "C2M",
+    "path": "c2m/fairs/:fairCode/verifyCollidedSeminars",
+    "method": "get"
+  },
+  {
+    "queryItem": "GetC2MMeeting",
+    "functionArray": ["AuthFunctionId"],
+    "service": "C2M",
+    "path": "c2m/fairs/:fairCode/meetings/:id",
+    "method": "get"
+  },
+  {
+    "queryItem": "GetC2MMeetingGuest",
+    "functionArray": [],
+    "service": "C2M",
+    "path": "c2m/fairs/:fairCode/meetings/:id/guest",
+    "method": "get"
+  },
+  {
+    "queryItem": "GetC2MUserConsent",
+    "functionArray": ["AuthFunctionId"],
+    "service": "C2M",
+    "path": "c2m/user/consent",
+    "method": "get"
+  },
+  {
+    "queryItem": "CreateC2MUserConsent",
+    "functionArray": ["AuthFunctionId"],
+    "service": "C2M",
+    "path": "c2m/user/consent",
+    "method": "post"
+  },
+  {
+    "queryItem": "GetC2MVideoConference",
+    "functionArray": ["AuthFunctionId"],
+    "service": "C2M",
+    "path": "c2m/fairs/:fairCode/meetings/:id/video-conference",
+    "method": "post"
+  },
+  {
+    "queryItem": "GetCBMVideoConference",
+    "functionArray": [],
+    "service": "C2M",
+    "path": "cbm/fairs/:fairCode/meetings/:id/video-conference",
+    "method": "post"
+  },
+  {
+    "queryItem": "GetC2MVideoConferenceAdmin",
+    "functionArray": ["AuthFunctionId"],
+    "service": "C2M",
+    "path": "cbm/fairs/:fairCode/meetings/:id/video-conference",
+    "method": "post"
+  },
+  {
+    "queryItem": "GetC2MVideoConferenceGuest",
+    "functionArray": [],
+    "service": "C2M",
+    "path": "c2m/fairs/:fairCode/meetings/:id/video-conference/guest",
+    "method": "post"
+  },
+  {
+    "queryItem": "GetC2MVideoConferenceZoom",
+    "functionArray": ["AuthFunctionId"],
+    "service": "C2M",
+    "path": "c2m/fairs/:fairCode/meetings/:meetingId/video-conference/switch-to-zoom",
+    "method": "post"
+  },
+  {
+    "queryItem": "GetC2MVideoConferenceZoomAdmin",
+    "functionArray": ["AuthFunctionId"],
+    "service": "C2M",
+    "path": "cbm/fairs/:fairCode/meetings/:meetingId/video-conference/switch-to-zoom",
+    "method": "post"
+  },
+  {
+    "queryItem": "EndC2MVideoConference",
+    "functionArray": ["AuthFunctionId"],
+    "service": "C2M",
+    "path": "c2m/fairs/:fairCode/meetings/:meetingId/video-conference",
+    "method": "delete"
+  },
+  {
+    "queryItem": "EndC2MVideoConferenceAdmin",
+    "functionArray": ["AuthFunctionId"],
+    "service": "C2M",
+    "path": "cbm/fairs/:fairCode/meetings/:meetingId/video-conference",
+    "method": "delete"
+  },
+  {
+    "queryItem": "GetC2MHiddenRecords",
+    "functionArray": ["AuthFunctionId"],
+    "service": "C2M",
+    "path": "c2m/fairs/:fairCode/hidden-records",
+    "method": "get"
+  },
+  {
+    "queryItem": "CreateC2MHiddenRecord",
+    "functionArray": ["AuthFunctionId"],
+    "service": "C2M",
+    "path": "c2m/fairs/:fairCode/hidden-records",
+    "method": "post"
+  },
+  {
+    "queryItem": "ShowIfBuyerHasBMList",
+    "functionArray": ["AuthFunctionId"],
+    "service": "C2M",
+    "path": "c2m/fairs/:fairCode/recommendations/:fairYear/showIfBuyerHasBMList",
+    "method": "get"
+  },
+    {
+    "queryItem": "GetC2MRecommendation",
+    "functionArray": ["AuthFunctionId"],
+    "service": "C2M",
+    "path": "c2m/fairs/:fairCode/recommendations",
+    "method": "get"
+  },
+  {
+    "queryItem": "UpdateC2MRecommendation",
+    "functionArray": ["AuthFunctionId"],
+    "service": "C2M",
+    "path": "c2m/fairs/:fairCode/recommendations/:id",
+    "method": "put"
+  },
+  {
+    "queryItem": "FindRecommendedBuyer",
+    "functionArray": ["AuthFunctionId"],
+    "service": "C2M",
+    "path": "c2m/fairs/:fairCode/recommendations/fiscalYear/:fiscalYear/exhibitors/:companyCcdId",
+    "method": "get"
+  },
+  {
+    "queryItem": "FindRecommendedExhibitor",
+    "functionArray": ["AuthFunctionId"],
+    "service": "C2M",
+    "path": "c2m/fairs/:fairCode/recommendations/fiscalYear/:fiscalYear/buyers",
+    "method": "get"
+  },
+  {
+    "queryItem": "BuyerRegistrationSyncSNS",
+    "functionArray": ["AuthFunctionId"],
+    "service": "Fair",
+    "path": "fair/buyerRegistrationSyncSNS",
+    "method": "post"
+  },
+    {
+    "queryItem": "UpdateWatchNowStatus",
+    "functionArray": [],
+    "service": "Fair",
+    "path": "fair/updateWatchNowStatus",
+    "method": "post"
+  },
+    {
+    "queryItem": "UpdatePlaybackStatus",
+    "functionArray": [],
+    "service": "Fair",
+    "path": "fair/updatePlaybackStatus",
+    "method": "post"
+  },
+  {
+    "queryItem": "GetRegistrationEligibility",
+    "functionArray": ["JwtExtractorFunctionId"],
+    "service": "FairRegistration",
+    "path": "registration/eligibility",
+    "method": "post"
+  },
+  {
+    "queryItem": "GetRegistrationEligibilityV2",
+    "functionArray": ["JwtExtractorFunctionId"],
+    "service": "FairRegistration",
+    "path": "registration/eligibilityV2",
+    "method": "post"
+  },
+  {
+    "queryItem": "GetRegisteredCombinedFairList",
+    "functionArray": ["AuthFunctionId"],
+    "service": "Fair",
+    "path": "profile/combinedFairList",
+    "method": "get"
+  },
+  {
+    "queryItem": "GetSeminarEventDetail",
+    "functionArray": [],
+    "service": "Fair",
+    "path": "seminars/:sbeSeminarId/eventDetail",
+    "method": "get"
+  },
+  {
+    "queryItem": "GetSeminar",
+    "functionArray": [],
+    "service": "Fair",
+    "path": "seminars/:sbeSeminarId",
+    "method": "get"
+  },
+  {
+    "queryItem": "GetRegisterSeminar",
+    "functionArray": ["AuthFunctionId"],
+    "service": "Fair",
+    "path": "seminars/getRegisterSeminar",
+    "method": "post"
+  },
+  {
+    "queryItem": "GetRegisteredSeminars",
+    "functionArray": ["AuthFunctionId"],
+    "service": "Fair",
+    "path": "seminars/getRegisteredSeminars",
+    "method": "post"
+  },
+  {
+    "queryItem": "GetRegisteredSeminarsByUser",
+    "functionArray": ["AuthFunctionId"],
+    "service": "Fair",
+    "path": "seminars/getRegisteredSeminarsByUser",
+    "method": "post"
+  },
+  {
+    "queryItem": "SaveSeminarRegistrationRecord",
+    "functionArray": ["AuthFunctionId"],
+    "service": "Fair",
+    "path": "seminars/saveSeminarRegistrationRecord",
+    "method": "post"
+  },
+  {
+    "queryItem": "EventRegistration",
+    "functionArray": [],
+    "service": "Fair",
+    "path": "seminars/eventRegistration",
+    "method": "post"
+  },
+  {
+    "queryItem": "SeminarRegistration",
+    "functionArray": [],
+    "service": "Fair",
+    "path": "seminars/seminarRegistration",
+    "method": "post"
+  },
+  {
+    "queryItem": "UpdateSeminarEventDetail",
+    "functionArray": [],
+    "service": "Fair",
+    "path": "seminars",
+    "method": "post"
+  },
+  {
+    "queryItem": "GetSelfRating",
+    "functionArray": [
+      "AuthFunctionId"
+    ],
+    "service": "Fair",
+    "path": "seminars/rating",
+    "method": "get"
+  },
+  {
+    "queryItem": "GetRatings",
+    "functionArray": [],
+    "service": "Fair",
+    "path": "seminars/ratings",
+    "method": "get"
+  },
+  {
+    "queryItem": "PostRating",
+    "functionArray": [
+      "AuthFunctionId"
+    ],
+    "service": "Fair",
+    "path": "seminars/rating",
+    "method": "post"
+  },
+  {
+    "queryItem": "GetRtmp",
+    "functionArray": [],
+    "service": "Fair",
+    "path": "rtmp",
+    "method": "post"
+  },
+  {
+    "queryItem": "GetBatchVideos",
+    "functionArray": [],
+    "service": "Fair",
+    "path": "video/batchFind",
+    "method": "post"
+  },
+  {
+    "queryItem": "UpsertVideo",
+    "functionArray": [],
+    "service": "Fair",
+    "path": "video",
+    "method": "post"
+  },
+  {
+    "queryItem": "UpsertBatchVideos",
+    "functionArray": [],
+    "service": "Fair",
+    "path": "video/batch",
+    "method": "post"
+  },
+  {
+    "queryItem": "JoinSeminar",
+    "functionArray": [],
+    "service": "Fair",
+    "path": "seminars/join",
+    "method": "post"
+  },
+  {
+    "queryItem": "EndSeminar",
+    "functionArray": [],
+    "service": "Fair",
+    "path": "seminars/:sbeSeminarId",
+    "method": "delete"
+  },
+  {
+    "queryItem": "GetCBMBuyer",
+    "functionArray": [],
+    "service": "C2M",
+    "path": "cbm/fairs/:fairCode/:fairYear/buyers",
+    "method": "post"
+  },
+  {
+    "queryItem": "GetCBMExhibitor",
+    "functionArray": [],
+    "service": "C2M",
+    "path": "cbm/fairs/:fairCode/:fairYear/exhibitors",
+    "method": "post"
+  },
+  {
+    "queryItem": "GetCBMMeeting",
+    "functionArray": [],
+    "service": "C2M",
+    "path": "cbm/fairs/:fairCode/:fairYear/meetings",
+    "method": "post"
+  },
+  {
+    "queryItem": "CreateCBMMeeting",
+    "functionArray": [],
+    "service": "C2M",
+    "path": "cbm/fairs/:fairCode/meetings/create",
+    "method": "post"
+  },
+  {
+    "queryItem": "GetCBMNearestTimeslot",
+    "functionArray": [],
+    "service": "C2M",
+    "path": "cbm/fairs/:fairCode/:fairYear/timeslot",
+    "method": "get"
+  },
+  {
+    "queryItem": "GetCBMCountryCode",
+    "functionArray": [],
+    "service": "C2M",
+    "path": "cbm/countryCode",
+    "method": "get"
+  },
+  {
+    "queryItem": "GetCBMPavilion",
+    "functionArray": [],
+    "service": "C2M",
+    "path": "cbm/pavilion",
+    "method": "get"
+  },
+  {
+    "queryItem": "GetCBMOfficeCode",
+    "functionArray": [],
+    "service": "C2M",
+    "path": "cbm/branchOfficeCode",
+    "method": "get"
+  },
+  {
+    "queryItem": "GetCBMTargetMarketCode",
+    "functionArray": [],
+    "service": "C2M",
+    "path": "cbm/targetMarketCode",
+    "method": "get"
+  },
+  {
+    "queryItem": "GetCBMNobCode",
+    "functionArray": [],
+    "service": "C2M",
+    "path": "cbm/nobCode",
+    "method": "get"
+  },
+  {
+    "queryItem": "CancelCBMMeeting",
+    "functionArray": [],
+    "service": "C2M",
+    "path": "cbm/fairs/:fairCode/meetings/:id/cancel",
+    "method": "put"
+  },
+  {
+    "queryItem": "GetFairSetting",
+    "functionArray": [],
+    "service": "C2M",
+    "path": "c2m/fairSetting/:fairCode",
+    "method": "post"
+  },
+  {
+    "queryItem": "SearchFairParticipants",
+    "functionArray": ["AuthFunctionId"],
+    "service": "Fair",
+    "path": "fair/searchFairParticipants",
+    "method": "post"
+  },
+  {
+    "queryItem": "SearchFairParticipantsV2",
+    "functionArray": ["AuthFunctionId"],
+    "service": "Fair",
+    "path": "fair/searchFairParticipantsV2",
+    "method": "post"
+  },
+  {
+    "queryItem": "GetMessageCentre",
+    "functionArray": [],
+    "service": "Message",
+    "path": "admin/v1/message-centre/msg-centre",
+    "method": "post"
+  },
+  {
+    "queryItem": "GetIAList",
+    "functionArray": [],
+    "service": "Content",
+    "path": "definition/council/raw-json_obsolete",
+    "method": "get"
+  },
+  {
+    "queryItem": "UpdateC2MParticipantStatusForBuyer",
+    "functionArray": ["AuthFunctionId"],
+    "service": "Fair",
+    "path": "fair/updateC2MParticipantStatusForBuyer",
+    "method": "post"
+  },
+  {
+    "queryItem": "UpdateC2MParticipantStatusForExhibitor",
+    "functionArray": [
+      "AuthFunctionId"
+    ],
+    "service": "Exhibitor",
+    "path": "exhibitor/updateC2MParticipantStatusForExhibitor",
+    "method": "post"
+  },
+  {
+    "queryItem": "UpdateC2MParticipantTimezoneForExhibitor",
+    "functionArray": [
+      "AuthFunctionId"
+    ],
+    "service": "Exhibitor",
+    "path": "exhibitor/updateC2MParticipantTimezoneForExhibitor",
+    "method": "post"
+  },
+  {
+    "queryItem": "GetNotification",
+    "functionArray": ["AuthFunctionId"],
+    "service": "Notification",
+    "path": "retrieve-notification",
+    "method": "post"
+  },
+  {
+    "queryItem": "GetUnreadNotification",
+    "functionArray": ["AuthFunctionId"],
+    "service": "Notification",
+    "path": "unread-notification",
+    "method": "post"
+  },
+  {
+    "queryItem": "GetFairParticipantsProfile",
+    "functionArray": ["AuthFunctionId"],
+    "service": "Fair",
+    "path": "fair/getFairParticipantsProfile/:fairCode",
+    "method": "get"
+  },
+  {
+    "queryItem": "GetFairParticipantsProfileWithCombinedFair",
+    "functionArray": ["AuthFunctionId"],
+    "service": "Fair",
+    "path": "profile/getFairParticipantsProfileWithCombinedFair",
+    "method": "get"
+  },
+  {
+    "queryItem": "GetC2MGroupedCombinedTimeslot",
+    "functionArray": [],
+    "service": "Fair",
+    "path": "fair/:fairCode/groupedCombinedDates/:type",
+    "method": "get"
+  },
+  {
+    "queryItem": "PutMarkChannelReadStatus",
+    "functionArray": ["AuthFunctionId"],
+    "service": "Notification",
+    "path": "mark-channel-all-read",
+    "method": "post"
+  },
+  {
+    "queryItem": "GetExhibitorProfileWithCombinedFair",
+    "functionArray": ["AuthFunctionId"],
+    "service": "Exhibitor",
+    "path": "v1/internal/profiles/getExhibitorProfileWithCombinedFair",
+    "method": "get"
+  },
+  {
+    "queryItem": "GetAndActivateSendbirdQuota",
+    "functionArray": [],
+    "service": "C2M",
+    "path": "reuseLicense/getAndActivateSendbirdQuota",
+    "method": "post"
+  },
+  {
+    "queryItem": "GetMessageCenterSupportedAllLanguageList",
+    "functionArray": [],
+    "service": "C2M",
+    "path": "c2m/getMessageCenterSupportedAllLanguageList",
+    "method": "get"
+  },
+  {
+    "queryItem": "CheckSensitiveWord",
+    "functionArray": [],
+    "service": "C2M",
+    "path": "chatroom/checkSensitiveWord",
+    "method": "post"
+  },
+  {
+    "queryItem": "GetAndSetC2MLoginStatus",
+    "functionArray": [
+      "AuthFunctionId"
+    ],
+    "service": "C2M",
+    "path": "c2m/getAndSetC2MLoginStatus",
+    "method": "post"
+  },
+  {
+    "queryItem": "GetUserProfileForMeetingCreation",
+    "functionArray": [
+      "AuthFunctionId"
+    ],
+    "service": "C2M",
+    "path": "c2m/getUserProfileForMeetingCreation",
+    "method": "post"
+  },
+  {
+    "queryItem": "UpdateMessageCenterUserPreference",
+    "functionArray": [
+      "AuthFunctionId"
+    ],
+    "service": "C2M",
+    "path": "c2m/updateMessageCenterUserPreference",
+    "method": "post"
+  },
+  {
+    "queryItem": "GetLatestAORFairList",
+    "functionArray": [],
+    "service": "Content",
+    "path": "definition/getLatestAORFairList",
+    "method": "get",
+    "cachingKeys": ["$context.arguments"],
+    "ttl" : 120
+  },
+  {
+    "queryItem": "SearchAORFair",
+    "functionArray": [],
+    "service": "Content",
+    "path": "definition/searchAORFair",
+    "method": "get",
+    "cachingKeys": ["$context.arguments"],
+    "ttl" : 120
+  },
+  {
+    "queryItem": "SearchPublishedTradeshowFair",
+    "functionArray": [],
+    "service": "Content",
+    "path": "definition/searchPublishedTradeshowFair",
+    "method": "get",
+    "cachingKeys": ["$context.arguments"],
+    "ttl" : 120
+  },
+  {
+    "queryItem": "GetFormTemplate",
+    "functionArray": [],
+    "service": "Content",
+    "path": "wordpress/formTemplate",
+    "method": "get"
+  },
+  {
+    "queryItem": "GetFormTemplateV2",
+    "functionArray": [],
+    "service": "Content",
+    "path": "wordpress/formTemplateV2",
+    "method": "get"
+  },
+  {
+    "queryItem": "GetFormPreviewTemplate",
+    "functionArray": [],
+    "service": "Content",
+    "path": "wordpress/formTemplate_preview",
+    "method": "get"
+  },
+  {
+    "queryItem": "GetFormPreviewTemplateV2",
+    "functionArray": [],
+    "service": "Content",
+    "path": "wordpress/formTemplateV2_preview",
+    "method": "get"
+  },
+  {
+    "queryItem": "PostFeedback",
+    "functionArray": [],
+    "service": "C2M",
+    "path": "c2m/video-conference/feedback",
+    "method": "post"
+  },
+  {
+    "queryItem": "GetExhibitorDataByMeetingId",
+    "functionArray": [
+      "AuthFunctionId"
+    ],
+    "service": "C2M",
+    "path": "tealium/getExhibitorDataByMeetingId",
+    "method": "post"
+  },
+  {
+    "queryItem": "DeactivateSendbirdLicenseRecord",
+    "functionArray": [],
+    "service": "C2M",
+    "path": "reuseLicense/deactivateSendbirdLicenseRecord/:meetingId",
+    "method": "get"
+  },
+  {
+    "queryItem": "GetVodStatus",
+    "functionArray": [],
+    "service": "C2M",
+    "path": "cbm/getVodStatus",
+    "method": "post"
+  },
+  {
+    "queryItem": "GetSpeakers",
+    "functionArray": [],
+    "service": "Fair",
+    "path": "conference/speakers",
+    "method": "get"
+  },
+  {
+    "queryItem": "GetSeminarsForConference",
+    "functionArray": [],
+    "service": "Fair",
+    "path": "conference/programme",
+    "method": "post"
+  },
+  {
+    "queryItem": "GetC2MRecommendedByTDC",
+    "functionArray": [
+      "AuthFunctionId"
+    ],
+    "service": "C2M",
+    "path": "c2m/fairs/:fairCode/recommendations/:fairYear/recommendedByTDC",
+    "method": "get"
+  },
+  {
+    "queryItem": "UpdateRecommendedByTDCStatus",
+    "functionArray": [
+      "AuthFunctionId"
+    ],
+    "service": "C2M",
+    "path": "c2m/fairs/:fairCode/recommendations/updateRecommendedByTDCStatus",
+    "method": "post"
+  },
+  {
+    "queryItem": "GetC2MPendingRecommendation",
+    "functionArray": ["AuthFunctionId"],
+    "service": "C2M",
+    "path": "c2m/fairs/:fairCode/recommendations/:fairYear/pendingRecommendation",
+    "method": "get"
+  },
+  {
+    "queryItem": "GetUserFairData",
+    "functionArray": [],
+    "service": "C2M",
+    "path": "c2m/userFairData",
+    "method": "get"
+  },
+  {
+    "queryItem": "GetC2MConfig",
+    "functionArray": [],
+    "service": "C2M",
+    "path": "c2m/getConfigValue",
+    "method": "post"
+  },
+  {
+    "queryItem": "GetC2MConfigById",
+    "functionArray": [],
+    "service": "C2M",
+    "path": "c2m/getConfigValueById"
+  },
+  {
+    "queryItem": "GetSeminarsForConferenceV2",
+    "functionArray": [],
+    "service": "Fair",
+    "path": "conference/programme/v2",
+    "method": "post"
+  },
+  {
+    "queryItem": "SearchConferenceParticipants",
+    "functionArry": [],
+    "service": "Fair",
+    "path": "conference/participants",
+    "method": "post"
+  },
+  {
+    "queryItem": "GetConferenceParticipant",
+    "functionArray": [],
+    "service": "Fair",
+    "path": "conference/participant",
+    "method": "post"
+  },
+  {
+    "queryItem": "GetCustomQuestions",
+    "functionArray": [],
+    "service": "Fair",
+    "path": "conference/customQuestions",
+    "method": "post"
+  },
+  {
+    "queryItem": "GetCountryList",
+    "functionArry": [],
+    "service": "Fair",
+    "path": "conference/countryList/:lang",
+    "method": "get"
+  },
+  {
+    "queryItem": "GetSeminarsForConferenceOptimized",
+    "functionArray": [],
+    "service": "Fair",
+    "path": "conference/programmeOptimized",
+    "method": "post"
+  },
+ {
+    "mutationItem": "SubmitAORForm",
+    "functionArray": [
+      "JwtExtractorFunctionId"
+    ],
+    "service": "FairRegistration",
+    "path": "registration/submitAORForm",
+    "method": "put"
+  },
+  {
+    "mutationItem": "SubmitCombinedFairForm",
+    "functionArray": ["JwtExtractorFunctionId"],
+    "service": "FairRegistration",
+    "path": "registration/submitCombinedFairForm",
+    "method": "put"
+  },
+  {
+    "queryItem": "GetTotalNumOfTDCRecommend",
+    "functionArray": [
+      "AuthFunctionId"
+    ],
+    "service": "C2M",
+    "path": "c2m/fairs/:fairCode/recommendations/:fairYear/totalNumOfTDCRecommend",
+    "method": "get"
+  },
+  {
+    "queryItem": "ApplyAllUnavailableTimeslots",
+    "functionArray": [
+      "AuthFunctionId"
+    ],
+    "service": "C2M",
+    "path": "c2m/applyAllUnavailableTimeslots",
+    "method": "post"
+  },
+  {
+    "queryItem": "GetUserSeminarRegistrations",
+    "functionArray": [
+      "AuthFunctionId"
+    ],
+    "service": "Fair",
+    "path": "conference/getSeminarRegistrations",
+    "method": "post"
+  },
+  {
+    "queryItem": "CountUnavailableTimeslot",
+    "functionArray": [
+      "AuthFunctionId"
+    ],
+    "service": "C2M",
+    "path": "c2m/countUnavailableTimeslot",
+    "method": "post"
+  },
+  {
+    "queryItem": "UpdateUserSeminarRegistration",
+    "functionArray": [
+      "AuthFunctionId"
+    ],
+    "service": "Fair",
+    "path": "conference/updateSeminarRegistration",
+    "method": "post"
+  },
+  {
+    "queryItem": "GetOneSeminarForConf",
+    "functionArray": [],
+    "service": "Fair",
+    "path": "conference/:sbeSeminarId",
+    "method": "get"
+  },
+  {
+    "queryItem": "GetOneSeminarForConfV2",
+    "functionArray": [],
+    "service": "Fair",
+    "path": "conference/:sbeSeminarId/v2",
+    "method": "get"
+  },
+  {
+    "queryItem": "GetSeminarEventDetailForConf",
+    "functionArray": [],
+    "service": "Fair",
+    "path": "conference/:sbeSeminarId/eventDetail",
+    "method": "get"
+  },
+  {
+    "queryItem": "GetConferenceParticipantInfo",
+    "functionArray": [
+      "AuthFunctionId"
+    ],
+    "service": "Fair",
+    "path": "conference/participant",
+    "method": "post"
+  },
+  {
+    "queryItem": "GetSeminarsForConferenceV3",
+    "functionArray": [],
+    "service": "Fair",
+    "path": "conference/programme/v3",
+    "method": "post"
+  },
+  {
+    "queryItem": "CheckSeminarIsEnded",
+    "functionArray": [],
+    "service": "Fair",
+    "path": "conference/:sbeSeminarId/ended",
+    "method": "get"
+  }
+]
+
+

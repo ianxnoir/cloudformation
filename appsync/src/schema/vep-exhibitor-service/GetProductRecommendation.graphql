@@ -1,0 +1,22 @@
+extend type Query {
+	GetProductRecommendation(
+		fairCode: String,
+		lang: String,
+		numResults: Int,
+		tealiumId: String,
+		ssouid: String
+	): ProductRecommendation
+}
+
+type ProductRecommendation {
+	timestamp: String
+	status: Int
+	from: Int
+	size: Int
+	total_size: Int
+    data: WrappedProductRecommendationData
+}
+
+type WrappedProductRecommendationData {
+	hits: [ProductDetail]
+}

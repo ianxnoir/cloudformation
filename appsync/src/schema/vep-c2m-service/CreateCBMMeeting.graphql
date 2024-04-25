@@ -1,0 +1,64 @@
+extend type Query {
+  CreateCBMMeeting(
+    fairCode: String
+    data: CreateCBMMeetingData
+  ): CreateCBMMeetingResponse
+}
+
+input CreateCBMMeetingData {
+  name: String
+  message: String
+  type: Int
+  f2fLocation: String
+  assignerRole: String
+
+  requesterFirstName: String
+  requesterLastName: String
+  requesterSsoUid: String
+  requesterRole: String
+  requesterCompanyName: String
+  requesterSupplierUrn: String
+  requesterCountryCode: String
+  requesterCompanyLogo: String
+
+  responderSsoUid: String
+  responderRole: String
+  responderFirstName: String
+  responderLastName: String
+  responderCompanyName: String
+  responderSupplierUrn: String
+  responderCountryCode: String
+  responderCompanyLogo: String
+  responderFairCode: String
+  responderFiscalYear: String
+
+  startTime: String
+  endTime: String
+}
+
+type CreateCBMMeetingResponse {
+  status: Int
+  data: CreateCBMMeeting
+  message: String
+}
+
+type CreateCBMMeeting {
+  id: Int
+  fairCode: String
+  name: String
+  message: String
+  type: String
+  f2fLocation: String
+  requesterSsoUid: String
+  requesterRole: String
+  isRequesterJoined: String
+  responderSsoUid: String
+  responderRole: String
+  isResponderJoined: String
+  status: String
+  startTime: String
+  endTime: String
+  rescheduledTo: String
+  cancelledBy: String
+  cancelledReason: String
+}

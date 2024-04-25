@@ -1,0 +1,19 @@
+type Query
+type Mutation
+scalar AWSJSON 
+scalar AWSTimestamp
+scalar AWSDateTime
+
+schema {
+    query: Query
+	mutation: Mutation
+}
+
+type GeneralSchema {
+	timestamp: String
+	status: Int
+	data: AWSJSON
+	from: Int
+	size: Int
+	total_size: Int
+}

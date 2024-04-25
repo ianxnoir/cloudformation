@@ -1,0 +1,59 @@
+extend type Query {
+  UpdateSeminarEventDetail(
+    sbeSeminarId: String
+    streamingType: String
+    surveyLink: String
+    pigeonholeSessionId: Int
+    pigeonholePasscode: String
+    kol: FairKolDetailInput
+    vod: [FairVodDetailInput]
+    rtmp: [FairRtmpDetailInput]
+  ): FairUpdateSeminarResponse
+}
+
+type FairUpdateSeminarResponse {
+  data: FairSeminarEntity
+}
+
+type FairSeminarEntity {
+  id: Int
+  sbeSeminarId: String
+  streamingType: String
+  surveyLink: String
+  pigeonholeSessionId: Int
+  pigeonholePasscode: String
+  kol: FairKolDetail
+  vods: [FairVodDetail]
+  rtmps: [FairRtmpDetail]
+  creationTime: String
+  lastUpdatedAt: String
+  lastUpdatedBy: String
+  endAt: String
+}
+
+input FairKolDetailInput {
+  id: Int
+  platformType: String
+  platformId: String
+  platformUrl: String
+  playbackVideoId: Int
+}
+
+input FairVodDetailInput {
+  id: Int
+  language: String
+  defaultLanguage: Boolean
+  liveVideoId: Int
+  playbackVideoId: Int
+}
+
+input FairRtmpDetailInput {
+  id: Int
+  language: String
+  defaultLanguage: Boolean
+  link: String
+  key: String
+  liveUrl: String
+  expiredAt: String
+  playbackVideoId: Int
+}

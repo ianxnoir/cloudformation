@@ -1,0 +1,24 @@
+extend type Mutation {
+    UpdateC2MBuyerProfile(
+        fairCode: String!,
+        productInterest: [UpdateC2MBuyerProductInterestData],
+        productStrategy: [String],
+        targetPreferredMarkets: [String],
+    ): UpdateC2MBuyerProfileResponse
+}
+
+input UpdateC2MBuyerProductInterestData {
+    stId: String
+    iaId: String
+    teCode: String
+}
+
+type UpdateC2MBuyerProfileResponse {
+    timestamp: AWSTimestamp
+    status: Int
+    data: UpdateC2MBuyerProfileResponseData
+}
+
+type UpdateC2MBuyerProfileResponseData {
+    isSuccess: Boolean
+}

@@ -1,0 +1,24 @@
+extend type Query {
+  GetFormProductInterestOptions(
+    fairCode: String
+    lang: String
+  ): GetFormProductInterestOptionsResponse
+}
+
+type GetFormProductInterestOptionsResponse {
+  timestamp: String
+  status: Int
+  data: GetFormProductInterestOptionsData
+}
+
+type GetFormProductInterestOptionsData {
+  productInterests: ProductInterestData
+  productInterestFieldIdList: [String]
+  productInterestOptions: ProductInterestOptionsData
+}
+
+type ProductInterestOptionsData {
+  br_bm_product_interest: String
+  br_bm_product_interest_ip: String
+  br_bm_product_interest_licensing: String
+}

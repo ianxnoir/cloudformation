@@ -1,0 +1,53 @@
+extend type Query {
+  GetBuyerDetailsForExhibitor(
+    lang: String
+    buyerFairCode: String
+    buyerFiscalYear: String
+    buyerSsoUid: String
+  ): GetBuyerDetailsForExhibitorResponse
+}
+
+type GetBuyerDetailsForExhibitorResponse {
+  timestamp: String
+  status: Int
+  data: GetBuyerDetailsForExhibitorData
+}
+
+type GetBuyerDetailsForExhibitorData {
+  title: String
+  firstName: String
+  lastName: String
+  postalCode: String
+  addressCountryCode: FairParticipantRegistrationNestedObject
+  stateOrProvinceCode: FairParticipantRegistrationNestedObject
+  cityCode: FairParticipantRegistrationNestedObject
+  addressLine1: String
+  addressLine2: String
+  addressLine3: String
+  addressLine4: String
+  ssoUid: String
+  emailId: String
+  fairCode: String
+  fiscalYear: String
+  displayName: String
+  initial: String
+  position: String
+  mobilePhoneCountryCode: String
+  mobilePhoneNumber: String
+  companyName: String
+  companyWebsite: String
+  companyBackground: String
+  companyPhoneCountryCode: String
+  companyPhoneAreaCode: String
+  companyPhonePhoneNumber: String
+  companyPhoneExtension: String
+  nob: [FairParticipantRegistrationNestedObject]
+  dataPerFair: [BuyerDetailEntry]
+}
+
+type BuyerDetailEntry {
+  fieldId: String
+  label: String
+  fieldType: String
+  values: [FormDataValue]
+}

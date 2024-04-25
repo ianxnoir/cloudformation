@@ -1,0 +1,59 @@
+extend type Query {
+  SearchFairParticipants(
+    ccdid: String
+    keyword: String
+    lang: String!
+    from: Int!
+    size: Int!
+    fairCodes: [String]
+    filterParticipatingFair: [String]
+    filterCountry: [String]
+    filterNob: [String]
+    filterProductCategory: [String]
+    alphabet: String
+    ssoUidList: [String]
+    browserCountry: String
+  ): SearchFairParticipantsResponseType
+}
+
+type SearchFairParticipantsResponseType {
+  data: SearchFairParticipantsResponseData
+}
+
+type SearchFairParticipantsResponseData {
+  aggregations: buyerAggregations
+  hits: [userListType]
+  from: Int
+  size: Int
+  total_size: Int
+  sensitiveKeyword: Boolean
+}
+
+type buyerAggregations {
+  participatingFair: [commonResponseType]
+  countrySymbol: [commonResponseType]
+  natureofBusinessSymbols: [commonResponseType]
+  productCategoryList: [commonResponseType]
+}
+
+type commonResponseType {
+  status: Int
+  id: String
+  label: String
+}
+
+type userListType {
+  fairParticipantId: String 
+  firstName: String
+  lastName: String
+  initial: String
+  displayName: String
+  position: String 
+  companyName: String 
+  country: String 
+  countryCode: String 
+  ssoUid: String  
+  emailId: String
+  fairCode: String
+  fiscalYear: String
+}

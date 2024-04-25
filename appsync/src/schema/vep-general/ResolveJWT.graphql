@@ -1,0 +1,14 @@
+extend type Query {
+  ResolveJWT: ResolveJWTResponse
+}
+
+type ResolveJWTResponse {
+  timestamp: String
+  status: Int
+  data: ResolveJWTData
+}
+
+type ResolveJWTData {
+  accessToken: String
+  ssoUid: String
+}

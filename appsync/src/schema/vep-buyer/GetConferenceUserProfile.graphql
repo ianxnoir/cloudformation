@@ -1,0 +1,41 @@
+extend type Query {
+  GetConferenceUserProfile(
+    fairCodes: [String]
+    isLogin: Boolean
+    fromAccessLink: Boolean
+  ): GetConferenceUserProfileResponse
+}
+
+type GetConferenceUserProfileResponse {
+  timestamp: String
+  status: Int
+  data: GetConferenceUserProfileData
+}
+
+type GetConferenceUserProfileData {
+  ssoUid: String
+  title: String
+  firstName: String
+  lastName: String
+  emailId: String
+  companyName: String
+  companyCountry: String
+  preferredChannels: [String]
+  preferredLanguage: String
+  userTimezone: String
+  roleByFair: [ConferenceUserProfileRoleData]
+  isLogin: Boolean
+  fromAccessLink: Boolean
+}
+
+type ConferenceUserProfileRoleData {
+  fairCode: String
+  participantType: String
+  tier: String
+  companyCcdId: String
+  suppierUrn: String
+  exhibitorType: String
+  c2mStatus: String 
+  registrationStatus: String
+  registrationNo: String
+}

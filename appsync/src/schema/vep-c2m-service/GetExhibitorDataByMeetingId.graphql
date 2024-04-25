@@ -1,0 +1,33 @@
+extend type Query {
+  GetExhibitorDataByMeetingId(
+    meetingId: String
+    exhibitorUrn: String
+    fairCode: String
+  ): GetExhibitorDataByMeetingIdResponse
+}
+
+type GetExhibitorDataByMeetingIdResponse {
+  status: Int
+  data: GetExhibitorDataByMeetingIdResponseData
+  message: String
+}
+
+type GetExhibitorDataByMeetingIdResponseData {
+  meetingId: String
+  fairCode: String
+  fairYear: String
+  buyerSsoUid: String
+  exhibitorUrn: String
+  supplierId: String
+  supplierCompanyName: String
+  supplierType: String
+  supplierCountry: commonTriangleLanguageResponse
+  supploerNobs: [commonTriangleLanguageResponse]
+}
+
+type commonTriangleLanguageResponse {
+  en: String
+  tc: String
+  sc: String
+}
+

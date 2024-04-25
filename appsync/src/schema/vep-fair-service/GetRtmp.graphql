@@ -1,0 +1,26 @@
+extend type Query {
+  GetRtmp(
+    sbeSeminarId: String
+    endAt: String
+    languages: [String]
+    fairCode: String
+  ): GetRtmpResponse
+}
+
+type GetRtmpResponse {
+  data: [GetRtmpResponseData]
+}
+
+type GetRtmpResponseData {
+  id: Int
+  language: String
+  defaultLanguage: Boolean
+  link: String
+  key: String
+  liveUrl: String
+  expiredAt: String
+  playbackVideo: FairVideoDetail
+  lastUpdatedBy: String
+  lastUpdatedAt: String
+  creationTime: String
+}

@@ -1,0 +1,27 @@
+extend type Query {
+  SeminarRegistration(
+   seminarReg: [SeminarAnswersWithSeminarId]
+   userData:[userDetail]
+   eventId:String
+   systemCode:String
+  ): SeminarRegistrationResponse
+}
+
+type SeminarRegistrationResponse {
+    status: Int
+    message: String
+    successRecords: [SuccessRecords]
+    failRecords:[FailRecords]
+}
+
+
+input SeminarAnswersWithSeminarId {
+    seminarId:String
+    isCheckedOption1:String
+    isCheckedOption2:String
+    isCheckedOption3:String
+    option1Ans:String
+    option2Ans:String
+    option3Ans:String
+}
+

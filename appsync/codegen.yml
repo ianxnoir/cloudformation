@@ -1,0 +1,7 @@
+overwrite: true
+schema: "./appsync/target/appsync.graphql"
+documents: null
+generates:
+  ./appsync/target/graphql.schema.json:
+    plugins:
+      - "introspection"

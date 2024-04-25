@@ -1,0 +1,20 @@
+extend type Query {    
+    GetFairParticipantsProfile(
+        fairCode: String!
+    ): GetFairParticipantsProfileResponse
+}
+
+type GetFairParticipantsProfileResponse {
+    status: Int
+    data: BuyerProfileData
+    message: String
+}
+
+type BuyerProfileData {
+    buyerFirstName: String
+    buyerLastName: String
+    buyerFiscalYear: String
+    buyerFairCode: String
+    buyerCompanyName: String
+    buyerCountryCode: String
+}

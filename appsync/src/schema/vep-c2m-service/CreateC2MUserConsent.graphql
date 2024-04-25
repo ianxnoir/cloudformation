@@ -1,0 +1,16 @@
+extend type Query {
+  CreateC2MUserConsent: CreateC2MUserConsentResponse
+}
+
+type CreateC2MUserConsentResponse {
+    data: CreateC2MUserConsentData!
+}
+
+type CreateC2MUserConsentData {
+    id: Int
+    ssoUid: String 
+    key: String
+    value: String
+    creationTime: AWSDateTime
+    lastUpdatedAt: AWSDateTime
+}

@@ -1,0 +1,20 @@
+extend type Query {
+    GetProductDetail(
+        productUrn: String,
+        lang: String,
+        fairCode: String
+    ): ProductDetailESSearchResponse
+}
+
+type ProductDetailESSearchResponse {
+    timestamp: String
+    status: Int
+    data: ProductDetail
+}
+
+type ProductDetailData {
+    took: Int
+    timed_out: Boolean
+    hits: AWSJSON
+    _shards: AWSJSON
+}

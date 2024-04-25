@@ -1,0 +1,34 @@
+extend type Query {
+    GetMenuHeader(
+        fair: String,
+        lang: String,
+    ): MenuHeader
+
+    GetPreviewMenuHeader(
+        fair: String,
+        lang: String,
+    ): MenuHeader
+}
+
+type Children {
+  id: Int
+  title: String
+  url: String
+  target: String
+  children: [Children]
+}
+
+type MenuHeaderData {
+  id: Int
+  title: String
+  url: String
+  target: String
+  children: [Children]
+}
+
+type MenuHeader {
+  is_cache: Boolean
+  updated_at: String
+  updated_timestamp: Int
+  data: AWSJSON
+}

@@ -1,0 +1,12 @@
+extend type Query {
+  EndSeminar(sbeSeminarId: String): FairEndSeminarResponse
+}
+
+type FairEndSeminarResponse {
+  data: FairEndSeminarDetail
+}
+
+type FairEndSeminarDetail {
+  closeResponses: [String]
+  endResponses: [String]
+}

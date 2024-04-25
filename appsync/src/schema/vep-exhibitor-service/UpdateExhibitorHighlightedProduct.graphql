@@ -1,0 +1,16 @@
+extend type Mutation {
+    UpdateExhibitorHighlightedProduct(
+        fairCode: String!,
+        productUrns: [String],
+    ): UpdateExhibitorHighlightedProductResponse
+}
+
+type UpdateExhibitorHighlightedProductResponse{
+    timestamp: AWSTimestamp
+    status: Int
+    data: UpdateExhibitorHighlightedProductResponseData
+}
+
+type UpdateExhibitorHighlightedProductResponseData{
+    isSuccess: Boolean
+}

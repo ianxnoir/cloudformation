@@ -1,0 +1,25 @@
+extend type Query {
+    GetExhibitorProfilesV3(
+        contactEmail: String
+    ): ExhibitorProfileResponseV3
+}
+
+type ExhibitorProfileResponseV3 {
+    timestamp: String
+    status: Int
+    data: ExhibitorParticipantV3
+}
+
+type ExhibitorParticipantV3 { 
+    userTimezone: String
+    contactEmail: String
+    records: [ExhibitorProfileDetailV3]
+}
+
+type ExhibitorProfileDetailV3 {
+    companyCCDID: String
+    fiscalYear: String
+    fairCode: String
+    eoaFairId: String
+    applicationId: String
+}

@@ -1,0 +1,22 @@
+extend type Query {
+  GetC2MVideoConferenceZoom(
+    fairCode: String
+    meetingId: String
+  ): C2MVideoConferenceZoomResponse
+
+  GetC2MVideoConferenceZoomAdmin(
+    fairCode: String
+    meetingId: String
+  ): C2MVideoConferenceZoomResponse
+}
+
+type C2MVideoConferenceZoomResponse {
+  data: C2MVideoConferenceZoomData!
+}
+
+type C2MVideoConferenceZoomData {
+  meetingId: String
+  zoomId: String
+  zoomStartUrl: String
+  zoomJoinUrl: String
+}

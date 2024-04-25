@@ -1,0 +1,19 @@
+extend type Query {
+  UpdateC2MParticipantTimezoneForExhibitor(
+    update: C2MParticipantDataTimezoneUpdate
+    condition: C2MParticipantDataTimezoneCondition
+  ): UpdateC2MParticipantDataForExhibitorResponse
+}
+
+input C2MParticipantDataTimezoneUpdate {
+  userTimezone: String
+}
+
+input C2MParticipantDataTimezoneCondition {
+  contactEmail: String
+}
+
+type UpdateC2MParticipantDataForExhibitorResponse {
+  status: Int
+  affectedRecords: Int
+}

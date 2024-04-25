@@ -1,0 +1,118 @@
+extend type Query {
+  GetSeminarsForConference(
+    sbeParams: SbeParams
+    criteria: Criteria
+  ): ConferenceSeminarsResponse
+}
+
+input SbeParams {
+  vmsProjectCode: String
+  vmsProjectYear: String
+  systemCode: String
+  language: String
+}
+
+input Criteria {
+  firstCriteria: String
+  secondCriteria: String
+}
+
+type UniqueCategoryDetails{
+  identifier: String
+  type: String
+  values: [String]
+}
+
+
+type DataFromBnRes{
+  seminarData:  [ConferenceSeminar]
+  categories: [UniqueCategoryDetails]
+  sbeFooter: String
+  seminarDataAmount: Int
+}
+
+type ConferenceSeminarsResponse {
+  timestamp: String
+  status: Int
+  data: [DataFromBnRes]
+  from: Int
+  size: Int
+  total_size: Int
+}
+
+type Filter {
+  value: String
+  type: String
+}
+
+type ConferenceSeminar {
+  firstLayerFilter: Filter
+  secondLayerFilter: Filter
+  id: String
+  name: String
+  formattedStartDate: String
+  formattedDuration: String
+  startAt: String
+  endAt: String
+  now: String
+  description: String
+  language: String
+  type: String
+  location: String
+  fulled: Boolean
+  bookmarked: Boolean
+  fullProgrammeUrl: String
+  registrationEnabled: Boolean
+  registrationUrl: String
+  nature: String
+  isLive: Boolean
+  isPublic: Boolean
+  isAbleToWatch: Boolean
+  isRegistered: Boolean
+  isVideoUrlReady: Boolean
+  streamingUrl: String
+  vcPlaybackUrl: String
+  isFull: Boolean
+  vcPlaybackSetting: String
+  recommendedText: String
+  recommendedTextBackgroundColor: String
+  recommendedTextColor: String
+  isFirstAppearDate: Boolean
+  isFirstAppearCategory: Boolean
+  qualificationLogo: [String]
+  speakerPanels: [ConferenceSpeakerPanelV2]
+  logoPanels: [ConferenceLogoPanelsV2]
+  streamingType: FairStreamingType
+  eventDetail: FairEventDetail
+}
+
+type ConferenceSpeakerPanelV2 {
+  title: String
+  speakers: [ConferenceSeminarSpeakerV2]
+}
+
+type ConferenceLogoPanelsV2 {
+  title: String
+  logos: [String]
+}
+
+type SpeakerOtherCompanies {
+  companyName: String
+  position: String
+  logo: String
+}
+
+type ConferenceSeminarSpeakerV2 {
+  id: String
+  name: String
+  title: String
+  avatar: String
+  profile: String
+  company: ConferenceSeminarSpeakerCompanyV2
+  otherCompanies: [SpeakerOtherCompanies]
+}
+
+type ConferenceSeminarSpeakerCompanyV2 {
+  name: String
+  logo: String
+}

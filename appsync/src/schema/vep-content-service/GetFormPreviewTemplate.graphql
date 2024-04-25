@@ -1,0 +1,7 @@
+extend type Query {
+    GetFormPreviewTemplate(
+        fair: String,
+        slug: String,
+        lang: String,
+    ): FormData
+}

@@ -1,0 +1,21 @@
+extend type Query {
+  GetRegistrationEligibility(
+    fairCode: String
+    emailId: String
+    lang: String
+    slug: String
+    useDummy: String
+  ): FairRegistrationEligibility
+}
+
+type FairRegistrationEligibility {
+  timestamp: String
+  status: Int
+  data: RegistrationEligibility
+}
+
+type RegistrationEligibility {
+  eligibility: Boolean
+  code: String
+  registrationFormUrl: String
+}

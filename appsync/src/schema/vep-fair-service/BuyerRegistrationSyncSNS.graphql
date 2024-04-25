@@ -1,0 +1,23 @@
+extend type Query {
+  BuyerRegistrationSyncSNS(
+   fairCode:String
+   fiscalYear:String
+   userId:String
+   language:String
+   eventId:String
+   seminarId:[String]
+  ): BuyerRegistrationSyncSNSResponse
+}
+
+type BuyerRegistrationSyncSNSResponse {
+    status: Int
+    data: SNSResponse
+    message: String
+
+}
+
+type SNSResponse {
+  MessageId:String
+  SequenceNumber:String
+}
+

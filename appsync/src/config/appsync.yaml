@@ -1,0 +1,276 @@
+Description: HKTDC Foundation AppSync Deployment
+Parameters:
+  AwsAccountId:
+    Type: String
+    Default: 111111111111
+  AwsRegion:
+    Type: String
+    Default: ${AwsRegion}
+  S3BucketURL:
+    Type: String
+    Default: s3://testing-calling-vep-appsync-s3
+  MappingTemplatePath:
+    Type: String
+    Default: v1/Mapping_Template
+  S3HttpURL:
+    Type: String
+    Default: https://testing-calling-vep-appsync-s3.s3.ap-east-1.amazonaws.com
+  ResolverCloudformationTemplatePath:
+    Type: String
+    Default: v1/cloudFormation
+  GraphqlSchemaPath:
+    Type: String
+    Default: v1/schema
+  Project:
+    Type: String
+  Environment:
+    Type: String
+  ApiCacheType:
+    Type: String
+    Default: SMALL
+  ApiCachingBehavior:
+    Type: String
+    Default: PER_RESOLVER_CACHING
+  ApiCacheTtl:
+    Type: String
+    Default: 120
+Resources:
+#For later permission required by lambda function
+  LambdaFunctionExecutionRole:
+    Type: "AWS::IAM::Role"
+    Properties:
+      RoleName:
+        Fn::Join:
+            - "_"
+            - - FOUNDATION_VEP
+              - Ref: Environment
+              - APPSYNC_ROLE
+      Path: /service-role/
+      Description: |
+        Allows the AWS AppSync service to access your data source.
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service:
+                - lambda.amazonaws.com
+                - appsync.amazonaws.com
+            Action:
+              - sts:AssumeRole
+      Policies:
+        - PolicyName: LambdaBasicPermission
+          PolicyDocument:
+           Statement:
+             - Effect: Allow
+               Action: [ 'lambda:invokeFunction' ]
+               Resource: [ !Sub "arn:aws:lambda:${AwsRegion}:${AwsAccountId}:function:VEP_${Environment}_GenAppSyncLambdaMapper",
+                           !Sub "arn:aws:lambda:${AwsRegion}:${AwsAccountId}:function:VEP_${Environment}_GenAppSyncLambdaMapper:*",
+                           !Sub "arn:aws:lambda:${AwsRegion}:${AwsAccountId}:function:VEP_${Environment}_JWTGenerator",
+                           !Sub "arn:aws:lambda:${AwsRegion}:${AwsAccountId}:function:VEP_${Environment}_JWTGenerator:*",
+                           !Sub "arn:aws:lambda:${AwsRegion}:${AwsAccountId}:function:VEP_${Environment}_JwtExtractor",
+                           !Sub "arn:aws:lambda:${AwsRegion}:${AwsAccountId}:function:VEP_${Environment}_JwtExtractor:*",
+                           !Sub "arn:aws:lambda:${AwsRegion}:${AwsAccountId}:function:VEP_${Environment}_Auth",
+                           !Sub "arn:aws:lambda:${AwsRegion}:${AwsAccountId}:function:VEP_${Environment}_Auth:*",]
+# AppSync
+  GraphQLApi:
+    Type: "AWS::AppSync::GraphQLApi"
+    Properties:
+      Name: !Sub "vep-${Environment}-appsync"
+      AuthenticationType: API_KEY
+      XrayEnabled : true
+      Tags:
+        - Key: Name
+          Value: !Join
+            - ''
+            - - !Ref Project
+              - '-'
+              - !Ref Environment
+        - Key: Project
+          Value: !Ref Project
+        - Key: Env
+          Value: !Ref Environment
+        - Key: Tier
+          Value: trust
+  GraphQLApiKey:
+    Type: "AWS::AppSync::ApiKey"
+    Properties:
+      ApiId: !GetAtt GraphQLApi.ApiId
+      Description: Generate API Id
+      Expires: 1653183863
+# DataSource
+  LambdaMapperDataSource:
+    Type: "AWS::AppSync::DataSource"
+    Properties:
+      ApiId: !GetAtt GraphQLApi.ApiId
+      Name: Lambda_Mapper_Endpoint
+      Description: Function for Lambda Mapper
+      Type: AWS_LAMBDA
+      LambdaConfig:
+       LambdaFunctionArn: !Sub "arn:aws:lambda:${AwsRegion}:${AwsAccountId}:function:VEP_${Environment}_GenAppSyncLambdaMapper"
+      ServiceRoleArn: !GetAtt LambdaFunctionExecutionRole.Arn
+#Functions
+  LambdaMapper:
+    Type: "AWS::AppSync::FunctionConfiguration"
+    Properties:
+      ApiId: !GetAtt GraphQLApi.ApiId
+      DataSourceName: !GetAtt LambdaMapperDataSource.Name
+      FunctionVersion: 2018-05-29
+      Name: LambdaMapper
+      RequestMappingTemplateS3Location:
+        Fn::Join:
+          - "/"
+          - - Ref: S3BucketURL
+            - Ref: MappingTemplatePath
+            - "LambdaMapper/request.vm"
+      ResponseMappingTemplateS3Location:
+        Fn::Join:
+          - "/"
+          - - Ref: S3BucketURL
+            - Ref: MappingTemplatePath
+            - "LambdaMapper/response.vm"
+# DataSource - JWT Generator
+  LambdaJWTGeneratorDataSource:
+    Type: "AWS::AppSync::DataSource"
+    Properties:
+      ApiId: !GetAtt GraphQLApi.ApiId
+      Name: Lambda_JWTGenerator_Endpoint
+      Description: Function for Lambda JWTGenerator
+      Type: AWS_LAMBDA
+      LambdaConfig:
+        LambdaFunctionArn: !Sub "arn:aws:lambda:${AwsRegion}:${AwsAccountId}:function:VEP_${Environment}_JWTGenerator"
+      ServiceRoleArn: !GetAtt LambdaFunctionExecutionRole.Arn
+#Functions - JWT Generator
+  LambdaJWTGenerator:
+    Type: "AWS::AppSync::FunctionConfiguration"
+    Properties:
+      ApiId: !GetAtt GraphQLApi.ApiId
+      DataSourceName: !GetAtt LambdaJWTGeneratorDataSource.Name
+      FunctionVersion: 2018-05-29
+      Name: LambdaJWTGenerator
+      RequestMappingTemplateS3Location:
+        Fn::Join:
+          - "/"
+          - - Ref: S3BucketURL
+            - Ref: MappingTemplatePath
+            - "LambdaJWTGenerator/request.vm"
+      ResponseMappingTemplateS3Location:
+        Fn::Join:
+          - "/"
+          - - Ref: S3BucketURL
+            - Ref: MappingTemplatePath
+            - "LambdaJWTGenerator/response.vm"
+# DataSource - Auth
+  LambdaAuthDataSource:
+    Type: "AWS::AppSync::DataSource"
+    Properties:
+      ApiId: !GetAtt GraphQLApi.ApiId
+      Name: Lambda_Auth_Endpoint
+      Description: Function for Lambda Auth
+      Type: AWS_LAMBDA
+      LambdaConfig:
+        LambdaFunctionArn: !Sub "arn:aws:lambda:${AwsRegion}:${AwsAccountId}:function:VEP_${Environment}_Auth"
+      ServiceRoleArn: !GetAtt LambdaFunctionExecutionRole.Arn
+#Functions - Auth
+  LambdaAuth:
+    Type: "AWS::AppSync::FunctionConfiguration"
+    Properties:
+      ApiId: !GetAtt GraphQLApi.ApiId
+      DataSourceName: !GetAtt LambdaAuthDataSource.Name
+      FunctionVersion: 2018-05-29
+      Name: LambdaAuth
+      RequestMappingTemplateS3Location:
+        Fn::Join:
+          - "/"
+          - - Ref: S3BucketURL
+            - Ref: MappingTemplatePath
+            - "LambdaAuth/request.vm"
+      ResponseMappingTemplateS3Location:
+        Fn::Join:
+          - "/"
+          - - Ref: S3BucketURL
+            - Ref: MappingTemplatePath
+            - "LambdaAuth/response.vm"           
+# DataSource - JwtExtractor
+  LambdaJwtExtractorDataSource:
+    Type: "AWS::AppSync::DataSource"
+    Properties:
+      ApiId: !GetAtt GraphQLApi.ApiId
+      Name: Lambda_JwtExtractor_Endpoint
+      Description: Function for Lambda JwtExtractor
+      Type: AWS_LAMBDA
+      LambdaConfig:
+        LambdaFunctionArn: !Sub "arn:aws:lambda:${AwsRegion}:${AwsAccountId}:function:VEP_${Environment}_JwtExtractor"
+      ServiceRoleArn: !GetAtt LambdaFunctionExecutionRole.Arn
+#Functions - JwtExtractor
+  LambdaJwtExtractor:
+    Type: "AWS::AppSync::FunctionConfiguration"
+    Properties:
+      ApiId: !GetAtt GraphQLApi.ApiId
+      DataSourceName: !GetAtt LambdaJwtExtractorDataSource.Name
+      FunctionVersion: 2018-05-29
+      Name: LambdaJwtExtractor
+      RequestMappingTemplateS3Location:
+        Fn::Join:
+          - "/"
+          - - Ref: S3BucketURL
+            - Ref: MappingTemplatePath
+            - "LambdaJWTExtractor/request.vm"
+      ResponseMappingTemplateS3Location:
+        Fn::Join:
+          - "/"
+          - - Ref: S3BucketURL
+            - Ref: MappingTemplatePath
+            - "LambdaJWTExtractor/response.vm"
+# Resolvers
+  ResolversTemplate:
+    Type: "AWS::CloudFormation::Stack"
+    DependsOn: Schema
+    Properties:
+      TemplateURL:
+        Fn::Join:
+             - "/"
+             - - Ref: S3HttpURL
+               - Ref: ResolverCloudformationTemplatePath
+               - "resolver.yaml"
+      Parameters:
+        AppSyncAPIID: !GetAtt GraphQLApi.ApiId
+        LambdaMapperFunctionId: !GetAtt LambdaMapper.FunctionId
+        JwtAuthFunctionId: !GetAtt LambdaJWTGenerator.FunctionId
+        AuthFunctionId: !GetAtt LambdaAuth.FunctionId
+        JwtExtractorFunctionId: !GetAtt LambdaJwtExtractor.FunctionId
+        S3BucketURL: !Ref S3BucketURL
+        MappingTemplatePath: !Ref MappingTemplatePath
+#Schema
+  Schema:
+    Type: "AWS::AppSync::GraphQLSchema"
+    Properties:
+      ApiId: !GetAtt GraphQLApi.ApiId
+      DefinitionS3Location:
+        Fn::Join:
+          - "/"
+          - - Ref: S3BucketURL
+            - Ref: GraphqlSchemaPath
+            - "appsync.graphql"
+  ApiCache: 
+    Type:  AWS::AppSync::ApiCache 
+    Properties: 
+      ApiId: !GetAtt GraphQLApi.ApiId
+      Type: !Ref ApiCacheType
+      ApiCachingBehavior: !Ref ApiCachingBehavior
+      Ttl: !Ref ApiCacheTtl 
+      TransitEncryptionEnabled: true
+      AtRestEncryptionEnabled: true
+Outputs:
+  GraphQLApiARN:
+    Description: The App Arn of the GraphQL endpoint.
+    Value: !Ref GraphQLApi
+  GraphQLApiId:
+    Description: The App ID of the GraphQL endpoint.
+    Value: !GetAtt GraphQLApi.ApiId
+  GraphQLApiEndpoint:
+    Description: The URL for the GraphQL endpoint.
+    Value: !GetAtt GraphQLApi.GraphQLUrl
+  GraphQLApiKey:
+    Description: The API Key of GraphQL endpoint.
+    Value: !GetAtt GraphQLApiKey.ApiKey

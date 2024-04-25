@@ -1,0 +1,15 @@
+#if($ctx.error)
+    $util.error($ctx.error.message, $ctx.error.type)
+#end
+
+#if($ctx.result.jwtPayload)
+    $util.qr($context.request.headers.put("x-access-token", $ctx.result.jwtPayload.accessToken))
+    $util.qr($context.request.headers.put("x-sso-uid", $ctx.result.jwtPayload.ssoUid))
+    $util.qr($context.request.headers.put("x-email-id", $ctx.result.jwtPayload.emailId))
+    $util.qr($context.request.headers.put("x-sso-firstname", $ctx.result.jwtPayload.firstName))
+    $util.qr($context.request.headers.put("x-sso-lastname", $ctx.result.jwtPayload.lastName))
+    $util.qr($context.request.headers.put("x-company-ccdids", $ctx.result.jwtPayload.companyCcdIds))
+    $util.qr($context.request.headers.put("x-last-access-session", $ctx.result.jwtPayload.lastAccessSession))
+#end
+
+$util.toJson($context.result)

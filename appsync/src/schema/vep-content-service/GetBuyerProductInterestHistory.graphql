@@ -1,0 +1,47 @@
+scalar Long
+
+extend type Query {
+    GetBuyerProductInterestHistory(
+        fairCode: String,
+        fiscalYear: String,
+        orderBy: String,
+        pageNum: Int,
+        size: Int
+    ): BuyerProductInterestHistoryResponse
+}
+
+type BuyerProductInterestHistoryResponse {
+    timestamp: Long
+    status: Int
+    total_size: Int,
+    data: [UserActivity]
+}
+
+type UserActivity {
+    registrationNo: String,
+    actionType: String,
+    emailId: String,
+    description: DataChange,
+    eventTime: String,
+    eventName: String
+}
+
+type DataChange {
+    field: String,
+    from: [IaCate],
+    to: [IaCate]
+}
+
+type IaCate {
+    faircode: String,
+    fiscalYear: String,
+    iaId: String,
+    iaEn: String,
+    iaTc: String,
+    iaSc: String,
+    stId: String,
+    stEn: String,
+    stTc: String,
+    stSc: String,
+    teCode: String
+}

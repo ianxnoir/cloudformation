@@ -1,0 +1,23 @@
+extend type Mutation {
+  UpdateProductInterest(
+    fairCode: String!
+    lang: String!
+    productInterest: [String]
+    productInterestOther: String
+    productInterestIP: [String]
+    productInterestIPOther: String
+    productInterestLicensing: [String]
+    productInterestLicensingOther: String
+  ): UpdateProductInterestResponse
+}
+
+type UpdateProductInterestResponse {
+  timestamp: String
+  status: Int
+  data: UpdateProductInterestResponseData
+}
+
+type UpdateProductInterestResponseData {
+  isSuccess: Boolean
+  validationErrorField: [String]
+}

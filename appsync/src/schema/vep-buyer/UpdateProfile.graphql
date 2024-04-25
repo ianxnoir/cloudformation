@@ -1,0 +1,33 @@
+extend type Mutation {
+    UpdateProfile(
+        title: String
+        firstName: String
+        lastName: String
+        position: String
+        companyName: String
+        addressCountryCode: String
+        addressLine1: String
+        addressLine2: String
+        addressLine3: String
+        addressLine4: String
+        postalCode: String
+        stateOrProvinceCode: String
+        cityCode: String
+        companyPhoneCountryCode:String
+        companyPhonePhoneNumber: String
+        companyWebsite: String
+        companyBackground: String
+        userTimezone: String
+        nob: [String]
+    ): UpdateProfileResponse
+}
+
+type UpdateProfileResponse {
+    timestamp: String
+    status: Int
+    data: UpdateProfileData
+}
+
+type UpdateProfileData {
+    isSuccess: Boolean
+}

@@ -1,0 +1,13 @@
+extend type Query {
+  GetRegisteredSeminars(
+    vmsProjectCode: String
+    vmsProjectYear: String
+    language: String
+  ): GetRegisteredSeminarsResponse
+}
+
+type GetRegisteredSeminarsResponse {
+  status: Int
+  seminars: AWSJSON
+  message: String
+}

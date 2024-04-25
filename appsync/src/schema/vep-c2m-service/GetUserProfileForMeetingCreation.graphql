@@ -1,0 +1,46 @@
+extend type Query {
+  GetUserProfileForMeetingCreation(
+    ssoUid: String
+    buyerFairCode: String
+    buyerFiscalYear: String
+    ccdId: String
+    exhibitorFairCode: String
+  ): GetUserProfileForMeetingCreationResponse
+}
+
+type GetUserProfileForMeetingCreationResponse {
+  status: Int
+  message: String
+  buyerProfile: buyerProfileForMeetingCreation
+  exhibitorProfile: exhibitorProfileForMeetingCreation
+}
+
+type buyerProfileForMeetingCreation {
+  buyerFirstName: String
+  buyerLastName: String
+  buyerFiscalYear: String
+  buyerCompanyName: String
+  buyerCountryCode: String
+}
+
+type exhibitorProfileForMeetingCreation {
+  exhibitorFirstName: String
+  exhibitorLastName: String
+  exhibitorFiscalYear: String
+  exhibitorCompanyName: String
+  exhibitorCountryCode: String
+  exhibitorBoothNumber: String
+  exhibitorSupplierUrn: String
+  exhibitorCompanylogo: String
+  countryDesc: String
+  natureofBusinessSymbols: [String]
+  exhibitorType: String
+  exhibitorUrn: String
+  vepNatureofBusinesses: vepNatureofBusinesses
+}
+
+type vepNatureofBusinesses {
+  en: [String]
+  tc: [String]
+  sc: [String]
+}

@@ -1,0 +1,10 @@
+{
+  "C2M": "http://internal-vep-preprd-alb-backendApp-1634880150.ap-east-1.elb.amazonaws.com:1081",
+  "Exhibitor" : "http://internal-vep-preprd-alb-backendApp-1634880150.ap-east-1.elb.amazonaws.com:1082",
+  "Content" : "http://internal-vep-preprd-alb-backendApp-1634880150.ap-east-1.elb.amazonaws.com:1083",
+  "Message" : "http://internal-vep-preprd-alb-backendApp-1634880150.ap-east-1.elb.amazonaws.com:1084",
+  "Fair" : "http://internal-vep-preprd-alb-backendApp-1634880150.ap-east-1.elb.amazonaws.com:1085",
+  "FairRegistration" : "http://internal-vep-preprd-alb-backendApp-1634880150.ap-east-1.elb.amazonaws.com:1095",
+  "Buyer": "http://internal-vep-preprd-alb-backendApp-1634880150.ap-east-1.elb.amazonaws.com:1086", 
+  "Notification": "http://internal-vep-preprd-alb-backendApp-1634880150.ap-east-1.elb.amazonaws.com:1088"
+}

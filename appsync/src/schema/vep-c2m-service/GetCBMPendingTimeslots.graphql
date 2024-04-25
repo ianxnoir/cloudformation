@@ -1,0 +1,13 @@
+extend type Query {
+  GetCBMPendingTimeslots(
+    fairCode: String
+    requesterSsoUid: String
+    responderSsoUid: String
+  ): GetCBMPendingTimeslotsResponse
+}
+
+type GetCBMPendingTimeslotsResponse {
+  status: Int
+  data: [CBMUnavailableTimeslotsByDate!]
+  message: String
+}

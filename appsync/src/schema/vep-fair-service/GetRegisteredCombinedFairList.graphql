@@ -1,0 +1,25 @@
+extend type Query {
+  GetRegisteredCombinedFairList: GetRegisteredCombinedFairListResponse
+}
+
+type GetRegisteredCombinedFairListResponse {
+  timestamp: String
+  status: Int
+  data: [GetRegisteredCombinedFairListData]
+}
+
+type GetRegisteredCombinedFairListData {
+  combinationName: String
+  fairList: [FairListData]
+}
+
+type FairListData {
+  fairCode: String
+  fairDisplayName: FairDisplayNameData
+}
+
+type FairDisplayNameData {
+  en: String
+  tc: String
+  sc: String
+}

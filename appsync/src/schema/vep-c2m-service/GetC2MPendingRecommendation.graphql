@@ -1,0 +1,13 @@
+extend type Query {
+  GetC2MPendingRecommendation(
+    fairCode: String
+    fairYear: String
+    language: String
+  ): GetC2MPendingRecommendationResponse
+}
+
+type GetC2MPendingRecommendationResponse {
+  meta: ByTDCMeta
+  data: ByTDCData
+  message: String
+}

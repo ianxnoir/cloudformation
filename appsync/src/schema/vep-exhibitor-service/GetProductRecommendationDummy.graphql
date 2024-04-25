@@ -1,0 +1,12 @@
+extend type Query {
+	GetProductRecommendationDummy(
+		fairCode: String,
+		itemType: String,
+		itemId: String,
+		language: String,
+		lang: String,
+		numResults: Int,
+		tealiumId: String,
+		ssouid: String
+	): WrappedProductsDataDummy
+}

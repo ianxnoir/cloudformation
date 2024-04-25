@@ -1,0 +1,13 @@
+extend type Query {
+  GetFairListing: GetFairListingResponse
+}
+
+type GetFairListingResponse {
+  data: [GetFairListingData]
+}
+
+type GetFairListingData {
+  fairCode: String
+  fairShortName: String
+  vmsProjectNo: String
+}

@@ -1,0 +1,15 @@
+extend type Query {
+    GetPost(
+        fair: String,
+        slug: String,
+        lang: String,
+        post: String,
+    ): Post
+}
+
+type Post {
+  data: AWSJSON
+  is_cache: Boolean
+  updated_at: String
+  updated_timestamp: Int
+}

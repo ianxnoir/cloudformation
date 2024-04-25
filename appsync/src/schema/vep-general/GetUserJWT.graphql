@@ -1,0 +1,7 @@
+extend type Query {
+  GetUserJWT: GetUserJWTResponse
+}
+
+type GetUserJWTResponse {
+  jwtToken: String
+}

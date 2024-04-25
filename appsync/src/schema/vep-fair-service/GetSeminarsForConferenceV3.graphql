@@ -1,0 +1,7 @@
+extend type Query {
+  GetSeminarsForConferenceV3(
+    sbeParams: SbeParamsV3
+    criteria: CriteriaV3
+    optionalInfo: OptionalInfo
+  ): GetSeminarsForConferenceV2Response
+}

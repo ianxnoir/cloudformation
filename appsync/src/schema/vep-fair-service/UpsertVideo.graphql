@@ -1,0 +1,13 @@
+extend type Query {
+  UpsertVideo(
+    taskId: String
+    trancodeStatus: String
+    videoStatus: String
+    fileName: String
+    fileUrl: String
+  ): FairVideoResponse
+}
+
+type FairVideoResponse {
+  data: FairVideoDetail
+}

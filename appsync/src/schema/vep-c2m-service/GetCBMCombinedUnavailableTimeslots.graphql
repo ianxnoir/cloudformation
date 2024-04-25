@@ -1,0 +1,29 @@
+extend type Query {
+  GetCBMCombinedUnavailableTimeslots(
+    fairCode: String
+    requesterSsoUid: String
+    responderSsoUid: String
+  ): CBMCombinedUnavailableTimeslotsResponse
+}
+
+type CBMUnavailableTimeslotsResponse {
+  status: Int
+  data: [CBMUnavailableTimeslotsByDate!]
+  message: String
+}
+
+type CBMUnavailableTimeslotsByDate {
+  date: AWSDateTime
+  timeslots: [CBMUnavailableTimeslot!]
+}
+
+type CBMUnavailableTimeslot {
+  startTime: AWSDateTime
+  endTime: AWSDateTime
+}
+
+type CBMCombinedUnavailableTimeslotsResponse {
+  status: Int
+  data: [CBMUnavailableTimeslotsByDate!]
+  message: String
+}

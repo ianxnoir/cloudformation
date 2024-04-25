@@ -1,0 +1,38 @@
+extend type Query {
+    GetC2MBuyerProfileDefinition(
+        fairCode: String!
+    ): GetC2MBuyerProfileDefinitionData
+}
+
+type GetC2MBuyerProfileDefinitionData {
+    timestamp: AWSTimestamp
+    status: Int
+    data: GetC2MBuyerProfileDefinitionResultSet
+}
+
+type GetC2MBuyerProfileDefinitionResultSet {
+    targetPreferredMarket: [GetC2MProfileFilterOptionData],
+    productStrategy: [GetC2MProfileFilterOptionData],
+    productInterest: [GetC2MProfileProductInterestFilterOptionData],
+}
+
+type GetC2MProfileFilterOptionData {
+    code: String
+    en: String
+    tc: String
+    sc: String
+}
+
+type GetC2MProfileProductInterestFilterOptionData {
+    fairCode: String
+    stId: String
+    stEn: String
+    stTc: String
+    stSc: String
+    iaId: String
+    iaEn: String
+    iaTc: String
+    iaSc: String
+    teCode: String
+    nature: String
+}

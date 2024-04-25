@@ -1,0 +1,11 @@
+extend type Query {
+  GetC2MCombinedUnavailableTimeslots(
+    fairCode: String
+    requesterSsoUid: String
+    responderSsoUid: String
+  ): C2MCombinedUnavailableTimeslotsResponse
+}
+
+type C2MCombinedUnavailableTimeslotsResponse {
+  data: [C2MUnavailableTimeslotsByDate!]
+}

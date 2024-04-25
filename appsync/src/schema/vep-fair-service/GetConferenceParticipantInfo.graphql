@@ -1,0 +1,6 @@
+extend type Query {
+  GetConferenceParticipantInfo(
+    fairCode: String!
+    fiscalYear: String!
+  ): GetConferenceParticipantResponseType
+}

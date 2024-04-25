@@ -1,0 +1,11 @@
+extend type Query {
+  GetFormTemplateV2(
+        fair: String,
+        slug: String,
+        lang: String,
+  ): FormData
+}
+
+
+
+

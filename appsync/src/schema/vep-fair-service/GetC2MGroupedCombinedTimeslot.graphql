@@ -1,0 +1,26 @@
+extend type Query {
+  GetC2MGroupedCombinedTimeslot(
+    fairCode: String
+    type: String
+  ): FairGroupedTimeslotsResponse
+}
+
+type FairGroupedTimeslotsResponse {
+  data: FairGroupedTimeslotsData
+}
+
+type FairGroupedTimeslotsData {
+  online: [FairUnavailableTimeslotsByDate!]
+  hybrid: [FairUnavailableTimeslotsByDate!]
+  physical: [FairUnavailableTimeslotsByDate!]
+}
+
+type FairUnavailableTimeslotsByDate {
+  date: AWSDateTime
+  timeslots: [FairUnavailableTimeslot!]
+}
+
+type FairUnavailableTimeslot {
+  start: AWSDateTime
+  end: AWSDateTime
+}

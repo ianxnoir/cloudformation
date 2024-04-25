@@ -1,0 +1,20 @@
+extend type Query {
+  GetUserSeminarRegistrations(
+    fairCode: String!
+    year: String!
+  ): GetUserSeminarRegistrationsResponseType
+}
+
+type GetUserSeminarRegistrationsResponseType {
+  sql: String
+  params: String
+  data: [UserSeminarRegistration]
+}
+
+type UserSeminarRegistration {
+  id: Int
+  seminarRegistrationType: String
+  seminarId: String
+  effectiveStartTime: String
+  effectiveEndTime: String
+}

@@ -1,0 +1,14 @@
+extend type Query {
+	GetProductHighlight(
+		fairSymbol: String,
+		lang: String,
+		numResults: Int
+	): GeneralSchema
+}
+
+type ProductHighlight {
+    took: Int
+    timed_out: Boolean
+    _shards: AWSJSON
+    hits: AWSJSON
+}

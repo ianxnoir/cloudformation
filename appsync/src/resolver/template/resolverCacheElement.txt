@@ -1,0 +1,25 @@
+  {__resolverName__}:
+    Type: "AWS::AppSync::Resolver"
+    Properties:
+      ApiId: 
+        Ref: AppSyncAPIID
+      TypeName: {__TypeName__}
+      FieldName: {__fieldName__}
+      Kind: PIPELINE
+      CachingConfig:
+        CachingKeys: {__cachingKeys__}
+        Ttl: {__ttl__}
+      PipelineConfig:
+        Functions:
+      RequestMappingTemplateS3Location:
+        Fn::Join:
+          - "/"
+          - - Ref: S3BucketURL
+            - Ref: MappingTemplatePath
+            - "ResolverGeneral/request.vm"
+      ResponseMappingTemplateS3Location:
+        Fn::Join:
+          - "/"
+          - - Ref: S3BucketURL
+            - Ref: MappingTemplatePath
+            - "ResolverGeneral/response.vm"

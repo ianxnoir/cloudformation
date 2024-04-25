@@ -1,0 +1,15 @@
+extend type Query {
+  UpdateMessageCenterUserPreference(translationLanguage: String, accessToken: String): UpdateMessageCenterUserPreferenceResponse
+}
+
+type UpdateMessageCenterUserPreferenceResponse {
+  status: Int
+  data: UserPreferenceData
+}
+
+type UserPreferenceData {
+  emailNotification: Boolean
+  translationLanguage: String
+  lastTranslationLanguage: String
+  translationLanguageUpdatedTime: String
+}

@@ -1,0 +1,78 @@
+extend type Query {
+    GetExhibitorsDummy(
+		fairCode: String,
+		language: String,
+		lang: String,
+		browserCountry: String,
+        from: Int,
+        size: Int,
+		keyword: String,
+		filterCountry: [String],
+		filterExhibitorType: [String],
+		filterZone: [String],
+		filterPavilion: [String],
+		filterNob: [String],
+		filterProductStrategy: [String],
+		filterCertification: [String],
+		filterFactoryLocation: [String],
+		filterWineSelector: FilterWineSelector
+	): WrappedExhibitorsDataDummy
+}
+
+input FilterWineSelector {
+	alcoholType: [String]
+	vintage: [String]
+	age: [String]
+	typeOfGrapes: [String]
+	chateaus: [String]
+	placeOfOrigin: [String]
+	sweetnessOfWine: [String]
+	sweetnessOfSparklingWine: [String]
+}
+
+type WrappedExhibitorsDataDummy {
+	timestamp: String
+	status: Int
+	from: Int
+	size: Int
+	total_size: Int
+	keyword: String
+	didYouMean: [String]
+	sensitiveKeyword: Boolean
+    data: WrappedExhibitorsDataDataDummy
+}
+
+type WrappedExhibitorsDataDataDummy {
+	hits: [ExhibitorDetailDataDummy]
+	aggregations: ExhibitorAggregations
+}
+
+type ExhibitorAggregations {
+	fairSymbol: AggBucket
+	countrySymbol: AggBucket
+	exhibitorZones: AggBucket
+	exhibitorType: AggBucket
+	exhibitorPavilions: AggBucket
+	natureofBusinessSymbols: AggBucket
+	exhibitorProductStrategy: AggBucket
+	supplierCertificates: AggBucket
+	factoryLocation: AggBucket
+	productAttributeVintages: AggBucket
+    productAttributeAlcoholTypes: AggBucket
+    productAttributeAges: AggBucket
+    productAttributeTypeOfGrapes: AggBucket
+    productAttributeChateaus: AggBucket
+    productAttributePlaceOfOrigins: AggBucket
+    productAttributeWineSweetnesses: AggBucket
+    productAttributeSparklingSweetnesses: AggBucket
+    exhibitorProductOrigin: AggBucket
+}
+
+type AggBucket {
+	buckets: [AggBucketDetail]
+}
+
+type AggBucketDetail {
+	key: String
+	doc_count: Int
+}

@@ -1,0 +1,49 @@
+extend type Query {
+    GetContentSearch(
+        fairCode: String,
+        browserLocation: String,
+        keyword: String,
+        startDate: String,
+        endDate: String,
+        latest: Boolean,
+        from: Int,
+        size: Int,
+        lang: String,
+    ): WrappedContentSearchData
+}
+
+type WrappedContentSearchData {
+	timestamp: String
+	status: Int
+	from: Int
+	size: Int
+	total_size: Int
+    keyword: String
+    sensitiveKeyword: Boolean
+    data: ContentSearchResultSet
+}
+
+type ContentSearchResultSet {
+    hits: [ContentSearchData]
+}
+
+type ContentSearchData {
+    id: String
+    post_id: String
+    blog_id: String
+    fair_code: String
+    slug: String
+    full_slug: String
+    lang: String
+    title: String
+    highlight: ContentSearchHighlight
+    post_content: String
+    image: String
+    post_date: String
+    post_type: String
+}
+
+type ContentSearchHighlight {
+    title: [String],
+    post_content: [String]
+}

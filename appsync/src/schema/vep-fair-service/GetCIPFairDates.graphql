@@ -1,0 +1,23 @@
+extend type Query {
+  GetCIPFairDates(
+      fairCode: String!
+      fiscalYear: String!
+  ): CIPFairDatesResponse
+}
+
+type CIPFairDatesResponse {
+  status: Int
+  data: [GetCIPFairDatesData]
+  message: String
+}
+
+type GetCIPFairDatesData {
+  availableDate: String
+  availableTimeRange: [AvailableCIPTimeslots]
+}
+
+type AvailableCIPTimeslots {
+    displayTime: String
+    startTime: String
+    endTime: String
+}

@@ -1,0 +1,21 @@
+extend type Query {
+  PostFeedback(
+    score: Int
+    answer: String 
+    meetingId: String
+    userType:String
+  ): PostFeedbackResponse
+}
+
+type PostFeedbackResponse {
+  data: PostFeedbackData
+  status: Int
+  message: String
+}
+
+type PostFeedbackData {
+    meetingId:String
+    score: Int
+    answer: String
+    userType: String
+}

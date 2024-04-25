@@ -1,0 +1,19 @@
+extend type Query {
+  FindRecommendedExhibitor(
+    fairCode: String!
+    fiscalYear: String!
+  ): FindRecommendedExhibitorResponse
+}
+
+type FindRecommendedExhibitorResponse {
+  data: FindRecommendedExhibitorData
+}
+
+type FindRecommendedExhibitorData {
+  exhibitors: [RecommendedExhibitor]
+}
+
+type RecommendedExhibitor {
+  ccdId: String
+  score: Float
+}

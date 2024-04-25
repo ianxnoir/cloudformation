@@ -1,0 +1,157 @@
+extend type Query {
+    GetExhibitorDetailDummy(exhibitorUrn:  String, fairCode:  String, lang:  String): WrappedExhibitorDetailData
+}
+
+type WrappedExhibitorDetailData {
+    timestamp: String
+	status: Int
+	data: ExhibitorDetailDataDummy
+}
+
+type ExhibitorDetailDataDummy {
+    vepVirtualBoothUrl: String
+    vepContactBtnUrl: String
+    vepVirtualBoothImageUrl: String
+    vepExhibitorUrl: String
+    vepContactPersonInitial: String
+    vepContactPersonName: String
+    vepContactPersonPosition: String
+    vepContactPersonCompany: String
+    vepNatureofBusinesses: [ExhibitorNOBData]
+    fairSymbol: String
+    fairFiscalYear: String
+    exhibitorUrn: String
+    exhibitorName: String
+    exhibitorType: String
+    exhibitorBrand: String
+    natureofBusinessSymbols: [String]
+    countrySymbol: String
+    countryDescEn: String
+    countryDescZhHant: String
+    countryDescZhHans: String
+    factoryLocation: String
+    virtualBoothInd: String
+    virtualBoothType: String
+    boothDetails: [BoothDetails]
+    boothNumbers: [String]
+    boothTokens: [String]
+    boothSize: Float
+    boothType: String
+    boothPriority:Int
+    hasPavilionOrZoneInd: String
+    exhibitorZones: [ExhibitorZones]
+    exhibitorPavilions: [ExhibitorPavilions]
+    exhibitorProductOrigin: String
+    exhibitorProductStrategy: [ExhibitorProductStrategy]
+    productServiceRangeEn: String
+    productServiceRangeZhHant: String
+    productServiceRangeZhHans: String
+    exhibitorBackground: String
+    exhibitorPreferredMarkets: [String]
+    exhibitorPreferredNobs: [String]
+    exhibitorNotPreferredMarkets: [String]
+    exhibitorCurrentMarkets: [String]
+    exhibitorDesc: String
+    exhibitorAddress: String
+    supplierUrn: String
+    ccdid: String
+    supplierLogo: String
+    onlineInd: String
+    supplierVerifiedLabel: String
+    supplierSriDetails: [SupplierSriDetails]
+    supplierCertificates: [String]
+    clusterTags: [ClusterTags]
+    bookingPriority:Int
+    bookingExpiryDate:String
+    productAttributeAlcoholTypes: [String]
+    productAttributeVintages: [String]
+    productAttributeAges: [String]
+    productAttributeTypeOfGrapes: [String]
+    productAttributeChateaus: [String]
+    productAttributePlaceOfOrigins: [String]
+    productAttributeWineSweetnesses: [String]
+    productAttributeSparklingSweetnesses: [String]
+    hasProductInd: String
+    latestProducts: [LatestProducts]
+    c2mParticipantStatus: String
+    vepExhibitorRegistrationStatus: String
+    exhibitorFirstName: String
+    exhibitorLastName : String
+    c2mHighlightedProducts: [C2MHighlightedProduct]
+}
+
+type ExhibitorNOBData {
+    code: String
+    en: String
+    tc: String
+    sc: String
+}
+
+type BoothDetails {
+    boothNumber: String
+    hallCode: String
+    hallSymbol: String
+    boothKey: String
+    aisles: String
+    venue: String
+}
+
+type ExhibitorZones {
+    zoneCode: String
+    zoneNameEn: String
+    zoneNameZhHant: String
+    zoneNameZhHans: String
+}
+
+type ExhibitorPavilions {
+    pavilionCode: String
+    pavilionNameEn: String
+    pavilionNameZhHant: String
+    pavilionNameZhHans: String
+}
+
+type ExhibitorProductStrategy {
+    productStrategyCode: String
+    productStrategyNameEn: String
+    productStrategyNameZhHant: String
+    productStrategyNameZhHans: String
+}
+    
+type ClusterTags {
+    clusterTagLabel: String
+    clusterTagDisplaySeq:Int
+}
+
+type SupplierSriDetails {
+    sriSymbol: String
+    sriDescription: String
+    sriValue: String
+    sriSeq: String
+}
+    
+type LatestProducts {
+    productImageUrl: String
+    productVideoUrl: String
+    productUrn: String
+    productNameEn: String
+    productNameZhHant: String
+    productNameZhHans: String
+    productMediaType: String
+    productVideoThumbnailUrl: String
+    productMediaName: String
+    productServiceInd: String
+}  
+
+type C2MHighlightedProduct {
+    productUrn: String
+    productMedia: ProductMediaDetail
+}
+
+type ProductMediaDetail {
+    imageUrl: String
+    videoUrl: String
+    mediaType: String
+    videoThumbnailUrl: String
+    mediaName: String
+    displayOrder: String
+}

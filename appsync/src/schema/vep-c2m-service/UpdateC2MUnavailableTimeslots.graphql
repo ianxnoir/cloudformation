@@ -1,0 +1,37 @@
+extend type Query {
+  UpdateC2MUnavailableTimeslots(
+    fairCode: String
+    applyToAllDates: Boolean
+    applyDate: String    
+    isDelete: Boolean
+    data: [UpdateC2MUnavailableTimeslotsByDate!]
+  ): UpdateC2MUnavailableTimeslotsResponse
+}
+
+input UpdateC2MUnavailableTimeslotsData {
+  startTime: AWSDateTime
+  endTime: AWSDateTime
+}
+
+type C2MUnavailableTimeslots {
+  id: String
+  code: String
+  fairCode: String
+  ssoUid: String
+  startTime: AWSDateTime
+  endTime: AWSDateTime
+  createdBy: String
+  creationTime: AWSDateTime
+  lastUpdatedBy: String
+  lastUpdatedAt: AWSDateTime
+}
+
+type UpdateC2MUnavailableTimeslotsResponse {
+  data: [C2MUnavailableTimeslots!]
+  message: String
+}
+
+input UpdateC2MUnavailableTimeslotsByDate {
+  date: AWSDateTime
+  timeslots: [UpdateC2MUnavailableTimeslotsData!]
+}

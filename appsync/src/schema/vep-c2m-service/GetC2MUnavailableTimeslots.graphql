@@ -1,0 +1,17 @@
+extend type Query {
+  GetC2MUnavailableTimeslots(fairCode: String): C2MUnavailableTimeslotsResponse
+}
+
+type C2MUnavailableTimeslotsResponse {
+  data: [C2MUnavailableTimeslotsByDate!]
+}
+
+type C2MUnavailableTimeslotsByDate {
+  date: AWSDateTime
+  timeslots: [C2MUnavailableTimeslot!]
+}
+
+type C2MUnavailableTimeslot {
+  startTime: AWSDateTime
+  endTime: AWSDateTime
+}

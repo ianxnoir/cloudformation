@@ -1,0 +1,168 @@
+extend type Query {
+    GetWordPressSetting(fair: String): WordPressSetting
+}
+
+type WordPressSetting {
+    is_cache: Boolean
+    updated_at: String
+    updated_timestamp: Int
+    data: SettingData
+}
+type SettingData {
+    wins_project_code: String
+    fair_registration: Int
+    seminar_display: Int
+    seminar_registration: Int
+    exhibitor_display: Int
+    c2m_display: Int
+    sync_with_mp_app: Int
+    wins_event_name: String
+    wins_event_start_datetime: String
+    wins_event_end_datetime: String
+    fms_project_code: String
+    vms_project_no: String
+    vms_project_year: String
+    fair_code: String
+    fair_logo: Multilingual
+    fair_logo_desktop: Multilingual
+    fair_logo_mobile: Multilingual
+    fair_short_name: MultilingualString
+    org_id: String
+    event_id: String
+    fiscal_year: String
+    fair_registration_start_datetime: String
+    fair_registration_end_datetime: String
+    seminar_start_datetime: String
+    seminar_end_datetime: String
+    seminar_registration_start_datetime: String
+    seminar_registration_end_datetime: String
+    exhibitor_list_start_datetime: String
+    exhibitor_list_end_datetime: String
+    c2m_start_datetime: String
+    c2m_end_datetime: String
+    to_exhibit: MultilingualString
+    meta_description: MultilingualString
+    to_exhibit_url: MultilingualString
+    to_exhibit_url_open_in_new_tab: MultilingualInt
+    to_visit: MultilingualString
+    to_visit_url: MultilingualString
+    to_visit_url_open_in_new_tab: MultilingualInt
+    meta_keywords: MultilingualString
+    eoa_fair_id: String
+    seminar_registration_url: MultilingualString
+    hybrid_fair_start_datetime: String
+    hybrid_fair_end_datetime: String
+    seminar_fair_code: String
+    exhibitor_list_fiscal_year: String
+    virtual_booth_image_url: String
+    exhibitor_contact_button_url: String
+    market_news_industries: MultilingualString
+    market_news_regions: MultilingualString
+    event_logo: Multilingual
+    geo: geoDetails
+    industry: String
+    og_image: Multilingual
+    fair_color_code: String
+    physical_fair: String
+    virtual_booth_display: Int
+    virtual_booth_selected_ccdid: String
+    fair_display_name: MultilingualString
+    og_image_alt: MultilingualString
+    email_header: MultilingualString
+    email_footer: MultilingualString
+    location: MultilingualString
+    past_year_history: String
+    email_address: String
+    fair_type: String
+    online_event_start_datetime: String
+    online_event_end_datetime: String
+    click_to_match_display_text: MultilingualString
+    click_to_match_display_banner_desktop: Multilingual
+    click_to_match_display_banner_mobile: Multilingual
+    click_to_match_display_banner_url: MultilingualString
+    click_to_match_display_banner_open_in_new_tab: MultilingualInt
+    profile_form_for_cip_buyer: String
+    profile_form_for_cip_buyer_admin: String
+    profile_form_for_mission_buyer: String
+    profile_form_for_mission_buyer_admin: String
+    profile_form_for_organic_buyer: String
+    profile_form_for_organic_buyer_admin: String
+    always_on_form_display: Int
+    aor_form_registration_start_datetime: String
+    aor_form_registration_end_datetime: String
+    cip_form_registration: Int
+    cip_form_registration_start_datetime: String
+    cip_form_registration_end_datetime: String
+    mission_form_registration: Int
+    mission_form_registration_start_datetime: String
+    mission_form_registration_end_datetime: String
+    enquiry_form_published_form: String
+
+    apply_ticket_pass: Int
+    speaker_display: Int
+    speaker_list_start_datetime:String
+    speaker_list_end_datetime:String
+    speaker_speaker_photo:Int
+    seminar_speaker_photo:Int
+    #gtm_account_id: String
+    gtm_container_id:String
+    extra_header_meta:String
+    c2m_url: MultilingualString
+    c2m_open_in_new_tab: MultilingualInt
+    participant_display: Int
+    participant_list_start_datetime: String
+    participant_list_end_datetime: String
+    published_domain: String
+    backup_domain: String
+    website_type: String
+    seminar_year: String
+    exhibitor_list_display_year: String
+    published_domain_beian_number: String
+    backup_domain_beian_number: String
+    seminar_panel_display: Int
+    seminar_display_year: String
+    speaker_display_year: String
+    participant_display_year: String
+}
+
+type geoDetails{
+  position: String
+  placename: String
+  region: String
+}
+
+type Multilingual{
+  en: MultilingualEN
+  tc: MultilingualTC
+  sc: MultilingualSC
+}
+
+type MultilingualEN{
+  url: String
+  width: Int
+  height: Int
+}
+
+type MultilingualTC{
+  url: String
+  width: Int
+  height: Int
+}
+
+type MultilingualSC{
+  url: String
+  width: Int
+  height: Int
+}
+
+type MultilingualString{
+  en: String
+  tc: String
+  sc: String
+}
+
+type MultilingualInt{
+  en: Int
+  tc: Int
+  sc: Int
+}

@@ -1,0 +1,25 @@
+extend type Query {
+  GetRegisteredFair: GetRegisteredFairResponse
+}
+
+type GetRegisteredFairResponse {
+  timestamp: String
+  status: Int
+  data: GetRegisteredFairData
+}
+
+type GetRegisteredFairData {
+  roleByFair: [RegisteredFairData]
+}
+
+type RegisteredFairData {
+  fairCode: String
+  participantType: String
+  tier: String
+  companyCcdId: String
+  suppierUrn: String
+  exhibitorType: String
+  eoaFairId: String
+  c2mStatus: String 
+  registrationStatus: String
+}

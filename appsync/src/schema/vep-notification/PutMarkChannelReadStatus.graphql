@@ -1,0 +1,9 @@
+extend type Query {
+  PutMarkChannelReadStatus(emailAddress: String): PutMarkChannelReadStatusRes
+}
+
+type PutMarkChannelReadStatusRes {
+  data: String
+  error: String
+  msg: String
+}

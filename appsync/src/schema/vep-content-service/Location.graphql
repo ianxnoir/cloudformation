@@ -1,0 +1,14 @@
+extend type Query {
+    Locations: [Location]!
+}
+
+type Location {
+    location_type: String!
+    id: String!
+    parent_symbol: String
+    sc: String
+    symbol: String
+    parent_sid: String
+    en: String
+    tc: String
+}

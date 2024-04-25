@@ -1,0 +1,41 @@
+extend type Query {
+  CreateC2MMeeting(
+    fairCode: String
+    data: CreateC2MMeetingData
+  ): CreateC2MMeetingResponse
+}
+
+type CreateC2MMeetingResponse {
+  status: Int
+  data: C2MMeeting
+  message: String
+}
+
+input CreateC2MMeetingData {
+  name: String
+  message: String
+  type: Int
+  f2fLocation: String
+  requesterFirstName: String
+  requesterLastName: String
+  requesterRole: String
+  responderFirstName: String
+  responderLastName: String
+  responderSsoUid: String
+  responderRole: String
+  requesterCompanyName: String
+  requesterSupplierUrn: String
+  requesterExhibitorUrn: String
+  requesterCountryCode: String
+  requesterCompanyLogo: String
+  responderCompanyName: String
+  responderSupplierUrn: String
+  responderExhibitorUrn: String
+  responderCountryCode: String
+  responderCompanyLogo: String
+  responderFairCode: String
+  responderFiscalYear: String
+  startTime: AWSDateTime
+  endTime: AWSDateTime
+  isSkipSeminarChecking: Boolean
+}

@@ -1,0 +1,6 @@
+extend type Query {
+  GetCBMVideoConference(
+    fairCode: String
+    id: String
+  ): C2MVideoConferenceResponse
+}

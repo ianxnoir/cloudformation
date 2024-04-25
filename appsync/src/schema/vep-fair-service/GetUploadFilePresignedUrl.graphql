@@ -1,0 +1,20 @@
+extend type Query {
+  GetUploadFilePresignedUrl(
+    formType: String
+    fieldId: String
+    fileExt: String
+    formSubmissionKey: String
+  ): GetUploadFilePresignedUrlResponse
+}
+
+type GetUploadFilePresignedUrlResponse {
+  timestamp: String
+  status: Int
+  data: GetUploadFilePresignedUrlData
+}
+
+type GetUploadFilePresignedUrlData {
+  s3FileKey: String
+  s3FullPath: String
+  presignedUrl: String
+}

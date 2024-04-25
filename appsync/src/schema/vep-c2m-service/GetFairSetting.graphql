@@ -1,0 +1,150 @@
+extend type Query {
+  GetFairSetting(
+    fairCode: String
+  ): FairSettingResponse
+}
+
+type FairSettingResponse {
+  meta: FairSettingMeta
+  data: [FairSetting]
+}
+
+type LangWithString {
+  en: String
+  tc: String
+  sc: String
+}
+
+type ToVisitUrlOpenInNewTab {
+  tc: Int
+  en: Int
+  sc: Int
+}
+
+type ToExhibitUrlOpenInNewTab {
+  en: Int
+  tc: Int
+  sc: Int
+}
+
+type Sc {
+  url: String
+  width: Int
+  height: Int
+}
+
+type Tc {
+  url: String
+  width: Int
+  height: Int
+}
+
+type En {
+  url: String
+  width: Int
+  height: Int
+}
+
+type FairLogoMobile {
+  sc: Sc
+  tc: Tc
+  en: En
+}
+
+type FairLogoDesktop {
+  sc: Sc
+  tc: Tc
+  en: En
+}
+
+type OgImage {
+  sc: Sc
+  tc: Tc
+  en: En
+}
+
+type EventLogo {
+  sc: [String]
+  tc: [String]
+  en: [String]
+}
+
+type FairLogo {
+  sc: [String]
+  tc: [String]
+  en: [String]
+}
+
+type FairSettingMeta {
+  status: Int
+  fairType: String
+  combinationName: String
+  message: String
+}
+
+type FairSetting {
+  wins_project_code: String
+  wins_event_name: String
+  wins_event_start_datetime: String
+  wins_event_end_datetime: String
+  vms_project_no: String
+  vms_project_year: String
+  fair_registration: Int
+  seminar_display: Int
+  seminar_registration: Int
+  exhibitor_display: Int
+  c2m_display: Int
+  sync_with_mp_app: Int
+  fair_registration_start_datetime: String
+  fair_registration_end_datetime: String
+  hybrid_fair_start_datetime: String
+  hybrid_fair_end_datetime: String
+  fair_color_code: String
+  virtual_booth_display: Int
+  virtual_booth_selected_ccdid: String
+  eoa_fair_id: String
+  market_news_industries_ids: String
+  market_news_regions_ids: String
+  exhibitor_list_fiscal_year: String
+  fair_code: String
+  fiscal_year: String
+  virtual_booth_image_url: String
+  online_event_start_datetime: String
+  c2m_start_datetime: String
+  c2m_end_datetime: String
+  fair_type: String
+  online_event_end_datetime: String
+  exhibitor_list_start_datetime: String
+  exhibitor_list_end_datetime: String
+  exhibitor_contact_button_url: String
+  email_address: String
+  createdBy: String
+  creationTime: String
+  lastUpdatedBy: String
+  lastUpdatedTime: String
+  deletionTime: String
+  seminar_registration_url: LangWithString
+  fair_short_name: LangWithString
+  to_visit_url_open_in_new_tab: ToVisitUrlOpenInNewTab
+  to_exhibit_url_open_in_new_tab: ToExhibitUrlOpenInNewTab
+  email_footer: LangWithString
+  email_header: LangWithString
+  location: LangWithString
+  fair_logo_mobile: FairLogoMobile
+  fair_logo_desktop: FairLogoDesktop
+  meta_description: LangWithString
+  to_exhibit: LangWithString
+  to_visit_url: LangWithString
+  to_visit: LangWithString
+  og_image_alt: LangWithString
+  og_image: OgImage
+  industry: LangWithString
+  fair_display_name: LangWithString
+  meta_keywords: LangWithString
+  geo: LangWithString
+  market_news_regions: LangWithString
+  market_news_industries: LangWithString
+  event_logo: EventLogo
+  fair_logo: FairLogo
+  to_exhibit_url: LangWithString
+}

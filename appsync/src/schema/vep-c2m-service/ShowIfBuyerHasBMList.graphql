@@ -1,0 +1,11 @@
+extend type Query {
+  ShowIfBuyerHasBMList(
+    fairCode: String
+    fairYear: String
+  ): ShowIfBuyerHasBMListResponse
+}
+
+type ShowIfBuyerHasBMListResponse {
+  status:Int
+  result:Boolean
+}

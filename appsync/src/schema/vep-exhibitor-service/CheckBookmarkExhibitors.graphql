@@ -1,0 +1,16 @@
+extend type Query {
+  CheckBookmarkExhibitors(
+    ids: [String]
+  ): CheckBookmarkExhibitorsResponse
+}
+
+type CheckBookmarkExhibitorsResponse{
+  timestamp: String
+  status: Int
+  data: [ExhibitorBookmarkStatus]
+}
+
+type ExhibitorBookmarkStatus {
+  id: String
+  isBookmarked: Boolean
+}

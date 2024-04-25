@@ -1,0 +1,14 @@
+extend type Query {
+  GetAndSetC2MLoginStatus(
+    userId: String
+    fairCode: String
+    fiscalYear: String
+    eoaFairId: String
+    role: String
+  ): GetAndSetC2MLoginStatusResponse
+}
+
+type GetAndSetC2MLoginStatusResponse {
+  status: Int
+  isReachedAvailabilityPage: Boolean
+}

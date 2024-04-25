@@ -1,0 +1,24 @@
+extend type Query {
+  JoinSeminar(
+    connectionId: String
+    payload: JoinSeminarPayload
+  ): FairJoinSeminarResponse
+}
+
+input JoinSeminarPayload {
+  sbeSeminarId: String
+  ssoUid: String
+}
+
+type FairJoinSeminarResponse {
+  data: FairConnection
+}
+
+type FairConnection {
+  id: Int
+  seminarId: Int
+  connectionId: String
+  ssoUid: String
+  creationTime: String
+  disconnectedAt: String
+}

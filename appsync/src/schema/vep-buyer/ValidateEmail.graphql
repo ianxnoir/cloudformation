@@ -1,0 +1,15 @@
+extend type Query {
+  ValidateEmail(
+    email: String!
+  ): ValidateEmailResponse
+}
+
+type ValidateEmailResponse {
+  timestamp: String
+  status: Int
+  data: ValidateEmailData
+}
+
+type ValidateEmailData {
+  isUsed: Boolean
+}

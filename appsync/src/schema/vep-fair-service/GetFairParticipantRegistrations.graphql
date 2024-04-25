@@ -1,0 +1,129 @@
+extend type Query {    
+    GetFairParticipantRegistrations(
+        ssoUids: [String]!
+    ): FairParticipantRegistrationsResponse
+}
+
+type FairParticipantRegistrationsResponse {
+    timestamp: String
+    status: Int
+    data: [FairParticipant]
+}
+
+type FairParticipantRegistrationNestedObject {
+    code: String
+    en: String
+    tc: String
+    sc: String
+}
+
+type StructureTag {
+    st_id: String
+    st_en: String
+    st_tc: String
+    st_sc: String
+    te_code: String
+}
+
+type FairParticipantRegistrationProductInterest {
+    ia_id: String
+    ia_en: String
+    ia_tc: String
+    ia_sc: String
+    st: [StructureTag]
+}
+
+type FairParticipant {
+    userTimezone: String
+    ssoUid: String
+    records: [FairParticipantRegistrationDetail]
+}
+
+type FairParticipantRegistrationDetail {
+    ssoUid: String
+    fairCode: String
+    fiscalYear: String
+    registrationNo: String
+    
+    # Demographic (Buyer Domain, LoginRadius)
+    emailId: String
+    title: String
+    firstName: String
+    lastName: String
+    displayName: String
+    initial: String
+    position: String
+    companyName: String
+    addressCountryCode: FairParticipantRegistrationNestedObject
+    addressLine1: String
+    addressLine2: String
+    addressLine3: String
+    addressLine4: String
+    postalCode: String
+    stateOrProvinceCode: FairParticipantRegistrationNestedObject
+    cityCode: FairParticipantRegistrationNestedObject
+    companyPhoneCountryCode:String
+    companyPhonePhoneNumber: String
+    companyWebsite: String
+    companyBackground: String
+    mobilePhoneCountryCode: String
+    mobilePhoneNumber: String
+    nob: [FairParticipantRegistrationNestedObject]
+    
+    # Fair Domain
+    productInterest: [FairParticipantRegistrationProductInterest]
+    otherProductCategories: [FairParticipantRegistrationNestedObject]
+    
+    productStrategy: [String]
+    targetPreferredMarkets: [FairParticipantRegistrationNestedObject]
+
+    numberOfOutlets: [FairParticipantRegistrationNestedObject]
+    hotel: [FairParticipantRegistrationNestedObject]
+    roomType: [FairParticipantRegistrationNestedObject]
+    sourcingBudget: [FairParticipantRegistrationNestedObject]
+    interestedIn: [FairParticipantRegistrationNestedObject]
+    pricePoint: [FairParticipantRegistrationNestedObject]
+    lowMOQ: [FairParticipantRegistrationNestedObject]
+    fairVisit: [FairParticipantRegistrationNestedObject]
+    preferredTimeslot: [FairParticipantRegistrationNestedObject]
+    prescreeningByHKTDC: [FairParticipantRegistrationNestedObject]
+
+    # Fair Domain
+    companyLogo: String
+    profilePicture: String
+    
+    # Fair Domain, Non-Editable
+    registrationType: RegistrationType
+    registrationStatus: RegistrationStatus
+    participantType: ParticipantType
+    click2MatchStatus: Click2MatchStatus
+}
+
+enum RegistrationType {
+    E_REG_FORM
+    VEP_IMPORT_PAST_BUYER
+    VEP_IMPORT_ONSITE_REG
+}
+
+enum RegistrationStatus {
+    SUBMITTED
+    CONFIRMED
+    REJECTED
+    CANCELLED
+    PENDING_APPROVALS
+    INCOMPLETE
+}
+
+enum ParticipantType {
+    ORGANIC
+    VIP_CIP
+    VIP_MISSION
+    EXHIBITOR
+}
+
+enum Click2MatchStatus {
+    ACTIVE
+    INACTIVE
+    HIDDEN
+    RESTRICTED
+}

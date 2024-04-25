@@ -1,0 +1,28 @@
+extend type Query {
+    GetImportantNoticeList(
+        fair: String,
+        lang: String,
+    ): ImportantNoticeList
+
+    GetPreviewImportantNoticeList(
+        fair: String,
+        lang: String,
+    ): ImportantNoticeList
+}
+
+type ImportantNoticeList{
+  data: [ImportantNoticeListDetails]
+  is_cache: Boolean
+  updated_at: String
+  updated_timestamp: Int
+}
+
+type ImportantNoticeListDetails {
+    id: String
+    icon: String
+    header: String
+    date: String
+    title: String
+    description: String 
+    position: String
+}

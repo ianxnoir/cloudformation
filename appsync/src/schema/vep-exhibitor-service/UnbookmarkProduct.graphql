@@ -1,0 +1,6 @@
+extend type Mutation {
+  UnbookmarkProduct(
+    id: String
+  ): GeneralUnbookmarkResponse
+}
+

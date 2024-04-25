@@ -1,0 +1,59 @@
+extend type Query {
+  GetRegisterSeminar(
+    fairCode:String
+    userRole:String
+    isPass: Boolean
+    pageNum: String
+    itemPerPage:String
+    email:String
+    language: String
+    filteredFairCode:String
+  ): RegisterSeminarResponse
+}
+
+type RegisterSeminarResponse {
+  status: Int
+  data: SeminarPaginationData
+  message: String
+}
+
+type SeminarPaginationData{
+    filterOptions:[TargetFairData]
+    userId:String
+    recordPerPage:String
+    totalPage:String
+    totalRecord:String
+    currentPage:String
+    userRole:String
+    seminar:[RegisterSeminarData]
+}
+
+type RegisterSeminarData{
+    id:String
+    name:String
+    isPass:Boolean
+    eventId:String
+    formattedStartDate:String
+    formattedDuration:String
+    startAt:String
+    endAt:String
+    now:String
+    language:String
+    type:String
+    location:String
+    isLive:Boolean
+    isAbleToWatch:Boolean
+    isVideoUrlReady:Boolean
+    isFull:String
+    vcPlaybackUrl:String
+    vcPlaybackSetting:String
+    beforeStartTime:String
+    kolPlatformType:String
+    fairCode: String
+}
+
+type TargetFairData{
+    fairCode:String
+    fiscalYear:String
+    fairShortName:String
+}

@@ -1,0 +1,44 @@
+extend type Mutation {
+  SubmitAORForm(
+    fairCode: String
+    submitType: String
+    step: Int
+    lang: String
+    formDataJson: String
+    captcha: String
+    formSubmissionKey: String
+    visitorType: String
+    slug: String
+    refOffice: String
+    refCode: String
+    regLinkId: String
+    registrationUrl: String
+  ): SubmitAORFormResponse
+}
+
+
+type SubmitAORFormResponse {
+  timestamp: String
+  status: Int
+  data: SubmitAORFormResponseData
+}
+
+type SubmitAORFormResponseData {
+  formStepValidStatus: [FormStepValidStatusObj]
+  formValidationError: [FormValidationErrorObj]
+  submitType: SubmitType
+  validationStatus: ValidationStatus
+  isSubmitSuccess: Boolean
+  formSubmissionKey: String
+  registrationResultArray: [SubmitAORFormResponseResultObj]
+  slug: String
+}
+
+type SubmitAORFormResponseResultObj {
+  fairCode: String,
+  fiscalYear: String,
+  fairDisplayName: MultilingualString
+  isReg: Boolean,
+  registrationNo: String,
+  error: String
+}

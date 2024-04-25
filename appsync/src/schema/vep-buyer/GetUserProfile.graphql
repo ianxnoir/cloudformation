@@ -1,0 +1,37 @@
+extend type Query {
+  GetUserProfile(
+    fairCodes: [String]
+  ): GetUserProfileResponse
+}
+
+type GetUserProfileResponse {
+  timestamp: String
+  status: Int
+  data: GetUserProfileData
+}
+
+type GetUserProfileData {
+  ssoUid: String
+  title: String
+  firstName: String
+  lastName: String
+  emailId: String
+  companyName: String
+  companyCountry: String
+  preferredChannels: [String]
+  preferredLanguage: String
+  userTimezone: String
+  roleByFair: [UserProfileRoleData]
+}
+
+type UserProfileRoleData {
+  fairCode: String
+  participantType: String
+  tier: String
+  companyCcdId: String
+  suppierUrn: String
+  exhibitorType: String
+  eoaFairId: String
+  c2mStatus: String 
+  registrationStatus: String
+}

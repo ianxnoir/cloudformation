@@ -1,0 +1,33 @@
+extend type Query {
+    SearchAORFair(
+    fairCodes: String
+  ): SearchAORFairResponse
+}
+
+type SearchAORFairResponse {
+    timestamp: String
+    status: Int
+    data: SearchAORFairData
+}
+
+type SearchAORFairData {
+    aorFairList: [AORFairItemCombined]
+}
+
+type AORFairItemCombined {
+    faircode: String
+    fiscal_year: String
+    combination_name: String
+    fair_type: String
+    aor_form_registration_start_datetime: String
+    aor_form_registration_end_datetime: String
+    location: MultilingualString
+    fair_display_name: MultilingualString
+    wins_event_start_datetime: String
+    wins_event_end_datetime: String
+    c2m_start_datetime: String
+    c2m_end_datetime: String
+    c2m_meeting_start_datetime: String
+    c2m_meeting_end_datetime: String
+    click_to_match_display_text: MultilingualString
+}

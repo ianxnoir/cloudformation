@@ -1,0 +1,17 @@
+extend type Query {
+    GetIAList(
+        dbName: String
+    ): IAListResponse
+}
+
+type IAListResponse {
+    data: IAListFairCode
+}
+
+type IAListFairCode {
+    fairCode: fairCodeIAList
+}
+
+type fairCodeIAList {
+    fairCodes(area: String): AWSJSON
+}

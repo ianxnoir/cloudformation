@@ -1,0 +1,37 @@
+extend type Query {
+    GetSbeStarSpeakers(vmsProjectCode: String, vmsProjectYear: String, numPerSet: Int, lang: String, queryMode: String, systemCode: String): SbeStarSpeakersResponse
+}
+
+type SbeSpeaker {
+    id: String
+    givenName: String
+    surname: String
+    displayName: String
+    position: String
+    company: String
+    profile: String
+    photoUrl: String
+    otherCompany1: String
+    otherPosition1: String
+    otherCompany2: String
+    otherPosition2: String
+    otherCompany3: String
+    otherPosition3: String
+    otherCompany4: String
+    otherPosition4: String
+    companyLogoUrl: String
+    otherCompanyLogoUrl1: String
+    otherCompanyLogoUrl2: String
+    otherCompanyLogoUrl3: String
+    otherCompanyLogoUrl4: String
+    isStar: String
+    isHighlight: String
+}
+
+type SbeStarSpeaker {
+    set: [SbeSpeaker]
+}
+
+type SbeStarSpeakersResponse {
+    data: [SbeStarSpeaker]
+}

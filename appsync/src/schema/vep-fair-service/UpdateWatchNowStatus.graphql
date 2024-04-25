@@ -1,0 +1,12 @@
+extend type Query {
+  UpdateWatchNowStatus(
+   userId:String
+   seminarId:String
+  ): UpdateWatchNowStatusResponse
+}
+
+type UpdateWatchNowStatusResponse {
+    status: Int
+    message: String
+
+}

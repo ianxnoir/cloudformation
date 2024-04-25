@@ -1,0 +1,7 @@
+{
+  "Buyer" : "http://hktdc-appsyncdev-954902776.ap-east-1.elb.amazonaws.com:85",
+  "C2M": "http://hktdc-appsyncdev-954902776.ap-east-1.elb.amazonaws.com:84",
+  "Exhibitor" : "http://hktdc-appsyncdev-954902776.ap-east-1.elb.amazonaws.com:81",
+  "Content" : "http://hktdc-appsyncdev-954902776.ap-east-1.elb.amazonaws.com:82",
+  "Fair" : "http://hktdc-appsyncdev-954902776.ap-east-1.elb.amazonaws.com:83"
+}

@@ -1,0 +1,20 @@
+extend type Query {
+  EndC2MVideoConference(
+    fairCode: String
+    meetingId: String
+  ): C2MEndVideoConferenceResponse
+
+    EndC2MVideoConferenceAdmin(
+    fairCode: String
+    meetingId: String
+  ): C2MEndVideoConferenceResponse
+}
+
+type C2MEndVideoConferenceResponse {
+  data: C2MEndVideoConferenceData!
+}
+
+type C2MEndVideoConferenceData {
+  meetingId: String
+  zoomId: String
+}

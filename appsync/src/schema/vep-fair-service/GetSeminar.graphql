@@ -1,0 +1,21 @@
+extend type Query {
+  GetSeminar(
+    vmsProjectCode: String
+    vmsProjectYear: String
+    systemCode: String
+    language: String
+    sbeSeminarId: String
+    email:String
+  ): FairSeminarResponse
+}
+
+type FairSeminarResponse {
+  timestamp: String
+  status: Int
+  data: FairSeminar
+  from: Int
+  size: Int
+  total_size: Int
+}
+
+

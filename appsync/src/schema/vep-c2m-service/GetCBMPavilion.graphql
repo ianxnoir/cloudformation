@@ -1,0 +1,12 @@
+extend type Query {
+  GetCBMPavilion: CBMPavilionResponse
+}
+
+type CBMPavilionResponse {
+  data: [CBMPavilion]
+}
+
+type CBMPavilion {
+  code: String
+  value: String
+}

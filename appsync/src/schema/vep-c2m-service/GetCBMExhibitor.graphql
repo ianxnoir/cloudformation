@@ -1,0 +1,55 @@
+extend type Query {
+  GetCBMExhibitor(
+    fairCode: String
+    fairYear: String
+    data: GetCBMExhibitorData
+  ): CBMExhibitorResponse
+}
+
+input GetCBMExhibitorData {
+  filterOption: GetCBMExhibitorFilterOption
+}
+
+input GetCBMExhibitorFilterOption {
+  companyCcdId: [String]
+  emailId: [String]
+  exhibitorType: [String]
+  exhibitorParticipatingFair: [String]
+  country: [String]
+  pavilion: [String]
+  zone: [String]
+  preferredMarket: [String]
+  notPreferredMarket: [String]
+  preferredNob: [String]
+}
+
+type CBMExhibitorResponse {
+  status: Int
+  data: [CBMExhibitor]
+  message: String
+}
+
+type CBMExhibitor {
+  companyCcdId: String
+  boothNumber: String
+  companyName: String
+  country: String
+  exhibitorType: String
+  salutation: String
+  firstName: String
+  lastName: String
+  acceptedMeeting: Int
+  productList: [String]
+  description: String
+  preferredMarket: [String]
+  notPreferredMarket: [String]
+  preferredNob: [String]
+  nob: [String]
+  exhibitorFair: String
+  exhibitorFairCode: String
+  supplierUrn: String
+  exhibitorUrn: String
+  companyLogo: String
+  pavilion: [String]
+  zone: [String]
+}

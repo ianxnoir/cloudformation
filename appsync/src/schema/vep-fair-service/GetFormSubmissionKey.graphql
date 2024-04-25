@@ -1,0 +1,17 @@
+extend type Query {
+  GetFormSubmissionKey(
+    fairCode: String
+    slug: String
+    formType: String
+  ): GetFormSubmissionKeyResponse
+}
+
+type GetFormSubmissionKeyResponse {
+  timestamp: String
+  status: Int
+  data: GetFormSubmissionKeyData
+}
+
+type GetFormSubmissionKeyData {
+  formSubmissionKey: String
+}

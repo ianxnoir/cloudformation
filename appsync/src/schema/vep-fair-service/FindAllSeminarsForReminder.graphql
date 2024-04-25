@@ -1,0 +1,20 @@
+extend type Query {
+  FindAllSeminarsForReminder(
+    vmsProjectCode: String
+    vmsProjectYear: String
+    systemCode: String
+    language: String
+  ): FindAllSeminarsForReminderResponse
+}
+
+type FindAllSeminarsForReminderResponse {
+  status: Int
+  data: [FindAllSeminarsForReminderData]
+}
+
+type FindAllSeminarsForReminderData {
+  id: String
+  name: String
+  startAt: String
+  nature:String
+}

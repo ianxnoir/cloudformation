@@ -1,0 +1,37 @@
+extend type Query {
+  UpdateC2MMeeting(
+    fairCode: String
+    id: String
+    action: String
+    data: UpdateC2MMeetingData
+  ): UpdateC2MMeetingResponse
+}
+
+type UpdateC2MMeetingResponse {
+  status: Int
+  data: C2MMeeting
+  message: String
+}
+
+input UpdateC2MMeetingData {
+  name: String
+  message: String
+  type: Int
+  f2fLocation: String
+  cancelledReason: String
+  requesterFirstName: String
+  requesterLastName: String
+  responderFirstName: String
+  responderLastName: String
+  startTime: AWSDateTime
+  endTime: AWSDateTime
+  requesterCompanyName: String
+  requesterSupplierUrn: String
+  requesterCountryCode: String
+  requesterCompanyLogo: String
+  responderCompanyName: String
+  responderSupplierUrn: String
+  responderCountryCode: String
+  responderCompanyLogo: String
+  isSkipSeminarChecking: Boolean
+}

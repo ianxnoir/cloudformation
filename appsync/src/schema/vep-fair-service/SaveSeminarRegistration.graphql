@@ -1,0 +1,49 @@
+extend type Query {
+  SaveSeminarRegistrationRecord(
+      data: [VEPSeminarRegistration!]
+  ): SaveSeminarRegistrationRecordResponse
+}
+
+type SaveSeminarRegistrationRecordResponse {
+    status: Int
+    message: String
+    registrationNo: String
+    error: FairRegisterErrorBody
+}
+
+input VEPSeminarRegistration {
+    seminarId: String
+    seminarRegistrationType:String
+    userRole:String
+    paymentSession:String
+    source:String
+    systemCode:String
+    fairCode:String
+    fiscalYear:String
+    userId:String
+    eventId:String
+    option1Question:String
+    option2Question:String
+    option3Question:String
+    isCheckedOption1:String
+    isCheckedOption2:String
+    isCheckedOption3:String
+    option1Ans:String
+    option2Ans:String
+    option3Ans:String
+    checkDisclaimers:Boolean
+    snsStatus:Boolean
+    euConsentStatus:Boolean
+    badgeConsent:Boolean
+    c2mConsent:Boolean
+    registrationDetailConsent:Boolean
+    startTime:String
+    endTime:String
+}
+
+type FairRegisterErrorBody {
+    code: String
+    message: String
+    detail: String
+    timestamp: String
+}

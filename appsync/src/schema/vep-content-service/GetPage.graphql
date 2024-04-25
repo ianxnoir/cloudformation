@@ -1,0 +1,22 @@
+extend type Query {
+    GetPage(
+        fair: String,
+        id: String,
+        slug: String,
+        lang: String,
+    ): Page
+
+    GetPreviewPage(
+        fair: String,
+        id: String,
+        slug: String,
+        lang: String,
+    ): Page
+}
+
+type Page {
+  data: AWSJSON
+  is_cache: Boolean
+  updated_at: String
+  updated_timestamp: Int
+}

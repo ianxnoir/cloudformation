@@ -1,0 +1,17 @@
+extend type Query {
+    GetPressReleaseList(
+        fair: String,
+        lang: String,
+        post: String,
+        year: Int,
+        size: Int,
+        from: Int
+    ): PressReleaseList
+}
+
+type PressReleaseList {
+  timestamp: String
+  status: String
+  data: String
+  total_size: Int
+}

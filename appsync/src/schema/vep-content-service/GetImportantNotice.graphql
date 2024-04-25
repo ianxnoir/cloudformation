@@ -1,0 +1,28 @@
+extend type Query {
+    GetImportantNotice(
+        fair: String,
+        lang: String,
+    ): ImportantNotice
+
+    GetPreviewImportantNotice(
+        fair: String,
+        lang: String,
+    ): ImportantNotice
+}
+
+type ImportantNotice{
+  data: [ImportantNoticeDetails]
+  is_cache: Boolean
+  updated_at: String
+  updated_timestamp: Int
+}
+
+type ImportantNoticeDetails{
+    id: String
+    icon: String 
+    header: String
+    date: String
+    title: String
+    description: String 
+    position: String
+}

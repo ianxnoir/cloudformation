@@ -1,0 +1,20 @@
+extend type Query {
+  GetC2MMeetingGuest(
+    fairCode: String
+    id: String
+  ): GetC2MMeetingGuestResponse
+}
+
+type GetC2MMeetingGuestResponse {
+  data: GetC2MMeetingGuestResponseData
+}
+
+type GetC2MMeetingGuestResponseData {
+  name: String
+  startTime: String
+  endTime: String
+  requesterCompanyName: String
+  responderCompanyName: String
+  zoomStartUrl: String
+  zoomJoinUrl: String
+}

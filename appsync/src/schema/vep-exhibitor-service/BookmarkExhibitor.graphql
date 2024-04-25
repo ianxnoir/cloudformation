@@ -1,0 +1,15 @@
+extend type Mutation {
+  BookmarkExhibitor(
+    id: String
+  ): GeneralBookmarkResponse
+}
+
+type GeneralBookmarkResponse{
+  timestamp: String
+  status: Int
+  data: GeneralBookmarkSuccessResponse
+}
+
+type GeneralBookmarkSuccessResponse {
+  success: Boolean
+}

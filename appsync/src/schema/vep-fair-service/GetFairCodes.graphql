@@ -1,0 +1,14 @@
+extend type Query {
+  GetFairCodes: GetFairCodesResponse
+}
+
+type GetFairCodesResponse {
+  data: [FairCodesData]
+}
+
+type FairCodesData {
+  fairCode: String
+  fairName: String
+  combinedFairCodes: [String!]
+  timeslotDuration: Int
+}

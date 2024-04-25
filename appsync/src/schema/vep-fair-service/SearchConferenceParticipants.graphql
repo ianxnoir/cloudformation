@@ -1,0 +1,43 @@
+extend type Query {
+  SearchConferenceParticipants(
+    fairCode: String!
+    projectYear: String
+    fiscalYear: String
+    keywordType: String!
+    keyword: String!
+    from: Int!
+    size: Int!
+    filterCountry: String!
+    filterQ1: [String]
+    filterQ2: [String]
+    filterQ3: [String]
+    filterQ4: [String]
+    filterQ5: [String]
+    filterQ6: [String]
+    filterQ7: [String]
+    filterQ8: [String]
+    filterQ9: [String]
+    filterQ10: [String]
+  ): SearchConferenceParticipantsResponseType
+}
+
+type SearchConferenceParticipantsResponseType {
+  sql: String
+  params: String
+  data: SearchConferenceParticipantsResponseData
+}
+
+type SearchConferenceParticipantsResponseData {
+  from: Int
+  size: Int
+  total_size: Int
+  participants: [ConferenceParticipant]
+  sensitiveKeyword: Boolean
+}
+
+type ConferenceParticipant {
+  id: Int
+  displayName: String
+  position: String
+  companyName: String
+}

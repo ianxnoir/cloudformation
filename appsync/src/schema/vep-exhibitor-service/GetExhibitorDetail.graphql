@@ -1,0 +1,13 @@
+extend type Query {
+    GetExhibitorDetail(
+        exhibitorUrn: String,
+        fairCode: String,
+        lang: String
+    ): ExhibitorDetailESSearchResponse
+}
+
+type ExhibitorDetailESSearchResponse{
+    timestamp: String
+	status: Int
+	data: ExhibitorDetail
+}

@@ -1,0 +1,40 @@
+extend type Query {
+  EventRegistration(
+   userData: [userDetail]
+   eventId:String
+   systemCode:String
+  ): EventRegistrationResponse
+}
+
+type EventRegistrationResponse {
+    status: Int
+    message: String
+    successRecords: [SuccessRecords]
+    failRecords: [FailRecords]
+}
+
+type SuccessRecords {
+    timestamp: Long
+    status: Int
+    message: String
+    messageId: String
+    data:String
+    sat:String
+}
+
+type FailRecords {
+    timestamp: Long
+    status: Int
+    message: String
+    messageId: String
+    data:String
+    sat:String
+}
+
+input userDetail{
+    fairCode: String
+    fiscalYear:String
+    userId:String
+    registrationNo:String
+}
+

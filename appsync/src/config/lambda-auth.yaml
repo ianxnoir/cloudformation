@@ -1,0 +1,156 @@
+Description: HKTDC VEP AppSync Lambda Deployment - Auth
+Parameters:
+  AwsAccountId:
+    Type: String
+    Default: 0
+  AwsRegion:
+    Type: String
+    Default: ap-east-1
+  S3BucketName:
+    Type: String
+    Default: testing-calling-vep-appsync-s3
+  LambdaTemplatePath:
+    Type: String
+    # arg
+    Default: v1/lambda
+  PrivateSubnetList:
+    Type: CommaDelimitedList
+    Default: subnet-0c14af427d46260fd
+  PrivateSubnetSecurityGroupList:
+    Type: CommaDelimitedList
+    Default: sg-0a10ac0e6156ec1c1
+  RedisEndpointAddress:
+    Type: String
+    Default: vep-appsync-elastic-cache.8gmibp.ng.0001.ape1.cache.amazonaws.com
+  RedisEndpointPort:
+    Type: String
+    Default: 6379
+  Project:
+    Type: String
+  Environment:
+    Type: String
+  FluentdEndpoint:
+    Type: String
+Conditions:
+  NotESDAccount: !Not [!Equals [!Ref AwsAccountId, 234129900278]]
+Resources:
+  #For later permission required by lambda function
+  LambdaFunctionExecutionRole:
+    Type: "AWS::IAM::Role"
+    Properties:
+      RoleName:
+        Fn::Join:
+          - "_"
+          - - VEP_APPSYNC
+            - Ref: Environment
+            - LAMBDA_AUTH_ROLE
+      Path: /service-role/
+      Description: |
+        Allows the AWS AppSync service to access your data source.
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service:
+                - lambda.amazonaws.com
+                - appsync.amazonaws.com
+            Action:
+              - sts:AssumeRole
+      Policies:
+        - PolicyName: LambdaBasicPermission
+          PolicyDocument:
+            Statement:
+              - Effect: Allow
+                Action:
+                  [
+                    "lambda:invokeFunction",
+                    "logs:CreateLogGroup",
+                    "secretsmanager:GetResourcePolicy",
+                    "secretsmanager:GetSecretValue",
+                    "secretsmanager:DescribeSecret",
+                    "secretsmanager:ListSecretVersionIds",
+                    "secretsmanager:ListSecrets",
+                    "logs:CreateLogStream",
+                    "logs:PutLogEvents",
+                    "ec2:CreateNetworkInterface",
+                    "ec2:DescribeNetworkInterfaces",
+                    "ec2:AttachNetworkInterface",
+                    "ec2:DescribeInstances",
+                    "ec2:DeleteNetworkInterface",
+                    "ec2:DescribeSecurityGroups",
+                    "ec2:DescribeSubnets",
+                    "ec2:DescribeVpcs",
+                    "xray:PutTraceSegments",
+                    "xray:PutTelemetryRecords",
+                    "xray:GetSamplingRules",
+                    "xray:GetSamplingTargets",
+                    "xray:GetSamplingStatisticSummaries",
+                  ]
+                Resource: "*"
+
+  #Lambda Functions - Auth
+  AppSyncLambdaAuth:
+    Type: "AWS::Lambda::Function"
+    Properties:
+      Code:
+        S3Bucket: !Ref S3BucketName
+        S3Key:
+          Fn::Join:
+            - "/"
+            - - Ref: LambdaTemplatePath
+              - "Auth.zip"
+      Role: !GetAtt LambdaFunctionExecutionRole.Arn
+      FunctionName: !Sub VEP_${Environment}_Auth
+      Runtime: nodejs12.x
+      MemorySize: 256
+      Handler: index.handler
+      Timeout: 6
+      TracingConfig:
+        Mode: Active
+      Tags:
+        - Key: Name
+          Value: !Join
+            - ""
+            - - !Ref Project
+              - "-"
+              - !Ref Environment
+        - Key: Project
+          Value: !Ref Project
+        - Key: Env
+          Value: !Ref Environment
+        - Key: Tier
+          Value: trust
+      Environment:
+        Variables:
+          ELASTICACHE_ENDPOINT_PORT: !Ref RedisEndpointPort
+          ELASTICACHE_ENDPOINT: !Ref RedisEndpointAddress
+          ENVIRONMENT: !Ref Environment
+          FluentdEndpoint: !Ref FluentdEndpoint
+      VpcConfig:
+        SecurityGroupIds: !Ref PrivateSubnetSecurityGroupList
+        SubnetIds: !Ref PrivateSubnetList
+
+  # Resource-based policy - Mapper
+  AppSyncLambdaAuthPolicy:
+    Type: "AWS::Lambda::Permission"
+    Condition: NotESDAccount
+    Properties:
+      Action: "lambda:InvokeFunction"
+      FunctionName: !GetAtt AppSyncLambdaAuth.Arn
+      Principal: !Sub "arn:aws:iam::${AwsAccountId}:role/service-role/FOUNDATION_VEP_${Environment}_APPSYNC_ROLE"
+
+  LambdaThrottleAlarm:
+    Type: AWS::CloudWatch::Alarm
+    Properties:
+      AlarmDescription: "Throttle of lambda due to exceeding concurrency execution"
+      Namespace: "AWS/Lambda"
+      MetricName: Throttles
+      Dimensions:
+      - Name: "FunctionName"
+        Value: !Ref AppSyncLambdaAuth
+      Statistic: "Sum"
+      ComparisonOperator: "GreaterThanThreshold"
+      Threshold: 1
+      EvaluationPeriods: 1
+      Period: 60

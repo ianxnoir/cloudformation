@@ -1,0 +1,98 @@
+extend type Query {
+  GetSeminars(
+    vmsProjectCode: String
+    vmsProjectYear: String
+    systemCode: String
+    language: String
+    email:String
+  ): FairSeminarsResponse
+}
+
+type FairSeminarsResponse {
+  timestamp: String
+  status: Int
+  data: [FairSeminar]
+  from: Int
+  size: Int
+  total_size: Int
+}
+
+type FairSeminar {
+  id: String
+  name: String
+  formattedStartDate: String
+  formattedDuration: String
+  startAt: String
+  endAt: String
+  now: String
+  description: String
+  eventId:String
+  language: String
+  type: String
+  location: String
+  fulled: Boolean
+  bookmarked: Boolean
+  speakerPanels: [FairSpeakerPanel]
+  qualificationLogo: [String]
+  logoPanels: [FairLogoPanels]
+  fullProgrammeUrl: String
+  registrationEnabled: Boolean
+  registrationUrl: String
+  nature: String
+  streamingType: FairStreamingType
+  isLive: Boolean
+  isPublic: Boolean
+  isAbleToWatch: Boolean
+  isRegistered: Boolean
+  isVideoUrlReady: Boolean
+  eventDetail: FairEventDetail
+  streamingUrl: String
+  vcPlaybackUrl: String
+  isFull: Boolean
+  vcPlaybackSetting: String
+  beforeStartTime: String
+  feedbackFormId: String
+  registrationFormId: String
+  questionContent:String
+  option1: String
+  option1Ans: String
+  option2: String
+  option2Ans: String
+  option3: String
+  option3Ans: String
+  isCheckedOption1: String
+  isCheckedOption2: String
+  isCheckedOption3: String
+  isDisplayOption1: String
+  isDisplayOption1Ans: String
+  isDisplayOption2: String
+  isDisplayOption2Ans: String
+  isDisplayOption3: String
+  isDisplayOption3Ans: String
+  isDisplayQuestion: String
+}
+
+type FairSpeakerPanel {
+  title: String
+  speakers: [FairSeminarSpeaker]
+}
+
+type FairLogoPanels {
+  title: String
+  logos: [String]
+}
+
+type FairSeminarSpeaker {
+  id: String
+  name: String
+  title: String
+  avatar: String
+  profile: String
+  speakerUrl:String
+  company: FairSeminarSpeakerCompany
+}
+
+type FairSeminarSpeakerCompany {
+  name: String
+  logo: String
+}

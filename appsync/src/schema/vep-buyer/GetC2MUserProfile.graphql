@@ -1,0 +1,38 @@
+extend type Query {
+  GetC2MUserProfile: GetC2MUserProfileResponse
+}
+
+type GetC2MUserProfileResponse {
+  timestamp: String
+  status: Int
+  data: GetC2MUserProfileData
+}
+
+type GetC2MUserProfileData {
+  ssoUid: String
+  title: String
+  firstName: String
+  lastName: String
+  emailId: String
+  companyName: String
+  companyCountry: String
+  preferredChannels: [String]
+  preferredLanguage: String
+  userTimezone: String
+  roleByFair: [UserC2MProfileRoleData]
+}
+
+type UserC2MProfileRoleData {
+  fairCode: String
+  fairShortName: MultilingualString
+  c2mStartDatetime: String
+  c2mEndDatetime: String
+  participantType: String
+  tier: String
+  companyCcdId: String
+  suppierUrn: String
+  exhibitorType: String
+  eoaFairId: String
+  c2mStatus: String 
+  registrationStatus: String
+}

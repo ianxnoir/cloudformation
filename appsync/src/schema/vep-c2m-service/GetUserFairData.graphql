@@ -1,0 +1,17 @@
+extend type Query {
+  GetUserFairData: C2MUserFairDataResponse
+}
+
+type C2MUserFairDataResponse {
+  emailId: String
+  fairData: [C2MUserFairData]
+}
+
+type C2MUserFairData {
+  fairCode: String
+  fiscalYear: String
+  ssoUid: String
+  companyCCDID: String
+  individualCCDID: String
+  role: String
+}

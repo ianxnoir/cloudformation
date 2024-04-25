@@ -1,0 +1,11 @@
+extend type Query {
+  UpsertBatchVideos(videos: [FairVideoInput]): FairBatchVideosResponse
+}
+
+input FairVideoInput {
+  taskId: String
+  trancodeStatus: String
+  videoStatus: String
+  fileName: String
+  fileUrl: String
+}

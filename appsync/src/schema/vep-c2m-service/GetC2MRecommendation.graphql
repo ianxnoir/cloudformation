@@ -1,0 +1,27 @@
+extend type Query {
+  GetC2MRecommendation(
+    fairCode: String
+    fairYear: String
+    targetType: Int
+  ): C2MRecommendationResponse
+}
+
+type C2MRecommendationResponse {
+  data: [C2MRecommendationRecord!]
+}
+
+type C2MRecommendationRecord {
+  id: Int
+  fairCode: String
+  fairYear: String
+  ssoUid: String
+  targetType: Int
+  targetId: String
+  interestedStatus: Int
+  readStatus: Int
+  emailStatus: Int
+  notificationStatus: Int
+  sentTime: AWSDateTime!
+  createdBy: String
+  creationTime: AWSDateTime
+}

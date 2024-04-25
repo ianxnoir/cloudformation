@@ -1,0 +1,12 @@
+extend type Query {
+  UpdatePlaybackStatus(
+   userId:String
+   seminarId:String
+  ): UpdatePlaybackStatusResponse
+}
+
+type UpdatePlaybackStatusResponse {
+    status: Int
+    message: String
+
+}

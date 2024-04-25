@@ -1,0 +1,8 @@
+{
+  "operation": "Invoke",
+  "payload": {
+    "requestQueryName":"$context.info.fieldName",
+    "requestQueryParameter": $util.toJson($context.arguments),
+    "headers": $util.toJson($context.request.headers)
+  }
+}

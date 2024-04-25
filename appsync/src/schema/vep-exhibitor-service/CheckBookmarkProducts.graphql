@@ -1,0 +1,16 @@
+extend type Query {
+  CheckBookmarkProducts(
+    ids: [String]
+  ): CheckBookmarkProductsResponse
+}
+
+type CheckBookmarkProductsResponse{
+  timestamp: String
+  status: Int
+  data: [ProductBookmarkStatus]
+}
+
+type ProductBookmarkStatus{
+  id: String
+  isBookmarked: Boolean
+}

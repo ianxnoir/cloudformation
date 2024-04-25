@@ -1,0 +1,13 @@
+extend type Query {
+    Industries: [Industry]!
+}
+
+type Industry {
+    id: String!
+    parent_symbol: String
+    sc: String
+    symbol: String
+    parent_sid: String
+    en: String
+    tc: String
+}

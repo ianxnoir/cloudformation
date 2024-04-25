@@ -1,0 +1,41 @@
+extend type Query {
+    GetSbeEvents(vmsProjectCode: String, vmsProjectYear: String, systemCode: String): SbeEventsResponse
+}
+
+type SbeEventsData {
+    header: String
+    footer: String
+    isEventBelongsToGroup: String
+    css: String
+    js: String
+    bannerImageUrl: String
+    listTitle: String
+    listDescription: String
+    groupName: String
+    semEvents: [SbeEvents]
+}
+type SbeEventsResponse {
+    timestamp: AWSTimestamp
+    status: Int
+    message: String
+    messageId: String
+    sat: String
+    data: SbeEventsData
+}
+
+type SbeEvents {
+    id: String
+    name: String
+    shortName: String
+    startDate: String
+    endDate: String
+    winId: String
+    themeColor: String
+    vmsProjectCode: String
+    vmsProjectYear: String
+    fmsCode: String
+    fiscalYear: String
+    currency: String
+    paymentMerchantId: String
+    paymentPrefixCode: String
+}

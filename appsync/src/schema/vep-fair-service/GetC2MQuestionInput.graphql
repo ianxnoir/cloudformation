@@ -1,0 +1,31 @@
+extend type Query {
+  GetC2MQuestionInput(
+    fairCode: String
+    lang: String
+  ): GetC2MQuestionInputResponse
+}
+
+type GetC2MQuestionInputResponse {
+  timestamp: String
+  status: Int
+  data: GetC2MQuestionInputData
+}
+
+type GetC2MQuestionInputData {
+  isProductInterestInputted: Boolean
+  productInterests: ProductInterestData
+  isProductDesignInputted: Boolean
+  productStrategies: [String]
+  isTargetPreferredMarketsInputted: Boolean
+  targetPreferredMarkets: [String]
+  productInterestFieldIdList: [String]
+}
+
+type ProductInterestData {
+  productInterest: [String]
+  productInterestOther: String
+  productInterestIP: [String]
+  productInterestIPOther: String
+  productInterestLicensing: [String]
+  productInterestLicensingOther: String
+}

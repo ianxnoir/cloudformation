@@ -1,0 +1,92 @@
+extend type Query {
+    GetFilterOption(
+        esIndexString: String
+    ): GeneralSchema
+
+    GetFilterOptions(
+        fairCode: String,
+        c2m: String
+    ): FilterOptionsResponse
+}
+
+type FilterOptionsResponse {
+    timestamp: String
+    status: Int
+    data: FilterOptions
+}
+
+type FilterOptions {
+    exhibitor: FilterOptionsExhibitor
+    product: FilterOptionsProduct
+    virtualBooth: FilterOptionsVirtualBooth
+    buyer: FilterOptionsBuyer
+}
+
+type FilterOptionsExhibitor {
+    fairSymbol: [FilterOptionGeneral]
+    countrySymbol: [FilterOptionGeneral]
+    exhibitorType: [FilterOptionGeneral]
+    exhibitorZones: [FilterOptionGeneral]
+    exhibitorPavilions: [FilterOptionGeneral]
+    natureofBusinessSymbols: [FilterOptionGeneral]
+    exhibitorProductStrategy: [FilterOptionGeneral]
+    supplierCertificates: [FilterOptionGeneral]
+    factoryLocation: [FilterOptionGeneral]
+    productAttributeAlcoholTypes: [FilterOptionGeneral]
+    productAttributeVintages: [FilterOptionGeneral]
+    productAttributeAges: [FilterOptionGeneral]
+    productAttributeTypeOfGrapes: [FilterOptionGeneral]
+    productAttributeChateaus: [FilterOptionGeneral]
+    productAttributePlaceOfOrigins: [FilterOptionGeneral]
+    productAttributeWineSweetnesses: [FilterOptionGeneral]
+    productAttributeSparklingSweetnesses: [FilterOptionGeneral]
+    exhibitorProductOrigin: [FilterOptionGeneral]
+}
+
+type FilterOptionsProduct {
+    fairSymbol: [FilterOptionGeneral]
+    countrySymbol: [FilterOptionGeneral]
+    productAssignedLevelThreeCategories: [FilterOptionGeneral]
+    exhibitorType: [FilterOptionGeneral]
+    exhibitorZones: [FilterOptionGeneral]
+    exhibitorPavilions: [FilterOptionGeneral]
+    natureofBusinessSymbols: [FilterOptionGeneral]
+    exhibitorProductStrategy: [FilterOptionGeneral]
+    supplierCertificates: [FilterOptionGeneral]
+    factoryLocation: [FilterOptionGeneral]
+    attributeAges: [FilterOptionGeneral]
+    attributeTypeOfGrapes: [FilterOptionGeneral]
+    attributeChateaus: [FilterOptionGeneral]
+    attributePlaceOfOrigins: [FilterOptionGeneral]
+    attributeWineSweetnesses: [FilterOptionGeneral]
+    attributeSparklingSweetnesses: [FilterOptionGeneral]
+    productAttributeAges: [FilterOptionGeneral]
+    productAttributeTypeOfGrapes: [FilterOptionGeneral]
+    productAttributeChateaus: [FilterOptionGeneral]
+    productAttributePlaceOfOrigins: [FilterOptionGeneral]
+    productAttributeWineSweetnesses: [FilterOptionGeneral]
+    productAttributeSparklingSweetnesses: [FilterOptionGeneral]
+    exhibitorProductOrigin: [FilterOptionGeneral]
+    productAttributeAlcoholTypes: [FilterOptionGeneral]
+    productAttributeVintages: [FilterOptionGeneral]
+}
+
+type FilterOptionsVirtualBooth {
+    virtualBoothType: [FilterOptionGeneral]
+    exhibitorZones: [FilterOptionGeneral]
+    exhibitorType: [FilterOptionGeneral]
+}
+
+type FilterOptionsBuyer {
+    participatingFair: [FilterOptionGeneral]
+    countrySymbol: [FilterOptionGeneral]
+    natureofBusinessSymbols: [FilterOptionGeneral]
+    productCategoryList: [FilterOptionGeneral]
+}
+
+type FilterOptionGeneral {
+    key: String
+    en: String
+    tc: String
+    sc: String
+}

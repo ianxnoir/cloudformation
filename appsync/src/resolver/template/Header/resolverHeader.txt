@@ -1,0 +1,16 @@
+Description: HKTDC Foundation AppSync Resolvers
+Parameters:
+  AppSyncAPIID:
+    Type: String
+  JwtAuthFunctionId:
+    Type: String
+  AuthFunctionId:
+    Type: String
+  JwtExtractorFunctionId:
+    Type: String
+  LambdaMapperFunctionId:
+    Type: String
+  S3BucketURL:
+    Type: String
+  MappingTemplatePath:
+    Type: String

@@ -1,0 +1,14 @@
+extend type Query {
+  GetCBMTargetMarketCode: CBMTargetMarketCodeResponse
+}
+
+type CBMTargetMarketCodeResponse {
+  data: [CBMTargetMarketCode]
+}
+
+type CBMTargetMarketCode {
+  code: String
+  englishDescription: String
+  chineseDescriptionTc: String
+  chineseDescriptionSc: String
+}

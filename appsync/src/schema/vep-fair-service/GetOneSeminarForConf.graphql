@@ -1,0 +1,21 @@
+extend type Query {
+  GetOneSeminarForConf(
+    vmsProjectCode: String
+    vmsProjectYear: String
+    systemCode: String
+    language: String
+    sbeSeminarId: String
+    # email:String
+  ): FairSeminarResponseV2
+}
+
+type FairSeminarResponseV2 {
+  timestamp: String
+  status: Int
+  data: FairSeminar
+  from: Int
+  size: Int
+  total_size: Int
+}
+
+

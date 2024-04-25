@@ -1,0 +1,11 @@
+extend type Query {
+  GetC2MUserConsent: C2MUserConsentResponse
+}
+
+type C2MUserConsentResponse {
+    data: C2MUserConsentData!
+}
+
+type C2MUserConsentData {
+    acceptedConsent: Boolean
+}

@@ -1,0 +1,15 @@
+extend type Query {
+  CreateC2MHiddenRecord(
+    fairCode: String
+    data: CreateC2MHiddenRecordData
+  ): CreateC2MHiddenRecordResponse
+}
+type CreateC2MHiddenRecordResponse {
+  data: C2MHiddenRecord!
+}
+
+input CreateC2MHiddenRecordData {
+  hiddenTarget: String
+  hiddenType: Int
+  fairYear: String
+}

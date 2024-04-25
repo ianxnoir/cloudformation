@@ -1,0 +1,25 @@
+extend type Query {
+    GetPageList(
+        fair: String,
+        lang: String,
+    ): PageList
+
+    GetPreviewPageList(
+        fair: String,
+        lang: String,
+    ): PageList
+}
+
+type PageListData {
+  id: Int
+  title: String
+  slug: String
+  permalink: String
+}
+
+type PageList {
+  is_cache: Boolean
+  updated_at: String
+  updated_timestamp: Int
+  data: [PageListData]
+}

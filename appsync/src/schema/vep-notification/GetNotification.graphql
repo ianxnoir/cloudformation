@@ -1,0 +1,86 @@
+extend type Query {
+  GetNotification(
+    filterForDb: FilterForDb
+    filterForSbMsg: FilterForSbMsg
+    filterForMsgMetadata: FilterForMsgMetadata
+    additionalUserInfo: AdditionalUserInfo
+  ): GetNotificationRes
+}
+
+# Param for Query
+input ChannelInfoInDB {
+  fromUid: String
+  fromRole: String
+  fromMsgCentreUserId: String
+  toUid: String
+  toRole: String
+  toMsgCentreUserId: String
+  fairCode: String
+  channelUrl: String
+  createdBy: String
+  creationTime: AWSDateTime
+  lastUpdatedBy: String
+  lastUpdatedTime: AWSDateTime
+  deletionTime: AWSDateTime
+  status: String
+}
+
+input FilterForDb {
+  dynamicFields: [ChannelInfoInDB]
+  fixedFields: ChannelInfoInDB
+}
+
+input FilterForSbMsg {
+  reverse: Boolean
+  message_id: Int
+  message_ts: Int
+  prev_limit: Int
+}
+
+input FilterForMsgFairAndRole {
+  fairCode: String
+  toRole: String
+}
+
+input FilterForMsgMetadata {
+  fairAndRole: [FilterForMsgFairAndRole]
+  notificationType: [String]
+}
+
+input AdditionalUserInfo {
+  emailAddress: String
+  firstName: String
+  lastName: String
+  ssoUid: String
+  custom_type: String
+}
+
+# response from Query
+type Message {
+  channel_url: String
+  created_at: Float
+  data: MessageData
+  isUnread: Boolean
+  message: String
+  message_id: Int
+}
+
+type MessageData {
+  channel: String
+  channelTypeForSb: String
+  urlLink: String
+  channelUrl: String
+  hybridFairEndDate: String  # delete later
+  fairCode: String
+  toRole: String
+  messageId: Int
+  notificationType: String
+  year: Int
+}
+
+type GetNotificationRes {
+  totalNum: Int
+  data: [Message]
+  error: String
+  msg: String
+}

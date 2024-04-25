@@ -1,0 +1,31 @@
+extend type Query {
+  GetCustomQuestions(
+    lang: String!
+    fairCode: String!
+    fiscalYear: String
+    projectYear: String
+  ): GetCustomQuestionsResponseType
+}
+
+type GetCustomQuestionsResponseType {
+  sql: String
+  params: String
+  data: GetCustomQuestionsResponseData
+}
+
+type GetCustomQuestionsResponseData {
+  questions: [CustomQuestion]
+}
+
+type CustomQuestion {
+  filterNum: Int
+  filterLabel: String
+  filterLabelEn: String
+  questionNum: Int
+  categoryCode: String
+  parentCategoryCode: String
+  value: String
+  valueEn: String
+  sequence: Int
+}
+

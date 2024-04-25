@@ -1,0 +1,7 @@
+extend type Query {
+  GetRatings(sbeSeminarId: String): FairSeminarRatingsResponse
+}
+
+type FairSeminarRatingsResponse {
+  data: [FairSeminarRating]
+}

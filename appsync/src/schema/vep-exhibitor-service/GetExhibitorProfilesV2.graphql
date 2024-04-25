@@ -1,0 +1,109 @@
+extend type Query {
+    GetExhibitorProfilesV2(
+        contactEmail: String
+    ): ExhibitorProfileResponseV2
+}
+
+type ExhibitorProfileResponseV2 {
+    timestamp: String
+    status: Int
+    data: ExhibitorParticipantV2
+}
+
+type ExhibitorParticipantV2 { 
+    userTimezone: String
+    contactEmail: String
+    records: [ExhibitorProfileDetailV2]
+}
+
+type ExhibitorProfileEnTcScV2 {
+    en: String
+    tc: String
+    sc: String
+}
+
+type ExhibitorProfileNestedObjectV2 {
+    code: String
+    en: String
+    tc: String
+    sc: String
+}
+
+type ExhibitorProfileProductOrServiceRangeStV2 {
+    stId: String
+    stEn: String
+    stTc: String
+    stSc: String
+    teCode: String
+}
+
+type ExhibitorProfileProductOrServiceRangeIaLv3V2 {
+    iaId: String
+    iaEn: String
+    iaTc: String
+    iaSc: String
+}
+
+type ExhibitorProfileC2mPreferenceV2 {
+    question: String
+    answers: [String]
+}
+
+type ExhibitorProfileC2mPreferencesV2 {
+    en: ExhibitorProfileC2mPreferenceV2
+    tc: ExhibitorProfileC2mPreferenceV2
+    sc: ExhibitorProfileC2mPreferenceV2
+}
+
+type ExhibitorProfileDetailV2 {
+    companyCCDID: String
+    individualCCDID: String
+    fairCode: String
+    eoaFairId: String
+    eoaType: String
+    vepType: String
+    company: String
+    addressLine1: String
+    addressLine2: String
+    addressLine3: String
+    addressLine4: String
+    country: ExhibitorProfileNestedObjectV2
+    stateOrProvince: ExhibitorProfileNestedObjectV2
+    city: ExhibitorProfileNestedObjectV2
+    postalCode: String
+    salutation: String
+    contactName: String
+    contactEmail: String
+    position: String
+    companyPhoneCountryCode: String
+    companyPhoneAreaCode: String
+    companyPhoneNumberExt: String
+    companyPhoneNumber: String
+    mobilePhoneCountryCode: String
+    mobilePhoneNumber: String
+    agentName: String
+    boothNumber: String
+    productZone: [ExhibitorProfileEnTcScV2]
+    pavilion: [ExhibitorProfileEnTcScV2]
+    companyBackground: String
+    productOrServiceRangeStId: [ExhibitorProfileProductOrServiceRangeStV2]
+    productOrServiceRangeIaLv3: [ExhibitorProfileProductOrServiceRangeIaLv3V2]
+    productOrServiceRanges: [ExhibitorProfileEnTcScV2]
+    strategy: [ExhibitorProfileEnTcScV2]
+    brandName: [String]
+    virtualBoothIndicator: String
+    factoryLocation: String
+    exhibitDescription: String
+    targetMarkets: [ExhibitorProfileNestedObjectV2]
+    preferredNOB: [ExhibitorProfileNestedObjectV2]
+    nonTargetMarkets: [ExhibitorProfileNestedObjectV2]
+    currentExportMarkets: [ExhibitorProfileNestedObjectV2]
+    nob: [ExhibitorProfileNestedObjectV2]
+    companyWebsite: String
+    c2mEnable: String
+    c2mPreferences: [ExhibitorProfileC2mPreferencesV2]
+    c2mParticipantStatus: String
+    vepExhibitorRegistrationStatus: String
+    c2mLogin: String
+    c2mMeetingLogin: String
+}

@@ -1,0 +1,137 @@
+extend type Query {
+  GetSeminarsForConferenceV2(
+    sbeParams: SbeParamsV3
+    criteria: CriteriaV3
+    optionalInfo: OptionalInfo
+  ): GetSeminarsForConferenceV2Response
+}
+
+input SbeParamsV3 {
+  vmsProjectCode: String
+  vmsProjectYear: String
+  systemCode: String
+  language: String
+}
+
+input CriteriaV3 {
+  firstCriteria: String
+  secondCriteria: String
+}
+
+input OptionalInfo {
+  seminarId: String
+}
+
+type UniqueCategoryDetailsV3 {
+  identifier: String
+  type: String
+  values: [String]
+}
+
+type DataFromBnResCategoryValueV3 {
+  label: String
+  value: String
+  isActive: Boolean
+  type: String # should be "DATE" / "CATEGORY"
+}
+
+type DataFromBnResCategoryV3 {
+  firstCategory: [DataFromBnResCategoryValueV3]
+  secondCategory: [DataFromBnResCategoryValueV3]
+}
+
+type DataFromBnResV3 {
+  seminarDataForModal: [ConferenceSeminarV3]
+  seminarData: [ConferenceSeminarV3]
+  categories: [DataFromBnResCategoryV3]
+  sbeFooter: String
+  seminarDataAmount: Int
+}
+
+type GetSeminarsForConferenceV2Response {
+  timestamp: String
+  status: Int
+  data: [DataFromBnResV3]
+  from: Int
+  size: Int
+  total_size: Int
+}
+
+type FilterV3 {
+  value: String
+  type: String
+  sortOrder: Int
+}
+
+type ConferenceSeminarV3 {
+  firstLayerFilter: FilterV3
+  secondLayerFilter: FilterV3
+  id: String
+  name: String
+  formattedStartDate: String
+  formattedDuration: String
+  startAt: String
+  endAt: String
+  now: String
+  description: String
+  language: String
+  type: String
+  location: String
+  fulled: Boolean
+  bookmarked: Boolean
+  fullProgrammeUrl: String
+  registrationEnabled: Boolean
+  registrationUrl: String
+  nature: String
+  isLive: Boolean
+  session: String
+  isPublic: Boolean
+  isAbleToWatch: Boolean
+  isRegistered: Boolean
+  isVideoUrlReady: Boolean
+  streamingUrl: String
+  vcPlaybackUrl: String
+  isFull: Boolean
+  vcPlaybackSetting: String
+  recommendedText: String
+  recommendedTextBackgroundColor: String
+  recommendedTextColor: String
+  isFirstAppearDate: Boolean
+  isFirstAppearCategory: Boolean
+  qualificationLogo: [String]
+  speakerPanels: [ConferenceSpeakerPanelV3]
+  logoPanels: [ConferenceLogoPanelsV3]
+  streamingType: FairStreamingType
+  eventDetail: FairEventDetail
+}
+
+type ConferenceSpeakerPanelV3 {
+  title: String
+  speakers: [ConferenceSeminarSpeakerV3]
+}
+
+type ConferenceLogoPanelsV3 {
+  title: String
+  logos: [String]
+}
+
+type SpeakerOtherCompaniesV3 {
+  companyName: String
+  position: String
+  logo: String
+}
+
+type ConferenceSeminarSpeakerV3 {
+  id: String
+  name: String
+  title: String
+  avatar: String
+  profile: String
+  company: ConferenceSeminarSpeakerCompanyV3
+  otherCompanies: [SpeakerOtherCompaniesV3]
+}
+
+type ConferenceSeminarSpeakerCompanyV3 {
+  name: String
+  logo: String
+}

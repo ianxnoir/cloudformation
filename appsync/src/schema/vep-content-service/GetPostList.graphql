@@ -1,0 +1,21 @@
+extend type Query {
+    GetPostList(
+        fair: String,
+        lang: String,
+        post: String,
+    ): PostList
+}
+
+type PostListData {
+  id: Int
+  title: String
+  slug: String
+  permalink: String
+}
+
+type PostList {
+  is_cache: Boolean
+  updated_at: String
+  updated_timestamp: Int
+  data: [PostListData]
+}

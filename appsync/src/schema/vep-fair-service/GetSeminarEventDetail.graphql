@@ -1,0 +1,73 @@
+extend type Query {
+  GetSeminarEventDetail(sbeSeminarId: String): FairSeminarEventDetailResponse
+}
+
+type FairSeminarEventDetailResponse {
+  data: FairEventDetail
+}
+
+enum FairPlatformType {
+  YOUTUBE
+  FACEBOOK
+  VIMEO
+  YOUKU
+  TENCENT
+}
+
+enum FairStreamingType {
+  KOL
+  VOD
+  LIVE
+}
+
+type FairEventDetail {
+  id: Int
+  sbeSeminarId: String
+  streamingType: FairStreamingType
+  surveyLink: String
+  pigeonholeSessionId: Int
+  pigeonholePasscode: String
+  kol: FairKolDetail
+  vods: [FairVodDetail]
+  rtmps: [FairRtmpDetail]
+  creationTime: String
+  lastUpdatedAt: String
+  lastUpdatedBy: String
+  isEnded: Boolean
+}
+
+type FairKolDetail {
+  id: Int
+  platformType: String
+  platformId: String
+  platformUrl: String
+  playbackVideo: FairVideoDetail
+  creationTime: String
+  lastUpdatedAt: String
+  lastUpdatedBy: String
+}
+
+type FairVodDetail {
+  id: Int
+  language: String
+  defaultLanguage: Boolean
+  liveVideo: FairVideoDetail
+  playbackVideo: FairVideoDetail
+  creationTime: String
+  lastUpdatedAt: String
+  lastUpdatedBy: String
+}
+
+type FairRtmpDetail {
+  id: Int
+  language: String
+  defaultLanguage: Boolean
+  link: String
+  key: String
+  liveUrl: String
+  expiredAt: String
+  playbackVideo: FairVideoDetail
+  lastUpdatedBy: String
+  lastUpdatedAt: String
+  creationTime: String
+}

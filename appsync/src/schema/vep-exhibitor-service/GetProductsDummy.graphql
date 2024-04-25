@@ -1,0 +1,60 @@
+extend type Query {
+    GetProductsDummy(
+		fairCode: String,
+		language: String,
+		lang: String,
+		browserCountry: String,
+		exhibitorUrn: String,
+        from: Int,
+        size: Int,
+		keyword: String,
+		filterCountry: [String],
+		filterProductCategory: [String],
+		filterExhibitorType: [String],
+		filterZone: [String],
+		filterPavilion: [String],
+		filterNob: [String],
+		filterProductStrategy: [String],
+		filterCertification: [String],
+		filterFactoryLocation: [String]
+	): WrappedProductsDataDummy
+}
+
+type WrappedProductsDataDummy {
+	timestamp: String
+	status: Int
+	from: Int
+	size: Int
+	total_size: Int
+	keyword: String
+	didYouMean: [String]
+	sensitiveKeyword: Boolean
+    data: WrappedProductsDataDataDummy
+}
+
+type WrappedProductsDataDataDummy {
+	hits: [ProductDetailDataDummy]
+	aggregations: ProductAggregations
+}
+
+type ProductAggregations {
+	fairSymbol: AggBucket
+	countrySymbol: AggBucket
+    productAssignedLevelThreeCategories: AggBucket
+	exhibitorZones: AggBucket
+	exhibitorType: AggBucket
+	exhibitorPavilions: AggBucket
+	natureofBusinessSymbols: AggBucket
+	exhibitorProductStrategy: AggBucket
+	supplierCertificates: AggBucket
+	factoryLocation: AggBucket
+	attributeAges: AggBucket
+    attributeTypeOfGrapes: AggBucket
+    attributeChateaus: AggBucket
+    attributePlaceOfOrigins: AggBucket
+    attributeWineSweetnesses: AggBucket
+    attributeSparklingSweetnesses: AggBucket
+    exhibitorProductOrigin: AggBucket
+    attributeAlcoholTypes: AggBucket
+    attributeVintages: AggBucket
+}

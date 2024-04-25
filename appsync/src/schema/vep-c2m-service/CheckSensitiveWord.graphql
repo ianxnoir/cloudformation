@@ -1,0 +1,17 @@
+extend type Query {
+  CheckSensitiveWord(
+    word: String
+  ): CheckSensitiveWordResponse
+}
+
+type CheckSensitiveWordResponse {
+  status: Int
+  result: CheckSensitiveWordResult
+  error: AWSJSON
+}
+
+type CheckSensitiveWordResult {
+  pass: Boolean
+}
+
+

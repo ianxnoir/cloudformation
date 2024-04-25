@@ -1,0 +1,25 @@
+extend type Query {
+  PostEnquiryFrom(
+    title: String
+    firstName: String
+    lastName: String
+    company: String
+    country: String
+    businessEmail: String
+    enquiryMsg: String
+    privacyConfirmation: String
+    euDmConsentClause: String
+    fairName: String
+    locale: String
+    fairCode: String
+    ticket: String,
+    randStr: String, 
+    providerId: String
+    ipAddress: String
+  ): GeneralSchema
+}
+
+type EnquiryFormResponseData {
+  status: Int
+  data: AWSJSON
+}

@@ -1,0 +1,16 @@
+extend type Query {
+  GetAndActivateSendbirdQuota(
+    meetingId: String
+    userId: String
+  ): GetAndActivateSendbirdQuotaResponse
+}
+
+type GetAndActivateSendbirdQuotaResponse {
+  status: Int
+  message: String
+  data: GetAndActivateSendbirdQuotaData
+}
+
+type GetAndActivateSendbirdQuotaData {
+  referenceKey: String
+}

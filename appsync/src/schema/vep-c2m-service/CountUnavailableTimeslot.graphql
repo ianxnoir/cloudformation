@@ -1,0 +1,12 @@
+extend type Query {
+  CountUnavailableTimeslot(
+    fairCode: String
+    fiscalYear: String
+  ): CountUnavailableTimeslotResponse
+}
+
+type CountUnavailableTimeslotResponse {
+  status: Int
+  message: String
+  count: Int
+}

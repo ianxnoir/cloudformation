@@ -1,0 +1,93 @@
+extend type Query {
+    GetExhibitorProfiles(
+        companyCcdIds: [String]!
+    ): ExhibitorProfileResponse
+}
+
+type ExhibitorProfileResponse {
+    timestamp: String
+    status: Int
+    data: [ExhibitorParticipant]
+}
+
+type ExhibitorParticipant { 
+    companyCcdId: String
+    records: [ExhibitorProfilesDetail]
+}
+
+type ExhibitorProfileEnTcSc {
+    en: String
+    tc: String
+    sc: String
+}
+
+type ExhibitorProfileNestedObject {
+    code: String
+    en: String
+    tc: String
+    sc: String
+}
+
+type ExhibitorProfileProductOrServiceRangeSt {
+    stId: String
+    stEn: String
+    stTc: String
+    stSc: String
+    teCode: String
+}
+
+type ExhibitorProfileProductOrServiceRangeIaLv3 {
+    iaId: String
+    iaEn: String
+    iaTc: String
+    iaSc: String
+}
+
+type ExhibitorProfileC2mPreference {
+    question: String
+    answers: [String]
+}
+
+type ExhibitorProfileC2mPreferences {
+    en: ExhibitorProfileC2mPreference
+    tc: ExhibitorProfileC2mPreference
+    sc: ExhibitorProfileC2mPreference
+}
+
+type ExhibitorProfilesDetail {
+    companyCCDID: String
+    individualCCDID: String
+    eoaFairId: String
+    eoaType: String
+    vepType: String
+    company: String
+    country: ExhibitorProfileNestedObject
+    stateOrProvince: ExhibitorProfileNestedObject
+    city: ExhibitorProfileNestedObject
+    salutation: String
+    contactName: String
+    contactEmail: String
+    position: String
+    boothNumber: String
+    productZone: [ExhibitorProfileEnTcSc]
+    pavilion: [ExhibitorProfileEnTcSc]
+    companyBackground: String
+    productOrServiceRangeStId: [ExhibitorProfileProductOrServiceRangeSt]
+    productOrServiceRangeIaLv3: [ExhibitorProfileProductOrServiceRangeIaLv3]
+    productOrServiceRanges: [ExhibitorProfileEnTcSc]
+    strategy: [ExhibitorProfileEnTcSc]
+    brandName: [String]
+    virtualBoothIndicator: String
+    factoryLocation: String
+    exhibitDescription: String
+    targetMarkets: [ExhibitorProfileNestedObject]
+    preferredNOB: [ExhibitorProfileNestedObject]
+    nonTargetMarkets: [ExhibitorProfileNestedObject]
+    currentExportMarkets: [ExhibitorProfileNestedObject]
+    nob: [ExhibitorProfileNestedObject]
+    companyWebsite: String
+    c2mEnable: String
+    c2mPreferences: [ExhibitorProfileC2mPreferences]
+    c2mParticipantStatusId: String
+    vepExhibitorRegistrationStatusId: String
+}

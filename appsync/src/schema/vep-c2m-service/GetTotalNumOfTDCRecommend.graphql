@@ -1,0 +1,20 @@
+extend type Query {
+  GetTotalNumOfTDCRecommend(
+    fairCode: String
+    fairYear: String
+  ): GetTotalNumOfTDCRecommendResponse
+}
+
+type GetTotalNumOfTDCRecommendResponse {
+  meta: TotalNumOfTDCRecommendMeta
+  data: TotalNumOfTDCRecommendData
+  message: String
+}
+
+type TotalNumOfTDCRecommendMeta {
+  status: Int
+}
+
+type TotalNumOfTDCRecommendData {
+  result: Int
+}

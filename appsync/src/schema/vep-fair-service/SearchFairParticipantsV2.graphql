@@ -1,0 +1,131 @@
+extend type Query {
+  SearchFairParticipantsV2(
+    ccdid: String
+    keyword: String
+    lang: String!
+    from: Int!
+    size: Int!
+    fairCodes: [String]
+    filterParticipatingFair: [String]
+    filterCountry: [String]
+    filterNob: [String]
+    filterProductCategory: [String]
+    alphabet: String
+    ssoUidList: [String]
+    browserCountry: String
+  ): SearchFairParticipantsV2ResponseType
+}
+
+type SearchFairParticipantsV2ResponseType {
+  data: SearchFairParticipantsV2ResponseData
+} 
+
+type SearchFairParticipantsV2ResponseData {
+  aggregations: buyerAggregations
+  hits: [userListTypeV2]
+  from: Int
+  size: Int
+  total_size: Int
+  keyword: String
+  didYouMean: [String]
+  sensitiveKeyword: Boolean
+}
+
+type userListTypeV2 {
+    fairParticipantId: String
+    firstName: String
+    lastName: String
+    initial: String
+    displayName: String
+    position: String 
+    companyName: String
+    country: String
+    countryCode: String
+    ssoUid: String
+    emailId: String
+    fairCode: String
+    fiscalYear: String
+
+    addressCountryCode: MultiLanguageWithCode
+    addressLine1: String
+    addressLine2: String
+    addressLine3: String
+    addressLine4: String
+    badgeConsent: String
+    blacklisted: String
+    c2mConsent: String
+    c2mLogin: String
+    c2mMeetingLogin: String
+    c2mParticipantStatusId: Int
+    cbmRemark: String
+    cityCode: MultiLanguageWithCode
+    companyBackground: String
+    companyCcdid: String
+    companyPhoneAreaCode: String
+    companyPhoneCountryCode: String
+    companyPhoneExtension: String
+    companyPhonePhoneNumber: String
+    companyWebsite: String
+    correspondenceEmail: String
+    euConsentStatus: String
+    fairParticipantTypeId: Int
+    fairRegistrationStatusId: Int
+    fairRegistrationTypeId: Int
+    formDataJson: String
+    formType: String
+    formSubmissionKey: String
+    formTemplateId: String
+    generalBuyerRemark: String
+    id: Int
+    individualCcdid: String
+    mobilePhoneCountryCode: String
+    mobilePhoneNumber: String
+    nob: [MultiLanguageWithCode]
+    overseasBranchOffice: String
+    overseasBranchOfficer: String
+    postalCode: String
+    productInterest: [ProductInterestDetails]
+    projectNumber: String
+    projectYear: String
+    promotionCode: String
+    referenceCode: String
+    registrationDetailConsent: String
+    registrationNoChecksum: String
+    registrationUrl: String
+    referenceOverseasOffice: String
+    serialNumber: String
+    sourceTypeCode: String
+    slug: String
+    stateOrProvinceCode: MultiLanguageWithCode
+    tier: String
+    title: String
+    visitorTypeCode: String
+    vpRemark: String
+}
+
+type MultiLanguageWithCode {
+    code: String
+    en: String
+    tc: String
+    sc: String
+}
+
+type ProductInterestDetails {
+    iaId: String
+    iaEn: String
+    iaTc: String
+    iaSc: String
+    stId: String
+    stEn: String
+    stTc: String
+    stSc: String
+    teCode: String
+}
+
+
+
+
+
+
+  
+

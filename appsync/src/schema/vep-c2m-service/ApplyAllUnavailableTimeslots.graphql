@@ -1,0 +1,16 @@
+extend type Query {
+  ApplyAllUnavailableTimeslots(
+    fairCode: String
+    fiscalYear: String
+    selectedDate: String
+    fairStartDate: String
+    fairEndDate: String
+    skipChecking: Boolean
+  ): ApplyAllUnavailableTimeslotsResponse
+}
+
+type ApplyAllUnavailableTimeslotsResponse {
+  status: Int
+  message: String
+  beingInsertCount: Int
+}

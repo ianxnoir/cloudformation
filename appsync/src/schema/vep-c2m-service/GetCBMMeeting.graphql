@@ -1,0 +1,80 @@
+extend type Query {
+  GetCBMMeeting(
+    fairCode: String
+    fairYear: String
+    data: GetCBMMeetingData
+  ): CBMMeetingResponse
+}
+
+input GetCBMMeetingData {
+  filterOption: GetCBMMeetingFilterOption
+  sortOption: AWSJSON
+  searchOption: String
+  paginateOption: GetCBMMeetingPaginateOption
+}
+
+input GetCBMMeetingPaginateOption {
+  pageNum: Int
+  rowsPerPage: Int
+}
+
+input GetCBMMeetingFilterOption {
+  startTime: String
+  endTime: String
+  assignerRole: [String]
+  status: [Int]
+  type: [Int]
+  onlineMeetingStatus: [String]
+  buyerCountry: [String]
+  buyerBranchOffice: [String]
+  buyerAttendanceStatus: Boolean
+  buyerResponseStatus: [String]
+  exhibitorCountry: [String]
+  exhibitorFairName: [String]
+  exhibitorAttendanceStatus: Boolean
+  exhibitorResponseStatus: [String]
+  pavilion: [String]
+}
+
+type CBMMeetingResponse {
+  status: Int
+  data: CBMMeetingResult
+  message: String
+}
+
+type CBMMeetingResult {
+  recordNum: Int
+  totalRecordNum: Int
+  rowsPerPage: Int
+  pageNum: Int
+  totalPageNum: Int
+  records: [CBMMeeting]
+}
+
+type CBMMeeting {
+  meetingId: String
+  meetingDate: String
+  meetingTime: String
+  appointmentStatus: String
+  onlineMeetingStatus: String
+  meetingType: String
+  # buyerId: Int
+  buyerRegistrationId: Int
+  buyerCompany: String
+  buyerName: String
+  buyerCountry: String
+  buyerSsoUid: String
+  buyerBranchOffice: String
+  buyerResponseStatus: String
+  buyerAttendanceStatus: Int
+  exhibitorBoothNumber: String
+  exhibitorFairName: String
+  exhibitorName: String
+  exhibitorCompany: String
+  exhibitorCountry: String
+  exhibitorUrn: String
+  exhibitorResponseStatus: String
+  exhibitorAttendanceStatus: Int
+  arrangedByTdc: Boolean
+  pavilion: String
+}

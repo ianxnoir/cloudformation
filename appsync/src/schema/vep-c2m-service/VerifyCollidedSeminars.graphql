@@ -1,0 +1,16 @@
+extend type Query {
+  VerifyCollidedSeminars(
+    fairCode: String
+    startTime: AWSDateTime
+    endTime: AWSDateTime
+  ): VerifyCollidedSeminarsResponse
+}
+
+type VerifyCollidedSeminarsResponse {
+  data: VerifyCollidedSeminarsData
+}
+
+type VerifyCollidedSeminarsData {
+  collidedCount: Int
+  isCollided: Boolean
+}

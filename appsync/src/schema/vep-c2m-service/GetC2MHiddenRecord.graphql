@@ -1,0 +1,21 @@
+extend type Query {
+    GetC2MHiddenRecords(
+        fairCode: String
+        fairYear: String
+        hiddenType: Int
+    ): C2MHiddenRecordsResponse
+}
+
+type C2MHiddenRecordsResponse {
+     data: [C2MHiddenRecord!]
+}
+
+type C2MHiddenRecord {
+    id: Int
+    ssoUid: String
+    fairCode: String
+    fairYear: String
+    hiddenTarget: String
+    hiddenType: Int
+    creationTime: AWSDateTime
+}

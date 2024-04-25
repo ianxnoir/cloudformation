@@ -1,0 +1,13 @@
+extend type Query {
+  CancelCBMMeeting(
+    fairCode: String
+    id: String
+    cancelledReason: String
+  ): CancelCBMMeetingResponse
+}
+
+type CancelCBMMeetingResponse {
+  status: Int
+  data: C2MMeeting
+  message: String
+}

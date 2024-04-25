@@ -1,0 +1,38 @@
+extend type Query {    
+    GetFairParticipantsProfileWithCombinedFair(
+        fairCode: String!
+        language: String!
+        timezone: String!
+    ): GetFairParticipantsProfileWithCombinedFairResponse
+}
+
+type GetFairParticipantsProfileWithCombinedFairResponse {
+    status: Int
+    profile: GetFairParticipantsProfileWithCombinedFairProfileData
+    userFairRecords: [AWSJSON]
+}
+
+type GetFairParticipantsProfileWithCombinedFairProfileData {
+  profileCard: GetFairParticipantsProfileWithCombinedFairProfileCardData
+  profileDetail: GetFairParticipantsProfileWithCombinedFairProfileDetailData
+}
+
+type GetFairParticipantsProfileWithCombinedFairProfileCardData {
+  position: String
+  companyName: String
+  avatar: String
+  firstName: String
+  lastName: String
+  title: String
+}
+
+type GetFairParticipantsProfileWithCombinedFairProfileDetailData {
+  companyName: String
+  country: String
+  email: String
+  phoneNumber: String
+  companyWebsite: String
+  companyBackground: String
+  natureOfBussiness: String
+  buttonEnable: Boolean
+}

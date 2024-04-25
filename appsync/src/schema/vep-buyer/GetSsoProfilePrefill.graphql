@@ -1,0 +1,35 @@
+extend type Query {
+  GetSsoProfilePrefill: GetSsoProfilePrefillResponse
+}
+
+type GetSsoProfilePrefillResponse {
+  timestamp: String
+  status: Int
+  data: GetSsoProfilePrefillData
+}
+
+type GetSsoProfilePrefillData {
+  email: String
+  title: String
+  firstName: String
+  lastName: String
+  position: String
+  companyName: String
+  addressLine1: String
+  addressLine2: String
+  addressLine3: String
+  addressLine4: String
+  postalCode: String
+  countryCode: String
+  stateOrProvinceCode: String
+  cityCode: String
+  mobilePhoneCountryCode: String
+  mobilePhoneNumber: String
+  companyPhoneCountryCode: String
+  companyPhoneAreaCode: String
+  companyPhonePhoneNumber: String
+  companyPhoneExtension: String
+  companyWebsite: String
+  companyBackground: String
+  natureOfBusiness: [String]
+}

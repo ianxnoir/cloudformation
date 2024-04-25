@@ -1,0 +1,13 @@
+extend type Query {    
+    GetExhibitorProfileWithCombinedFair(
+        companyCcdId: String!
+        fairCode: String!
+        language: String!
+        timezone: String!
+    ): GetExhibitorProfileWithCombinedFairResponse
+}
+
+type GetExhibitorProfileWithCombinedFairResponse {
+    status: Int
+    data: AWSJSON
+}

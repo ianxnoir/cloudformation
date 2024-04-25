@@ -1,0 +1,43 @@
+extend type Query {
+  GetCBMBuyer(
+    fairCode: String
+    fairYear: String
+    data: GetCBMBuyerData
+  ): CBMBuyerResponse
+}
+
+input GetCBMBuyerData {
+  filterOption: GetCBMBuyerFilterOption
+}
+
+input GetCBMBuyerFilterOption {
+  buyerType: [String]
+  country: [String]
+  branchOffice: [String]
+  ssoUid: [String]
+  emailId: [String]
+}
+
+type CBMBuyerResponse {
+  status: Int
+  data: [CBMBuyer]
+  message: String
+}
+
+type CBMBuyer {
+  # id: Int
+  registrationId: Int
+  ssoUid: String
+  emailId: String
+  companyName: String
+  firstName: String
+  lastName: String
+  buyerType: Int
+  country: String
+  branchOffice: String
+  fairVisit: String
+  overseaOfficer: String
+  remarks: String
+  fairRegDate: String
+  fairCode: String
+}

@@ -1,0 +1,23 @@
+extend type Query {
+  GetC2MFairDates(fairCode: String): C2MFairDatesResponse
+}
+
+type C2MFairDatesResponse {
+  data: C2MFairDates!
+}
+
+type C2MFairDates {
+  c2mStartDatetime: AWSDateTime
+  c2mEndDatetime: AWSDateTime
+  hybridFairStartDatetime: AWSDateTime
+  hybridFairEndDatetime: AWSDateTime
+  winsEventStartDatetime: AWSDateTime
+  winsEventEndDatetime: AWSDateTime
+  physical: [C2MFairDatesObject]
+  online: [C2MFairDatesObject]
+}
+
+type C2MFairDatesObject {
+  start: AWSDateTime
+  end: AWSDateTime
+}

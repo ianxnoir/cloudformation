@@ -1,0 +1,9 @@
+extend type Query {
+  GetCombinedWordpressFairSetting(
+    fairCode: String
+  ): FairSettingResponse
+}
+
+
+
+

@@ -1,0 +1,78 @@
+extend type Query {
+  GetC2MVideoConference(
+    fairCode: String
+    #fiscalYear:String
+    id: String
+    accessToken: String
+  ): C2MVideoConferenceResponse
+
+  GetC2MVideoConferenceAdmin(
+    fairCode: String
+    id: String
+    permission: AdminPermission
+  ): C2MVideoConferenceResponse
+
+  GetC2MVideoConferenceGuest(
+    fairCode: String
+    id: String
+    companyName: String
+    displayName: String
+    companyRole: String
+    connectionId: String
+    ssoUid: String
+  ): C2MVideoConferenceResponse
+}
+
+type C2MVideoConferenceResponse {
+  data: C2MVideoConferenceData!
+}
+
+type C2MVideoConferenceData {
+  ssoUid: String
+  role: String
+  jwtToken: String
+  waitingParti: [videoConference]
+  rejoin: Boolean
+  name: String
+  company: String
+  trtcSdkAppId: Int
+  trtcUserSig: String
+  trtcUserSigForShareScreen: String
+  trtcUserSigForConnectionTest: String
+  feedbackId:String
+  isFull: Boolean
+  profileLanguage: String
+  translationLanguageList: translationLanguageListData
+  commonMeetingData: CommonMeetingData
+}
+
+input AdminPermission {
+  nameID: String
+  name: String
+}
+
+type translationLanguageListData {
+  enList: [languageListResult]
+  tcList: [languageListResult]
+  scList: [languageListResult]
+}
+
+type languageListResult {
+  code: String
+  name: String
+}
+
+type videoConference {
+  id: Int
+  meetingId: Int
+  connectionId: String
+  ssoUid: String
+  role: String
+  displayName: String
+  displayCompany: String
+  companyRole: String
+  country: String
+  isAdmitted: Boolean
+  joinedAt: String
+  disconnectedAt: String
+}

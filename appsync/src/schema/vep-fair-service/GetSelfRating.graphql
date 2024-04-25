@@ -1,0 +1,16 @@
+extend type Query {
+  GetSelfRating(sbeSeminarId: String): FairSeminarRatingResponse
+}
+
+type FairSeminarRatingResponse {
+  data: FairSeminarRating
+}
+
+type FairSeminarRating {
+  id: Int
+  sbeSeminarId: String
+  creationTime: String
+  lastUpdatedAt: String
+  lastUpdatedBy: String
+  rate: Int
+}

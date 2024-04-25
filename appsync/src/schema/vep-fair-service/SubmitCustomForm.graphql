@@ -1,0 +1,28 @@
+extend type Mutation {
+  SubmitCustomForm(
+    fairCode: String
+    submitType: String
+    step: Int
+    lang: String
+    formDataJson: String
+    captcha: String
+    slug: String
+    formSubmissionKey: String
+  ): SubmitCustomFormResponse
+}
+
+type SubmitCustomFormResponse {
+  timestamp: String
+  status: Int
+  data: SubmitCustomFormResponseData
+}
+
+type SubmitCustomFormResponseData {
+  formStepValidStatus: [FormStepValidStatusObj]
+  formValidationError: [FormValidationErrorObj]
+  submitType: SubmitType
+  validationStatus: ValidationStatus
+  isSubmitSuccess: Boolean
+  slug: String
+  formSubmissionKey: String
+}

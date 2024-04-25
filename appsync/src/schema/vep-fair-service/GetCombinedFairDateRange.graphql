@@ -1,0 +1,18 @@
+extend type Query {
+  GetCombinedFairDateRange(fairCode: String): GetCombinedFairDateRangeResponse
+}
+
+type GetCombinedFairDateRangeResponse {
+  data: [CombinedFairDateRange]
+}
+
+type CombinedFairDateRange {
+  fairCode: String
+  physical: [FairDatesObject]
+  online: [FairDatesObject]
+}
+
+type FairDatesObject {
+  start: AWSDateTime
+  end: AWSDateTime
+}

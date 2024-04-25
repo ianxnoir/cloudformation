@@ -1,0 +1,16 @@
+extend type Query {
+  GetCBMOfficeCode: CBMOfficeCodeResponse
+}
+
+type CBMOfficeCodeResponse {
+  data: [CBMOfficeCode]
+}
+
+type CBMOfficeCode {
+  officeCode: String
+  officeDescEn: String
+  officeDescTc: String
+  officeDescSc: String
+  officeType: String
+  officeTypeDesc: String
+}

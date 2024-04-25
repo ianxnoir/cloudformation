@@ -1,0 +1,36 @@
+extend type Query {
+    GetSbeSpeakers(vmsProjectCode: String, vmsProjectYear: String, systemCode: String, lang: String, queryMode: String): SbeSpeakersResponse
+}
+
+type SbeSpeakersResponse {
+    timestamp: AWSTimestamp
+    status: Int
+    message: String
+    messageId: String
+    sat: String
+    data: [SbeSpeakersData]
+}
+
+type SbeSpeakersData {
+    id: String
+    givenName: String
+    surname: String
+    displayName: String
+    position: String
+    company: String
+    profile: String
+    photoUrl: String
+    otherCompany1: String
+    otherPosition1: String
+    otherCompany2: String
+    otherPosition2: String
+    otherCompany3: String
+    otherPosition3: String
+    otherCompany4: String
+    otherPosition4: String
+    companyLogoUrl: String
+    otherCompanyLogoUrl1: String
+    otherCompanyLogoUrl2: String
+    otherCompanyLogoUrl3: String
+    otherCompanyLogoUrl4: String
+}

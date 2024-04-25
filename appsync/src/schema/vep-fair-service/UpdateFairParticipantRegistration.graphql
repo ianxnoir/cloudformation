@@ -1,0 +1,32 @@
+extend type Mutation {
+  UpdateFairParticipantRegistration(
+    fairCode: String!
+    productInterest: [String]
+    otherProductCategories: String
+    productStrategy: [String]
+    targetPreferredMarkets: [String]
+    numberOfOutlets: String
+    hotel: String
+    roomType: String
+    sourcingBudget: String
+    interestedIn: String
+    pricePoint: String
+    lowMOQ: String
+    companyLogo: String
+    profilePicture: String
+    registrationType: RegistrationType
+    registrationStatus: RegistrationStatus
+    participantType: ParticipantType
+    click2MatchStatus: Click2MatchStatus
+  ): UpdateFairParticipantRegistrationResponse
+}
+
+type UpdateFairParticipantRegistrationResponse {
+  timestamp: String
+  status: Int
+  data: UpdateFairParticipantRegistrationData
+}
+
+type UpdateFairParticipantRegistrationData {
+  isSuccess: Boolean
+}

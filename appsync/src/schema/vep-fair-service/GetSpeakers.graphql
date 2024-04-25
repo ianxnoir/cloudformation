@@ -1,0 +1,28 @@
+extend type Query {
+  GetSpeakers(
+    vmsProjectCode: String
+    vmsProjectYear: String
+    systemCode: String
+    language: String
+    queryMode:String
+  ): ConferenceStarSpeakersAndSeminarsResponse
+}
+
+type ConferenceStarSpeakersAndSeminarsResponse {
+  data:  [ConferenceStarSpeaker]
+}
+
+type ConferenceStarSpeaker {
+  id: String
+  name: String
+  avatar: String
+  profile: String
+  companies: [ConferenceSeminarSpeakerCompany]
+}
+
+
+type ConferenceSeminarSpeakerCompany {
+  name: String
+  logo: String
+  title:String
+}

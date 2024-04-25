@@ -1,0 +1,29 @@
+extend type Mutation {
+  SubmitEnquiryForm(
+    fairCode: String
+    submitType: String
+    step: Int
+    lang: String
+    formDataJson: String
+    captcha: String
+    slug: String
+    formSubmissionKey: String
+  ): SubmitEnquiryFormResponse
+}
+
+type SubmitEnquiryFormResponse {
+  timestamp: String
+  status: Int
+  data: SubmitEnquiryFormResponseData
+}
+
+type SubmitEnquiryFormResponseData {
+  formStepValidStatus: [FormStepValidStatusObj]
+  formValidationError: [FormValidationErrorObj]
+  submitType: SubmitType
+  validationStatus: ValidationStatus
+  isSubmitSuccess: Boolean
+  slug: String
+  formSubmissionKey: String
+  serialNo: String
+}

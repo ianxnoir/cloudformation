@@ -1,0 +1,13 @@
+extend type Query {
+    GetFormTemplate(
+        fair: String,
+        slug: String,
+        lang: String,
+    ): FormData
+}
+
+type FormData {
+  data: String
+  timestamp: String
+  status: String
+}

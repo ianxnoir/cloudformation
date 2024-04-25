@@ -1,0 +1,48 @@
+extend type Query {
+  GetUnreadNotification(
+    filterForDb: UnreadFilterForDb
+    additionalUserInfo: UnreadAdditionalUserInfo
+  ): GetUnreadNotificationRes
+}
+
+# Param for Query
+input UnreadChannelInfoInDB {
+  fromUid: String
+  fromRole: String
+  fromMsgCentreUserId: String
+  toUid: String
+  toRole: String
+  toMsgCentreUserId: String
+  fairCode: String
+  channelUrl: String
+  createdBy: String
+  creationTime: AWSDateTime
+  lastUpdatedBy: String
+  lastUpdatedTime: AWSDateTime
+  deletionTime: AWSDateTime
+  status: String
+}
+
+input UnreadFilterForDb {
+  dynamicFields: [UnreadChannelInfoInDB]
+  fixedFields: UnreadChannelInfoInDB
+}
+
+input UnreadAdditionalUserInfo {
+  emailAddress: String
+  firstName: String
+  lastName: String
+  ssoUid: String
+  custom_type: String
+}
+
+# response from Query
+type UnreadRes {
+  unreadCount: Int
+}
+
+type GetUnreadNotificationRes {
+  data: UnreadRes
+  error: String
+  msg: String
+}

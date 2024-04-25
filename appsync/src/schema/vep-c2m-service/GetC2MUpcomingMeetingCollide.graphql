@@ -1,0 +1,24 @@
+extend type Query {
+  GetC2MUpcomingMeetingCollide(
+    fairCode: String
+    status: String
+    startTime: String
+    endTime: String
+    withCombinedFairs: Boolean
+    timeslots: [TimeSlotSelected]
+      ): GetC2MUpcomingMeetingCollideResponse
+}
+
+type GetC2MUpcomingMeetingCollideResponse {
+  data: GetC2MUpcomingMeetingCollideResponseDataContent
+  message: String
+}
+
+type GetC2MUpcomingMeetingCollideResponseDataContent {
+    status: Int
+}
+
+input TimeSlotSelected {
+    startTime: String
+    endTime: String
+}

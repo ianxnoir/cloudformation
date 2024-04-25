@@ -1,0 +1,16 @@
+extend type Query {
+  UpdateC2MRecommendation(
+    fairCode: String
+    id: String
+    data: UpdateC2MRecommendationData
+  ): UpdateC2MRecommendationResponse
+}
+
+type UpdateC2MRecommendationResponse {
+  data: C2MRecommendationRecord
+}
+
+input UpdateC2MRecommendationData {
+  interestedStatus: Int
+  fairYear: String
+}

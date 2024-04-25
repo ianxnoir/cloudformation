@@ -1,0 +1,114 @@
+extend type Query {
+    GetVirtualBoothExhibitorsDummy(
+        fair: String!,
+        fairSymbol: String!,
+        filterBoothType: [String],
+        filterProductZone: [String],
+        filterIndividualOrPavilion: String,
+        language: String,
+        lang: String,
+        isPreselected: Boolean,
+	): VirtualBoothExhibitorsListDummy
+}
+
+
+type VirtualBoothExhibitorsListDummy {
+	timestamp: String
+	status: Int
+	from: Int
+	size: Int
+	total_size: Int
+    keyword: String
+    didYouMean: String
+    data: ExhibitorResultSetDummy
+}
+
+type ExhibitorResultSetDummy {
+    hits: [ExhibitorDataDummy]
+	aggregations: VirtualBoothExhibitorAggregations
+}
+
+type ExhibitorDataDummy {
+    fairsymbol: String
+    fairfiscalyear: String
+    vepVirtualBoothUrl: String
+    vepVirtualBoothThumbnailUrl: String
+    vepContactBtnUrl: String
+    exhibitorurn: String
+    exhibitorname: String
+    exhibitortype: String
+    exhibitorbrand: [String]
+    natureofbusinesssymbols: [String]
+    countrysymbol: String
+    countrydescen: String
+    countrydesczhhant: String
+    countrydesczhhans: String
+    factorylocation: String
+    virtualboothind: String
+    virtualboothtype: String
+    boothdetail: AWSJSON
+    boothnumber: String
+    hallcode: String
+    hallsymbol: String
+    boothnos: [String]
+    boothtokens: [String]
+    boothsize: String
+    boothtype: String
+    boothpriority: String
+    exhibitorzoneind: String
+    exhibitorzones: [AWSJSON]
+    zonecode: String
+    zonenameen: String
+    zonenamezhhant: String
+    zonenamezhhans: String
+    exhibitorpavilions: [AWSJSON]
+    pavilioncode: String
+    pavilionnameen: String
+    pavilionnamezhhant: String
+    pavilionnamezhhans: String
+    exhibitorproductorigin: String
+    exhibitorproductstrategy: [AWSJSON]
+    productstrategycode: [String]
+    productstrategynameen: String
+    productstrategynamezhhant: String
+    productstrategynamezhhans: String
+    productservicerangeen: String
+    productservicerangezhhant: String
+    productservicerangezhhans: String
+    exhibitorbackground: String
+    exhibitorpreferredmarkets: [String]
+    exhibitorpreferrednobs: [String]
+    exhibitornotpreferredmarkets: [String]
+    exhibitorcurrentmarkets: [String]
+    exhibitordesc: String
+    supplierurn: String
+    ccdid: String
+    supplierlogo: String
+    onlineind: String
+    supplierverifiedlabel: String
+    suppliersridetails: AWSJSON
+    srisymbol: String
+    sridescription: String
+    srivalue: String
+    sriseq: String
+    suppliercertificates: [String]
+    bookingpriority: String
+    bookingexpirydate: String
+    productattributealcoholtypes: [String]
+    productattributevintages: [String]
+    productattributeages: [String]
+    productattributetypeofgrapes: [String]
+    productattributechateaus: [String]
+    productattributeplaceoforigins: [String]
+    productattributewinesweetnesses: [String]
+    productattributespaklingsweetnesses: [String]
+    hasproductind: String
+    latestproducts: [AWSJSON]
+    productimageurl: String
+    productvideourl: String
+    producturn: String
+    productnameen: String
+    productnamezhhant: String
+    productnamezhhans: String
+    sort: [String]
+}

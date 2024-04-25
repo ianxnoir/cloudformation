@@ -1,0 +1,11 @@
+extend type Query {
+  GetC2MMeeting(
+    fairCode: String
+    id: String
+  ): C2MMeetingResponse
+}
+
+type C2MMeetingResponse {
+  data: C2MMeeting
+  message: String
+}

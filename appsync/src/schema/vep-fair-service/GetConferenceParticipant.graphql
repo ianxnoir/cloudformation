@@ -1,0 +1,46 @@
+extend type Query {
+  GetConferenceParticipant(
+    fairCode: String!
+    fiscalYear: String
+    projectYear: String
+    id: String!
+    lang: String!
+  ): GetConferenceParticipantResponseType
+}
+
+type GetConferenceParticipantResponseType {
+  sql: String
+  params: String
+  data: GetConferenceParticipantResponseData
+}
+
+type GetConferenceParticipantResponseData {
+  participant: ConfParticipant
+}
+
+type ConfFairParticipantType {
+  fairParticipantTypeDesc: String
+}
+
+type ConfFairParticipant {
+  ssoUid: String
+  emailId: String
+}
+
+type ConferenceParticipantCustomQuestion {
+  questionNum: Int
+  categoryCode: String
+  optionText: String
+}
+
+type ConfParticipant {
+  firstName: String
+  lastName: String
+  displayName: String
+  position: String
+  companyName: String
+  addressCountryCode: String
+  fairParticipant: ConfFairParticipant
+  fairParticipantType: ConfFairParticipantType
+  fairRegistrationCustomQuestions: [ConferenceParticipantCustomQuestion]
+}

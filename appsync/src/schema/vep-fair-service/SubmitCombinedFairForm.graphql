@@ -1,0 +1,32 @@
+extend type Mutation {
+  SubmitCombinedFairForm(
+    fairCode: String
+    toRegisterFairCode: String
+    lang: String
+    formDataJson: String
+    formSubmissionKey: String
+    slug: String
+    registrationUrl: String
+  ): SubmitCombinedFairResponse
+}
+
+type SubmitCombinedFairResponse {
+  timestamp: String
+  status: Int
+  data: SubmitCombinedFairResponseData
+}
+
+type SubmitCombinedFairResponseData {
+  formValidationError: [SubmitCombinedFairErrorObj]
+  validationStatus: ValidationStatus
+  isSubmitSuccess: Boolean
+  registrationNo: String
+  formSubmissionKey: String
+  slug: String
+}
+
+type SubmitCombinedFairErrorObj {
+  fieldId: String
+  formValidationErrorType: String
+  formValidationErrorCode: String
+}

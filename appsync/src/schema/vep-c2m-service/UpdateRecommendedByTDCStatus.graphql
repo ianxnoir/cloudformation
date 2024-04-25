@@ -1,0 +1,13 @@
+extend type Query {
+  UpdateRecommendedByTDCStatus(
+    fairCode: String
+    fairYear: String
+    ccdId: String
+    itemId: Int
+    interestedStatus: Int
+  ): UpdateRecommendedByTDCStatusResponse
+}
+
+type UpdateRecommendedByTDCStatusResponse {
+  status: Int
+}

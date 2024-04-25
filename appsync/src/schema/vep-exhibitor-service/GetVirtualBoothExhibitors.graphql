@@ -1,0 +1,100 @@
+extend type Query {
+    GetVirtualBoothExhibitors(
+        fairCode: String!,
+        filterBoothType: String,
+        filterProductZone: String,
+        filterIndividualOrPavilion: String,
+        lang: String,
+        isPreselected: Boolean,
+	): VirtualBoothExhibitorsList
+}
+
+
+type VirtualBoothExhibitorsList {
+	timestamp: String
+	status: Int
+	from: Int
+	size: Int
+	total_size: Int
+    data: VirtualBoothExhibitorResultSet
+}
+
+type VirtualBoothExhibitorResultSet {
+    hits: [VirtualBoothExhibitorDetailData]
+	aggregations: VirtualBoothExhibitorAggregations
+}
+
+type VirtualBoothExhibitorDetailData {
+    vepVirtualBoothUrl: String
+    vepContactBtnUrl: String
+    vepVirtualBoothImageUrl: String
+    fairSymbol: String
+    fairFiscalYear: String
+    exhibitorUrn: String
+    exhibitorName: String
+    exhibitorType: String
+    exhibitorBrand: String
+    natureofBusinessSymbols: [String]
+    countrySymbol: String
+    countryDescEn: String
+    countryDescZhHant: String
+    countryDescZhHans: String
+    factoryLocation: String
+    virtualBoothInd: String
+    virtualBoothType: String
+    boothDetails: [BoothDetails]
+    boothNumbers: [String]
+    boothTokens: [String]
+    boothSize: Float
+    boothType: String
+    boothPriority:Int
+    hasPavilionOrZoneInd: String
+    exhibitorZones: [ExhibitorZones]
+    exhibitorPavilions: [ExhibitorPavilions]
+    exhibitorProductOrigin: String
+    exhibitorProductStrategy: [ExhibitorProductStrategy]
+    productServiceRangeEn: String
+    productServiceRangeZhHant: String
+    productServiceRangeZhHans: String
+    exhibitorBackground: String
+    exhibitorPreferredMarkets: [String]
+    exhibitorPreferredNobs: [String]
+    exhibitorNotPreferredMarkets: [String]
+    exhibitorCurrentMarkets: [String]
+    exhibitorDesc: String
+    exhibitorAddress: String
+    supplierUrn: String
+    ccdid: String
+    supplierLogo: String
+    onlineInd: String
+    supplierVerifiedLabel: String
+    supplierSriDetails: [SupplierSriDetails]
+    supplierCertificates: [String]
+    clusterTags: [ClusterTags]
+    bookingPriority:Int
+    bookingExpiryDate:String
+    productAttributeAlcoholTypes: [String]
+    productAttributeVintages: [String]
+    productAttributeAges: [String]
+    productAttributeTypeOfGrapes: [String]
+    productAttributeChateaus: [String]
+    productAttributePlaceOfOrigins: [String]
+    productAttributeWineSweetnesses: [String]
+    productAttributeSparklingSweetnesses: [String]
+    hasProductInd: String
+    latestProducts: [LatestProducts]
+}
+
+type VirtualBoothExhibitorAggregations {
+	exhibitorZones: VBAggBucket
+    virtualBoothType: VBAggBucket
+}
+
+type VBAggBucket {
+	buckets: [VBAggBucketDetail]
+}
+
+type VBAggBucketDetail {
+	key: String
+	doc_count: Int
+}

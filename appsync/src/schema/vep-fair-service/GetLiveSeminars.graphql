@@ -1,0 +1,6 @@
+extend type Query {
+    GetLiveSeminars(
+        fairCode: String,
+        lang: String,
+    ): FairSeminarsResponse
+}

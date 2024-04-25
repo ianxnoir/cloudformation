@@ -1,0 +1,67 @@
+extend type Query {
+    MarketNews(
+        location: String,
+        industry: String,
+        publishstart: String,
+        publishend: String,
+        contentAvailableEN: String,
+        max: Int,
+        start: Int,
+        fair: String,
+        selectedIds: String,
+        sort: String,
+        lang: String
+    ): MarketNews
+}
+
+type MarketNews {
+    assets: [asset]
+    total: Int
+    start: Int
+    included: Int
+    status: Int
+}
+
+type asset {
+    path: String
+    metadata: AWSJSON
+    context: String
+    id: String
+    uri: String
+    content: content
+}
+type content {
+    Root: Root
+}
+
+type Root {
+    SC: SC
+    EN: EN
+    TC: TC
+    Translation: AWSJSON
+    UploadDocument: AWSJSON
+    ArticleAttributes: AWSJSON
+}
+type SC {
+    ArticleContent: AWSJSON
+    LanguageAttributes: AWSJSON
+    RelatedArticles: AWSJSON
+    RecentArticles: AWSJSON
+    IndexPagePhoto: AWSJSON
+}
+
+type TC {
+    ArticleContent: AWSJSON
+    LanguageAttributes: AWSJSON
+    RelatedArticles: AWSJSON
+    RecentArticles: AWSJSON
+    IndexPagePhoto: AWSJSON
+}
+
+type EN {
+    ArticleContent: AWSJSON
+    LanguageAttributes: AWSJSON
+    RelatedArticles: AWSJSON
+    RecentArticles: AWSJSON
+    IndexPagePhoto: AWSJSON
+}
